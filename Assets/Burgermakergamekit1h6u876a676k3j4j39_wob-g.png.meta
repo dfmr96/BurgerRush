@@ -1,0 +1,3071 @@
+fileFormatVersion: 2
+guid: 1dd747ee04ac3d04186e1c82fbc52f51
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_0
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 3850
+        width: 589
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 516c3af85ac9b464292ce9518b029e12
+      internalID: 1573268230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_16
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 3819
+        width: 5
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36203e906ddca934bbb854295f8e9323
+      internalID: 868641307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_26
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 3817
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d3934d47e918564a85613118cf0984a
+      internalID: -1010075953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_27
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 3819
+        width: 5
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12e0182293cb7f14dbfa6d5b8d44bf33
+      internalID: 72693053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_54
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 3489
+        width: 118
+        height: 293
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74fdc98e25bdfa644840ff7895213deb
+      internalID: 683491108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_55
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 3491
+        width: 98
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d864c49f9846e47aa4b53d4372883b
+      internalID: -429109063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_56
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 3489
+        width: 102
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a695ce4849f610c499322c1fdcd3f117
+      internalID: -864955402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_57
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 3488
+        width: 103
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56ef568fa69b3e9448a61a873019bbf5
+      internalID: -2012005812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_58
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 3488
+        width: 113
+        height: 190
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56dce68dee3cf5342a6ccced0322ce21
+      internalID: -1304196323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_120
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 3184
+        width: 124
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c693aee5d66f464a9563451cc95efe2
+      internalID: 666883913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_121
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 3194
+        width: 118
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d34af8b53493989489d0784c97b380f9
+      internalID: -2092832389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_122
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 3196
+        width: 112
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e31220060f9927d4d9b9c9cfce2af981
+      internalID: 1381206283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_123
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 3083
+        width: 124
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703105a603887d44b87363029a92d4d1
+      internalID: -304310723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_124
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 3088
+        width: 121
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc4f910530f67924dab5d248a5d823d2
+      internalID: 1550459623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_125
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 3089
+        width: 121
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee83063833e264c4da0a3c3412510808
+      internalID: 2115081597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_126
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 3012
+        width: 144
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 386afba4f60b1914a8edd64c74c28efd
+      internalID: -743240963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_127
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 3007
+        width: 142
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc47959caa8c00e468d22d7c689763d3
+      internalID: -1386584975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_128
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 3010
+        width: 142
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b1a0f93cdd5833499edb8ae2687b054
+      internalID: 1738121899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_129
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 2917
+        width: 118
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c77451efe20d6442a9a39f31ec8a2ab
+      internalID: -526825327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_130
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 2918
+        width: 107
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd87810700b0d44fb5e6b3bf83601cd
+      internalID: -1958578275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_131
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 2917
+        width: 107
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9322f4bbb96ebe4ba2681180bfdbec5
+      internalID: -1813027955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_132
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 2810
+        width: 133
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7dccba19ea47234b96659d1a4fe90c9
+      internalID: -802750926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_133
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 2816
+        width: 136
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: becd3b5da42dbf449aa961867051474e
+      internalID: -1190021585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_134
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 2819
+        width: 135
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755ab1888c9191843943938b7defc7a9
+      internalID: -609145325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_135
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 2719
+        width: 126
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed7a87629df2e5459555c0b466ad9fa
+      internalID: -1110625503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_136
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2719
+        width: 126
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 710c40534b67da14587bde61ab6fe54d
+      internalID: -177303516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_137
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 2719
+        width: 125
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053ad160f011ab5409ae6088a2d96546
+      internalID: -249813491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_158
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 2466
+        width: 128
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9dbbb73b19e8fa4fade1acd9ec4feb1
+      internalID: 1316100152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_159
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 2467
+        width: 128
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29ed724c60eca4a4786a4241884e7e51
+      internalID: 1025161399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_160
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 2466
+        width: 128
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a19e64e2065babb43ad92c99b5278c9d
+      internalID: 1869182414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_161
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 2359
+        width: 130
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a1ce52fc6c49cf4a95318fb33d903c0
+      internalID: 409497380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_162
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 2359
+        width: 128
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c966db0ed039d934e934c3e0d9f1a399
+      internalID: 863946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_163
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 2369
+        width: 129
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5dbfc50f96a0bf4abd6f6d32d18460c
+      internalID: 1982274172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_164
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 2265
+        width: 123
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 840de9575af3fe442aa9f148212195a8
+      internalID: -727588963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_165
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 2265
+        width: 123
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b16fc39d8fe4f564f8b4e66022ed3bb2
+      internalID: 1666929222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_166
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 2264
+        width: 124
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c13159a8b05794da22950879843d41
+      internalID: 1949837613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_177
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 2064
+        width: 34
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7352755504ad14a4393219693deb3cf1
+      internalID: -1320126145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_178
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 2054
+        width: 56
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 776b69d23ce0b4749ac474fe7ae37107
+      internalID: -1802473942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_179
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 2054
+        width: 97
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0664021ff0dafd4195aa4225f9bc61b
+      internalID: -1027580255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_180
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 2036
+        width: 127
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a04646a2feb094680f7144a02401bb
+      internalID: 541626733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_181
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 2045
+        width: 115
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56e8252325fe1d64c95db4e1dbdc0aa2
+      internalID: 940615154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_182
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 1952
+        width: 112
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc3a6f52a29d2a94e9ac948dd7b9d036
+      internalID: 1900164210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_183
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1935
+        width: 106
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd77362c379657419988ed7dd4ad99a
+      internalID: -1039201455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_184
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 1926
+        width: 127
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c89fa5e2d1ee346b4a1059a947e791
+      internalID: -1294952224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_185
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 1953
+        width: 107
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0f68502317c884c82468de51f469a4
+      internalID: 1828899194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_186
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1881
+        width: 100
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93bedb32fbf59b43b9dc22de6b9d446
+      internalID: -1074755559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_187
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 1856
+        width: 108
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22afe2e2e5ce80641abcc26c1a7c5be9
+      internalID: 763272592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_188
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 1855
+        width: 110
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ff8e9963e8381e4393cfd98c7e8a036
+      internalID: -1154589356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_189
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1859
+        width: 104
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4b018cd94301244ab7b8b2cf51ca7d
+      internalID: 2146314452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_190
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 1759
+        width: 110
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8ee932045ab9854cb345d5d911dfa22
+      internalID: -1783556323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_191
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 1753
+        width: 129
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3772bc6f4d1cee945af247a6388af73d
+      internalID: -953468647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_192
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 1761
+        width: 111
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9430f2ae6b45b1143a6346c88b4068c6
+      internalID: -1192186612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_193
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 1744
+        width: 136
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7499e53f479d1c748b564fea2faf7023
+      internalID: 872555949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_194
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 1656
+        width: 97
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df6960003702de440bf1a65ac9d394b1
+      internalID: 1998131190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_195
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1657
+        width: 96
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6da0676ee08b8d44a973f6a20e48a9e8
+      internalID: -1282324638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_196
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 1657
+        width: 96
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0acc598d123530a4499e3ac28cf7ac8a
+      internalID: -618125299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_197
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 1647
+        width: 145
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7f93acb71c471469af0243c09c39cd
+      internalID: -645759375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_206
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1469
+        width: 86
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54bc3ed353d716344bb76809d2ae2d36
+      internalID: -1107492099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_207
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 1469
+        width: 86
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd2c9ab3c4eb214d808c1e2856f3e3a
+      internalID: -195388826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_208
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 1468
+        width: 86
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e01b3c44511d841b95ab7a6cf11f65
+      internalID: 701014381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_209
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1471
+        width: 87
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dbd2c012bb41e34ca6b0e5efd925bc2
+      internalID: 558450652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_210
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1402
+        width: 101
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a871281af72cc1248a1b66f2ab39038b
+      internalID: -1741953145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_211
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1402
+        width: 102
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758970cd0b39a044d9cef5c308b7679b
+      internalID: -1517633510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_212
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 1401
+        width: 102
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22cabcd7802a3f645ac4b0e73de9cdd0
+      internalID: -1709553744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_213
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 1404
+        width: 101
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65d06e48e2b581c499af07f85e73e024
+      internalID: -2138086288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_214
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1325
+        width: 86
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a44ce57f32ac3e646a360834d5b46c17
+      internalID: 629045266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_215
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 1324
+        width: 86
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d42ebba59d5ec468661bdad25a5605
+      internalID: 572927328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_216
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1324
+        width: 87
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce72de59d75373e4f8ba1ddbe7373fbd
+      internalID: -1708025628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_217
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 1258
+        width: 101
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41eff2f21d653624c8038c43481e7ffe
+      internalID: 1921692221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_218
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 1257
+        width: 102
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75a98864d9613e148a490b1c3b86e232
+      internalID: 1603155437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_219
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 1257
+        width: 101
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489ef900d6e0b8b499ce03c64403a142
+      internalID: -1167339992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_220
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 1121
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1b2211a3e81704c8040b665b04ff91
+      internalID: -744438593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_221
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1121
+        width: 6
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2007234c3a0f7c1429e3eea431b09170
+      internalID: 1392393368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_222
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1121
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0278d0bfc1c1d92468075cb116beb710
+      internalID: 1051811299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_223
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1122
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a8c4ce9891dd324eaad2dab3fcd614d
+      internalID: -782858906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_224
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 1121
+        width: 6
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17fcf1bea7ce70242b6ef35ec0b3936b
+      internalID: -2005038311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_225
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 1121
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5daf190bd25e39d4a8b6a2d2af1d4067
+      internalID: 2140510452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_226
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 1122
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeeffca363aa69242a6439edeabf49c5
+      internalID: 1869063348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_227
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 1121
+        width: 5
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efbddb0df5711e649b7b0f29c7c433d3
+      internalID: 199028944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_228
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1121
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575555396d65b1d4fa7b854e1fc1d36b
+      internalID: 1956380597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_229
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1121
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5f78005bf55eee4d9a6edd4b589572f
+      internalID: 733859493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_230
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 1121
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d16703d419e052f47b8c719840b1be0e
+      internalID: -607338633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_231
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1121
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35e7c19cf41f16941b8923a0c49b82f5
+      internalID: 276983769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_232
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1121
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87c84201a3e14964b887efb5fdb16421
+      internalID: -1298201566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_233
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 1121
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090a109536cb1d24d92bad0615ea985a
+      internalID: 457319507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_234
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 1121
+        width: 5
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f80721a3333dc2c448e91d0a1c8a60cc
+      internalID: 1881916389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_235
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 1121
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32f0d828f43c804db1c4b900c3c0b96
+      internalID: 1110108752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_236
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1121
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c6dacbdeab33440a230bf48707ee95
+      internalID: 1642123130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_237
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 1103
+        width: 114
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e98b7de6732efcc4a837321ef1d8b159
+      internalID: -1092158316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_238
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 1103
+        width: 114
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c7d638d71b8224a83f17a20db445e4
+      internalID: -723349175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_239
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1064
+        width: 5
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0bd5dd3cf757946982bd8eb9cab582
+      internalID: 1369242454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_240
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 1064
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd23c97058ec7df4cb254f304b98ff8d
+      internalID: 1674474564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_241
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 1064
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b22ba499d197ea84499157628e318df0
+      internalID: -2066894098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_242
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 1064
+        width: 4
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881750ff70052b14c94fa6b824d43537
+      internalID: 1668944881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_243
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 1064
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1495c5d2e5a3ae141bca484ebd90e408
+      internalID: -1515773099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_244
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 1064
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e674a2fe071ca6f40bebaa76ea165294
+      internalID: 664239400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_245
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1064
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc3d230fd0aa9d49aaf76d47a16d33f
+      internalID: -1152224735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_246
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 1064
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ffeb3d9a8c67584c927b72a8cb28a02
+      internalID: -1795321378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_247
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 1064
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f16ed9cb172a77488b823dc38e66823
+      internalID: 190164807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_248
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 1064
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7102f9d2e7d594a4e832bf9dbc35cdbc
+      internalID: -417602792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_249
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1064
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b27788549d8f524baf82c0f6e9089e1
+      internalID: -1429353090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_250
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 1064
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a25f2790a8f1e64ba9d413bc012768c
+      internalID: -1526117282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_251
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 1064
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6ce6afe6db4dc744940d9fe7b38984d
+      internalID: 1866113289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_252
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 1064
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3db4d237fea3404f981746af74b8c9f
+      internalID: -268700487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_253
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 1064
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a008af0183ce15c4fab3d23a97bb4dab
+      internalID: 433715648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_254
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 1064
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14a3ed7e0706ca647961283e0d93f617
+      internalID: 1126823142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_255
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 1064
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd3f65649aff72e478d78f3e0265fc4f
+      internalID: 1235742667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_256
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 1064
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 335c110711aaf6f4781e3ac50cc18225
+      internalID: 710956405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_257
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 1064
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 173822fb30a02424a80b275427c3057e
+      internalID: 1420307150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_258
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 1064
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad353c489235f474889855a57795d9e7
+      internalID: 499501692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_259
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 1064
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7765bca585c27a145a30f84c92e922d1
+      internalID: 828262979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_260
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 1064
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1cd574f79a4a44448a5a3c1a1be1cd8
+      internalID: 1495867109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_261
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 1064
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa45f16a753344943b6d7773c73702cb
+      internalID: 1450513446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_262
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 1059
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b23f5b16a63cf48a24cc21c4ee972c
+      internalID: -64523502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_263
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 1064
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e953957efbf2795499034b912966eeac
+      internalID: 860578270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_264
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 1064
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eac2175a3b9c534988eed75db86762b
+      internalID: 1592984351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_265
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1064
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a748905a50c978547a197e4df69b008b
+      internalID: 1151748499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_266
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 1064
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee9bc332a56136547885c936c62de702
+      internalID: -2082683789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_267
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 1064
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 191a4ebe1352f104fa9069a1975afa70
+      internalID: 247785934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_268
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 943
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6068b0730a89c940a88488910df2a40
+      internalID: -71574346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_269
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 943
+        width: 87
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2beadc63839367e4dbeecd0fe45f77e6
+      internalID: 1962623493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_270
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 943
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a2eb5e4f1965a24b8467ebaa04d443d
+      internalID: -1475452630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_271
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 943
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdade6dfdaa41fe4eb1116cfc0247676
+      internalID: 1576288168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_272
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 735
+        width: 592
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e17f4ab460a7945961c19bf05debf4
+      internalID: -24748721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_273
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 518
+        width: 425
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 714eab1985104ba4b9e2acfb9f75ce9f
+      internalID: 313817637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_274
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 518
+        width: 154
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe21e12f483bdc74882e186ed3048108
+      internalID: 969757162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Burgermakergamekit1h6u876a676k3j4j39_wob-g_275
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 700
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a71f44d1d7052d4dbd2f992824a52cc
+      internalID: -1098239960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_0: 1573268230
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_1: -1986079833
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_10: -448646147
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_100: 1756098371
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_101: -804886062
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_102: 609043140
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_103: 2115031414
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_104: 1994933630
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_105: -1852285368
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_106: 819081464
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_107: -1217579784
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_108: -1524211948
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_109: -530843803
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_11: 732382741
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_110: 1041809635
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_111: 844479055
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_112: 1435755666
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_113: -1834265914
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_114: -1159884893
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_115: -1633434004
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_116: -1597503027
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_117: 981064293
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_118: 955362578
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_119: -1223389288
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_12: 1859715698
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_120: 666883913
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_121: -2092832389
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_122: 1381206283
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_123: -304310723
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_124: 1550459623
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_125: 2115081597
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_126: -743240963
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_127: -1386584975
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_128: 1738121899
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_129: -526825327
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_13: 873036578
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_130: -1958578275
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_131: -1813027955
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_132: -802750926
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_133: -1190021585
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_134: -609145325
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_135: -1110625503
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_136: -177303516
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_137: -249813491
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_138: -1364297290
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_139: -910678660
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_14: 871474331
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_140: -1010890094
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_141: 1310798784
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_142: -1374193595
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_143: 1708382442
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_144: 1186905411
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_145: -22574333
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_146: 975485949
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_147: 1417670183
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_148: -1748448575
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_149: -1186051867
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_15: 162148140
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_150: -1064244232
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_151: -399237957
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_152: -1270981251
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_153: -1749314309
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_154: 1151396099
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_155: 214235464
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_156: -781752050
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_157: -896560436
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_158: 1316100152
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_159: 1025161399
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_16: 868641307
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_160: 1869182414
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_161: 409497380
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_162: 863946
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_163: 1982274172
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_164: -727588963
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_165: 1666929222
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_166: 1949837613
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_167: 472427239
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_168: 1642706529
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_169: 1196551256
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_17: 1132514792
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_170: -283998863
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_171: -825106929
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_172: -629314182
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_173: 1129889520
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_174: -1013127077
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_175: -1495670324
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_176: -1523056598
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_177: -1320126145
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_178: -1802473942
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_179: -1027580255
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_18: -1546249504
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_180: 541626733
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_181: 940615154
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_182: 1900164210
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_183: -1039201455
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_184: -1294952224
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_185: 1828899194
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_186: -1074755559
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_187: 763272592
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_188: -1154589356
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_189: 2146314452
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_19: -1040648912
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_190: -1783556323
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_191: -953468647
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_192: -1192186612
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_193: 872555949
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_194: 1998131190
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_195: -1282324638
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_196: -618125299
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_197: -645759375
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_198: -306291228
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_199: 328821104
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_2: 804481952
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_20: 2013424338
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_200: 1791669237
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_201: 1504045974
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_202: -2077319095
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_203: 122802538
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_204: 1510606124
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_205: -127374175
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_206: -1107492099
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_207: -195388826
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_208: 701014381
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_209: 558450652
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_21: 331861251
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_210: -1741953145
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_211: -1517633510
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_212: -1709553744
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_213: -2138086288
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_214: 629045266
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_215: 572927328
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_216: -1708025628
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_217: 1921692221
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_218: 1603155437
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_219: -1167339992
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_22: 1823430482
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_220: -744438593
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_221: 1392393368
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_222: 1051811299
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_223: -782858906
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_224: -2005038311
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_225: 2140510452
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_226: 1869063348
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_227: 199028944
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_228: 1956380597
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_229: 733859493
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_23: 372121197
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_230: -607338633
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_231: 276983769
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_232: -1298201566
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_233: 457319507
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_234: 1881916389
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_235: 1110108752
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_236: 1642123130
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_237: -1092158316
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_238: -723349175
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_239: 1369242454
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_24: 1466605587
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_240: 1674474564
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_241: -2066894098
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_242: 1668944881
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_243: -1515773099
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_244: 664239400
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_245: -1152224735
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_246: -1795321378
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_247: 190164807
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_248: -417602792
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_249: -1429353090
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_25: -598509560
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_250: -1526117282
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_251: 1866113289
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_252: -268700487
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_253: 433715648
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_254: 1126823142
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_255: 1235742667
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_256: 710956405
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_257: 1420307150
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_258: 499501692
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_259: 828262979
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_26: -1010075953
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_260: 1495867109
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_261: 1450513446
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_262: -64523502
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_263: 860578270
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_264: 1592984351
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_265: 1151748499
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_266: -2082683789
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_267: 247785934
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_268: -71574346
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_269: 1962623493
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_27: 72693053
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_270: -1475452630
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_271: 1576288168
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_272: -24748721
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_273: 313817637
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_274: 969757162
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_275: -1098239960
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_276: -844573993
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_28: -2093014059
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_29: 2001705050
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_3: -947802301
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_30: 1513228807
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_31: 919901152
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_32: 1518252570
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_33: -1980829300
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_34: 962654837
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_35: 493879230
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_36: 1799087351
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_37: 2059673063
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_38: 579666614
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_39: 1043523466
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_4: 594737801
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_40: 409876508
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_41: -905767127
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_42: 2108837491
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_43: -797175054
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_44: 183289265
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_45: -1338340432
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_46: 1944890394
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_47: -1733946846
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_48: 1893819625
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_49: -699828185
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_5: -1993479171
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_50: -1764529457
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_51: 884476516
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_52: 1167811015
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_53: -478690188
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_54: 683491108
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_55: -429109063
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_56: -864955402
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_57: -2012005812
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_58: -1304196323
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_59: -82009846
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_6: 1930137675
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_60: -186857958
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_61: 284078106
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_62: -1979281342
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_63: -1068328549
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_64: -998431298
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_65: 1756110675
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_66: 768466311
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_67: -772568971
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_68: 1359959865
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_69: -379251448
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_7: 209464085
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_70: -1516519453
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_71: 1582152964
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_72: -1257858772
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_73: -1399243824
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_74: 1407993125
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_75: 194477768
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_76: -2130063999
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_77: -1819710559
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_78: 1979748924
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_79: 961695694
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_8: -397419821
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_80: 371789148
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_81: 1032140659
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_82: 561809105
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_83: 1998117172
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_84: 112319669
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_85: 1612237787
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_86: 85408311
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_87: -1582301902
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_88: 1409185592
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_89: -1900197895
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_9: 775550906
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_90: -82929703
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_91: -1667773334
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_92: 1012930244
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_93: -1976470689
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_94: 824416834
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_95: 659471122
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_96: 723021723
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_97: 1891030187
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_98: 726251237
+      Burgermakergamekit1h6u876a676k3j4j39_wob-g_99: -1073233209
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
