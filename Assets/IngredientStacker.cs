@@ -11,7 +11,7 @@ public class IngredientStacker : MonoBehaviour
     [SerializeField] private GameObject stackedIngredientPrefab; // Prefab for stacked ingredients
 
     [SerializeField] private float yOffset = 0f;
-    private List<IngredientData> stackedIngredients = new();
+    private Stack<IngredientData> stackedIngredients = new();
     private const float IngredientHeight = 40f; // Adjust this value based on your prefab height
     private List<GameObject> visualStack = new();
     
@@ -41,7 +41,7 @@ public class IngredientStacker : MonoBehaviour
             return;
         }
 
-        stackedIngredients.Add(ingredientData);
+        stackedIngredients.Push(ingredientData);
         UpdateStackVisual();
         ValidateOrders();
     }
@@ -50,7 +50,7 @@ public class IngredientStacker : MonoBehaviour
     {
         stackedIngredients.Clear();
         UpdateStackVisual();
-        ValidateOrders(); // Clear the orders
+        ValidateOrders(); // Limpia el highlight
     }
     
     public void TryValidateOrder(Order[] activeOrders)
@@ -74,15 +74,14 @@ public class IngredientStacker : MonoBehaviour
     
     private void UpdateStackVisual()
     {
-        // Clear previous visuals
         foreach (var obj in visualStack)
             Destroy(obj);
-
         visualStack.Clear();
 
-        for (int i = 0; i < stackedIngredients.Count; i++)
+        var stackArray = stackedIngredients.Reverse().ToArray(); // Para mostrar desde abajo hacia arriba
+        for (int i = 0; i < stackArray.Length; i++)
         {
-            var ingredient = stackedIngredients[i];
+            var ingredient = stackArray[i];
             GameObject visual = Instantiate(stackedIngredientPrefab, stackContainer);
             visual.GetComponent<StackedIngredientView>().SetData(ingredient);
 
@@ -93,20 +92,10 @@ public class IngredientStacker : MonoBehaviour
         }
     }
 
-    private bool IsMatch(IngredientData[] orderIngredients, List<IngredientData> stack)
+    private bool IsMatch(Stack<IngredientData> a, Stack<IngredientData> b)
     {
-        if (orderIngredients.Length != stack.Count) return false;
-
-        // Comparamos desde abajo (último ingrediente en la orden es el primero que se apila)
-        for (int i = 0; i < stack.Count; i++)
-        {
-            if (stack[i] != orderIngredients[orderIngredients.Length - 1 - i])
-                return false;
-        }
-
-        return true;
+        return a.SequenceEqual(b);
     }
-
 
     private void ValidateOrders()
     {
@@ -116,11 +105,6 @@ public class IngredientStacker : MonoBehaviour
 
             bool isMatch = IsMatch(order.Ingredients, stackedIngredients);
             order.MarkAsDeliverable(isMatch);
-            Debug.Log($"Stack: {string.Join(", ", stackedIngredients.Select(i => i.IngredientName))}");
-            Debug.Log($"Order: {string.Join(", ", order.Ingredients.Select(i => i.IngredientName))}");
-
         }
-        
-
     }
 }

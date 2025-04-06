@@ -12,7 +12,7 @@ public class Order : MonoBehaviour
     [SerializeField] private Image highlightImage;
     [SerializeField] private TMP_Text orderText;
     [SerializeField] private IngredientStacker stacker;
-    [field: SerializeField] public IngredientData[] Ingredients { get; private set; }
+    [field: SerializeField] public Stack<IngredientData> Ingredients { get; private set; } = new();
     private bool isDeliverable = false;
 
 
@@ -23,20 +23,23 @@ public class Order : MonoBehaviour
 
     public void SetIngredients(IngredientData[] ingredients)
     {
-        Ingredients = ingredients;
+        Ingredients = new Stack<IngredientData>();
+
+        for (int i = ingredients.Length - 1; i >= 0; i--)
+        {
+            Ingredients.Push(ingredients[i]);
+        }
 
         UpdateUI();
     }
 
     public void UpdateUI()
     {
-        string order = "Order: ";
-
-        for (int i = 0; i < Ingredients.Length; i++)
+        string order = "Order:";
+        foreach (var ingredient in Ingredients) // Mostrar de abajo hacia arriba
         {
-            order += $"\n-{Ingredients[i].name}";
+            order += $"\n- {ingredient.IngredientName}";
         }
-
         orderText.text = order;
     }
 
