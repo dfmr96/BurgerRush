@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects;
 using TMPro;
@@ -12,9 +10,8 @@ public class Order : MonoBehaviour
     [SerializeField] private Image highlightImage;
     [SerializeField] private TMP_Text orderText;
     [SerializeField] private IngredientStacker stacker;
-    [field: SerializeField] public Stack<IngredientData> Ingredients { get; private set; } = new();
-    private bool isDeliverable = false;
-
+    public Stack<IngredientData> Ingredients { get; private set; } = new();
+    private bool _isDeliverable;
 
     private void Start()
     {
@@ -24,54 +21,42 @@ public class Order : MonoBehaviour
     public void SetIngredients(IngredientData[] ingredients)
     {
         Ingredients = new Stack<IngredientData>();
-
-        for (int i = ingredients.Length - 1; i >= 0; i--)
-        {
-            Ingredients.Push(ingredients[i]);
-        }
-
+        for (var i = ingredients.Length - 1; i >= 0; i--) Ingredients.Push(ingredients[i]);
         UpdateUI();
     }
 
-    public void UpdateUI()
+    private void UpdateUI()
     {
-        string order = "Order:";
-        foreach (var ingredient in Ingredients) // Mostrar de abajo hacia arriba
-        {
-            order += $"\n- {ingredient.IngredientName}";
-        }
+        var order = "Order:";
+        foreach (var ingredient in Ingredients) order += $"\n- {ingredient.IngredientName}";
         orderText.text = order;
     }
 
     public void MarkAsDeliverable(bool canDeliver)
     {
-        isDeliverable = canDeliver;
+        _isDeliverable = canDeliver;
         highlightImage.enabled = canDeliver;
 
-        if (canDeliver)
-        {
-            Debug.Log($"Orden {name} se puede entregar ✅");
-        }
+        if (canDeliver) Debug.Log($"Order is deliverable: {string.Join(", ", Ingredients)}");
     }
 
     private void AttemptDelivery()
     {
-        if (isDeliverable)
+        if (_isDeliverable)
         {
             Complete();
-            stacker.ClearStack(); // Resetea la pila al entregar
+            stacker.ClearStack();
         }
         else
         {
             Debug.Log("This order does not match the current stack.");
         }
     }
-    
-    public void Complete()
+
+    private void Complete()
     {
         Debug.Log("Order delivered!");
         highlightImage.enabled = false;
         gameObject.SetActive(false);
-        // Hacés lo que necesites para completar la orden (animación, sonido, etc)
     }
 }

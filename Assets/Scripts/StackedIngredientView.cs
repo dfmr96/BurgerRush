@@ -8,9 +8,6 @@ public class StackedIngredientView : MonoBehaviour
 
     public void SetData(IngredientData data)
     {
-        if (data != null && iconImage != null)
-        {
-            iconImage.sprite = data.IngredientIcon;
-        }
+        if (data != null && iconImage != null) iconImage.sprite = data.IngredientIcon;
     }
 }

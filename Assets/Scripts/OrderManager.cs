@@ -1,16 +1,12 @@
-using System;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
-using UnityEngine;
 using Databases;
 using ScriptableObjects;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class OrderManager : MonoBehaviour
 {
-    [field: Tooltip("Array of orders in Game Scene")]
-    public Order[] Orders;
-
     [Tooltip("Reference to the database of ingredients.")] [SerializeField]
     private IngredientsDB ingredientsDB;
 
@@ -19,6 +15,9 @@ public class OrderManager : MonoBehaviour
 
     [SerializeField] private SerializedDictionary<IngredientData, int> ingredientIndexMap;
 
+    [field: Tooltip("Array of orders in Game Scene")]
+    public Order[] Orders { get; }
+
     private void Awake()
     {
         // Cache ingredients by name and index for faster lookup
@@ -26,14 +25,15 @@ public class OrderManager : MonoBehaviour
         ingredientIndexMap = new SerializedDictionary<IngredientData, int>(ingredientsDB.ingredients.Length);
 
         // Initialize the dictionaries
-        for (int i = 0; i < ingredientsDB.ingredients.Length; i++)
+        for (var i = 0; i < ingredientsDB.ingredients.Length; i++)
         {
             var ingredient = ingredientsDB.ingredients[i];
             ingredientLookup[ingredient.name] = ingredient;
             ingredientIndexMap[ingredient] = i;
         }
     }
-    
+
+    // ReSharper disable Unity.PerformanceAnalysis
     [ContextMenu("Generate Order")]
     public void GenerateOrder()
     {
@@ -43,16 +43,13 @@ public class OrderManager : MonoBehaviour
 
             order.gameObject.SetActive(true);
 
-            int maxIngredientCount = ingredientsDB.ingredients.Length;
-            int maxMiddleIngredients = maxIngredientCount - 2;
+            var maxIngredientCount = ingredientsDB.ingredients.Length;
+            var maxMiddleIngredients = maxIngredientCount - 2;
 
-            int ingredientCount = Random.Range(2, maxMiddleIngredients + 2); // +2 para incluir los panes
+            var ingredientCount = Random.Range(2, maxMiddleIngredients + 2); //+2 for bread
             var selectedIngredients = new IngredientData[ingredientCount];
 
-            if (!TryGetBreadIngredients(out var upperBread, out var lowerBread))
-            {
-                return;
-            }
+            if (!TryGetBreadIngredients(out var upperBread, out var lowerBread)) return;
 
             selectedIngredients[0] = upperBread;
             selectedIngredients[ingredientCount - 1] = lowerBread;
@@ -64,7 +61,7 @@ public class OrderManager : MonoBehaviour
                 ingredientIndexMap[lowerBread]
             };
 
-            for (int i = 1; i < ingredientCount - 1; i++)
+            for (var i = 1; i < ingredientCount - 1; i++)
             {
                 var ingredient = GetRandomAvailableIngredient(usedIndices);
                 if (ingredient == null)
@@ -86,14 +83,13 @@ public class OrderManager : MonoBehaviour
     private IngredientData GetRandomAvailableIngredient(HashSet<int> usedIndices)
     {
         var totalIngredients = ingredientsDB.ingredients;
-        int maxAttempts = 10;
+        const int maxAttempts = 10;
 
-        for (int attempt = 0; attempt < maxAttempts; attempt++)
+        for (var attempt = 0; attempt < maxAttempts; attempt++)
         {
-            int randomIndex = Random.Range(0, totalIngredients.Length);
-            if (!usedIndices.Contains(randomIndex))
+            var randomIndex = Random.Range(0, totalIngredients.Length);
+            if (usedIndices.Add(randomIndex))
             {
-                usedIndices.Add(randomIndex);
                 return totalIngredients[randomIndex];
             }
         }
@@ -104,8 +100,8 @@ public class OrderManager : MonoBehaviour
 
     private bool TryGetBreadIngredients(out IngredientData upperBread, out IngredientData lowerBread)
     {
-        bool foundUpper = ingredientLookup.TryGetValue("UpperBread", out upperBread);
-        bool foundLower = ingredientLookup.TryGetValue("LowerBread", out lowerBread);
+        var foundUpper = ingredientLookup.TryGetValue("UpperBread", out upperBread);
+        var foundLower = ingredientLookup.TryGetValue("LowerBread", out lowerBread);
 
         if (!foundUpper || !foundLower)
         {
