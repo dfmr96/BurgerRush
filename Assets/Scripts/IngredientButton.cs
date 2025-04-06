@@ -16,13 +16,10 @@ public class IngredientButton : MonoBehaviour
         if (ingredientData == null)
         {
             Debug.LogWarning($"IngredientData not assigned in {gameObject.name}");
-            return;
         }
-        
-        Initialize(OnIngredientClicked);
     }
 
-    private void Initialize(Action<IngredientData> onClickCallback)
+    public void Initialize(Action<IngredientData> onClickCallback)
     {
         iconImage.sprite = ingredientData.IngredientIcon;
         button.onClick.RemoveAllListeners();
