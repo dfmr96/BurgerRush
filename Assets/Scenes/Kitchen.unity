@@ -578,15 +578,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a51f49dab214d46bd0ddaf0c85700f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Orders:
-  - {fileID: 696356179}
-  - {fileID: 753886709}
-  - {fileID: 525123672}
   ingredientsDB: {fileID: 11400000, guid: 0c47b397f70ccd148ae6bed00d8afaac, type: 2}
   ingredientLookup:
     _serializedList: []
   ingredientIndexMap:
     _serializedList: []
+  orders:
+  - {fileID: 696356179}
+  - {fileID: 753886709}
+  - {fileID: 525123672}
 --- !u!4 &403844511
 Transform:
   m_ObjectHideFlags: 0

@@ -16,7 +16,10 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private SerializedDictionary<IngredientData, int> ingredientIndexMap;
 
     [field: Tooltip("Array of orders in Game Scene")]
-    public Order[] Orders { get; }
+    
+    [SerializeField] private Order[] orders;
+
+    public Order[] Orders => orders;
 
     private void Awake()
     {
