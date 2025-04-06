@@ -8,8 +8,8 @@ using Random = UnityEngine.Random;
 
 public class OrderManager : MonoBehaviour
 {
-    [Tooltip("Array of orders in Game Scene")] [SerializeField]
-    private Order[] orders;
+    [field: Tooltip("Array of orders in Game Scene")]
+    public Order[] Orders;
 
     [Tooltip("Reference to the database of ingredients.")] [SerializeField]
     private IngredientsDB ingredientsDB;
@@ -37,13 +37,16 @@ public class OrderManager : MonoBehaviour
     [ContextMenu("Generate Order")]
     public void GenerateOrder()
     {
-        foreach (var order in orders)
+        foreach (var order in Orders)
         {
             if (order.gameObject.activeSelf) continue;
 
             order.gameObject.SetActive(true);
 
-            int ingredientCount = Random.Range(2, ingredientsDB.ingredients.Length + 1);
+            int maxIngredientCount = ingredientsDB.ingredients.Length;
+            int maxMiddleIngredients = maxIngredientCount - 2;
+
+            int ingredientCount = Random.Range(2, maxMiddleIngredients + 2); // +2 para incluir los panes
             var selectedIngredients = new IngredientData[ingredientCount];
 
             if (!TryGetBreadIngredients(out var upperBread, out var lowerBread))

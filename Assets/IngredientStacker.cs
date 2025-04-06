@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using ScriptableObjects;
 using UnityEngine;
 
 public class IngredientStacker : MonoBehaviour
 {
-    [SerializeField] private Transform stackContainer; // Contenedor visual (la mesa)
-    [SerializeField] private GameObject stackedIngredientPrefab; // Prefab visual
+    [SerializeField] private OrderManager orderManager;
+    [SerializeField] private Transform stackContainer; // Visual container
+    [SerializeField] private GameObject stackedIngredientPrefab; // Prefab for stacked ingredients
 
     [SerializeField] private float yOffset = 0f;
-    [SerializeField] private int currentIndex;
-    private const float IngredientHeight = 40f; // Ajustá este valor según tu sprite
+    private List<IngredientData> stackedIngredients = new();
+    private const float IngredientHeight = 40f; // Adjust this value based on your prefab height
+    private List<GameObject> visualStack = new();
     
     private void Awake()
     {
@@ -21,11 +24,11 @@ public class IngredientStacker : MonoBehaviour
     }
     private void Start()
     {
-        // Encuentra todos los botones de ingredientes en escena
+        // Find all IngredientButtons in the scene
         IngredientButton[] buttons = FindObjectsOfType<IngredientButton>();
         foreach (var button in buttons)
         {
-            // Les asigna su callback con el método StackIngredient
+            // Initialize each button with the StackIngredient method
             button.Initialize(StackIngredient);
         }
     }
@@ -38,21 +41,86 @@ public class IngredientStacker : MonoBehaviour
             return;
         }
 
-        var newIngredient = Instantiate(stackedIngredientPrefab, stackContainer);
-        newIngredient.GetComponent<StackedIngredientView>().SetData(ingredientData);
-        // Posicionar apilado (ajustá según el pivot de los objetos)
-        var rectTransform = newIngredient.GetComponent<RectTransform>();
-        rectTransform.anchoredPosition = new Vector2(0, -currentIndex * yOffset);
-
-        currentIndex++;
+        stackedIngredients.Add(ingredientData);
+        UpdateStackVisual();
+        ValidateOrders();
     }
 
     public void ClearStack()
     {
-        foreach (Transform child in stackContainer)
+        stackedIngredients.Clear();
+        UpdateStackVisual();
+        ValidateOrders(); // Clear the orders
+    }
+    
+    public void TryValidateOrder(Order[] activeOrders)
+    {
+        foreach (var order in activeOrders)
         {
-            Destroy(child.gameObject);
+            if (!order.gameObject.activeSelf) continue;
+
+            var orderIngredients = order.Ingredients;
+            if (IsMatch(orderIngredients, stackedIngredients))
+            {
+                Debug.Log("Order completed!");
+                order.Complete();
+                ClearStack();
+                return;
+            }
         }
-        currentIndex = 0;
+
+        Debug.Log("No matching order found.");
+    }
+    
+    private void UpdateStackVisual()
+    {
+        // Clear previous visuals
+        foreach (var obj in visualStack)
+            Destroy(obj);
+
+        visualStack.Clear();
+
+        for (int i = 0; i < stackedIngredients.Count; i++)
+        {
+            var ingredient = stackedIngredients[i];
+            GameObject visual = Instantiate(stackedIngredientPrefab, stackContainer);
+            visual.GetComponent<StackedIngredientView>().SetData(ingredient);
+
+            var rect = visual.GetComponent<RectTransform>();
+            rect.anchoredPosition = new Vector2(0, -i * yOffset);
+
+            visualStack.Add(visual);
+        }
+    }
+
+    private bool IsMatch(IngredientData[] orderIngredients, List<IngredientData> stack)
+    {
+        if (orderIngredients.Length != stack.Count) return false;
+
+        // Comparamos desde abajo (último ingrediente en la orden es el primero que se apila)
+        for (int i = 0; i < stack.Count; i++)
+        {
+            if (stack[i] != orderIngredients[orderIngredients.Length - 1 - i])
+                return false;
+        }
+
+        return true;
+    }
+
+
+    private void ValidateOrders()
+    {
+        foreach (var order in orderManager.Orders)
+        {
+            if (!order.gameObject.activeSelf) continue;
+
+            bool isMatch = IsMatch(order.Ingredients, stackedIngredients);
+            order.MarkAsDeliverable(isMatch);
+            Debug.Log($"Stack: {string.Join(", ", stackedIngredients.Select(i => i.IngredientName))}");
+            Debug.Log($"Order: {string.Join(", ", order.Ingredients.Select(i => i.IngredientName))}");
+
+        }
+        
+
     }
 }
