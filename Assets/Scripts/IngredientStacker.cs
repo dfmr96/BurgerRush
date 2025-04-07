@@ -47,7 +47,7 @@ public class IngredientStacker : MonoBehaviour
     {
         _stackedIngredients.Clear();
         UpdateStackVisual();
-        ValidateOrders(); // Limpia el highlight
+        ValidateOrders();
     }
     
     private void UpdateStackVisual()
@@ -83,5 +83,9 @@ public class IngredientStacker : MonoBehaviour
             var isMatch = IsMatch(order.Ingredients, _stackedIngredients);
             order.MarkAsDeliverable(isMatch);
         }
+    }
+    public void OnClearStackButtonPressed()
+    {
+        ClearStack();
     }
 }
