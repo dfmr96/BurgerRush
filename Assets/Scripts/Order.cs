@@ -10,6 +10,8 @@ public class Order : MonoBehaviour
     [SerializeField] private Image highlightImage;
     [SerializeField] private TMP_Text orderText;
     [SerializeField] private IngredientStacker stacker;
+    [SerializeField] private GameManager gameManager;
+
     public Stack<IngredientData> Ingredients { get; private set; } = new();
     private bool _isDeliverable;
 
@@ -56,6 +58,7 @@ public class Order : MonoBehaviour
     private void Complete()
     {
         Debug.Log("Order delivered!");
+        gameManager.AddScore();
         highlightImage.enabled = false;
         gameObject.SetActive(false);
     }

@@ -18,6 +18,8 @@ public class OrderManager : MonoBehaviour
     [field: Tooltip("Array of orders in Game Scene")]
     
     [SerializeField] private Order[] orders;
+    
+    
 
     public Order[] Orders => orders;
 

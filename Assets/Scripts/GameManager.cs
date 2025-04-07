@@ -6,13 +6,20 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Game Settings")]
     [SerializeField] private float gameDuration = 60f;
     [SerializeField] private float orderInterval = 5f;
 
+    [Header("UI Elements")]
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private GameObject timeUpPanel;
     [SerializeField] private Slider timeSlider;
-
+    
+    [Header("Score Settings")]
+    [SerializeField] private int score = 0;
+    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private int pointsPerOrder = 100;
+    [Header("Manager References")]
     [SerializeField] private OrderManager orderManager;
 
     private float timeRemaining;
@@ -70,5 +77,16 @@ public class GameManager : MonoBehaviour
         timerText.text = $"Time: {seconds}";
 
         timeSlider.value = timeRemaining;
+    }
+    
+    public void AddScore()
+    {
+        score += pointsPerOrder;
+        UpdateScoreUI();
+    }
+
+    private void UpdateScoreUI()
+    {
+        scoreText.text = $"Score: {score}";
     }
 }

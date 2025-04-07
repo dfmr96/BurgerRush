@@ -102,8 +102,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38
-  m_fontSizeBase: 38
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -239,7 +239,7 @@ MonoBehaviour:
   highlightImage: {fileID: 1584066284302779238}
   orderText: {fileID: 5732253341102232667}
   stacker: {fileID: 0}
-  <Ingredients>k__BackingField: []
+  gameManager: {fileID: 0}
 --- !u!114 &504017892262862190
 MonoBehaviour:
   m_ObjectHideFlags: 0
