@@ -10,5 +10,8 @@ namespace ScriptableObjects
 
         public string IngredientName => ingredientName;
         public Sprite IngredientIcon => ingredientIcon;
+        [SerializeField] private IngredientType type;
+        public IngredientType Type => type;
+
     }
 }

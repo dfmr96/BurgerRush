@@ -7,12 +7,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3792a9b4e81bb5f4c8471ef974825eff, type: 3}
   m_Name: IngredientsDB
   m_EditorClassIdentifier: 
-  ingredients:
+  allIngredients:
+  - {fileID: 11400000, guid: fc400fecafe275f4c8b31bfc775ba779, type: 2}
   - {fileID: 11400000, guid: 7f2dbe37fd6d5564c84246def577a21b, type: 2}
   - {fileID: 11400000, guid: 66ad761d9f5adfd4e93383aef9d2e020, type: 2}
   - {fileID: 11400000, guid: cc51e01cb8f2c0e45901447c40ae4d03, type: 2}
@@ -20,7 +21,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 28d695c958082e94fa6f41ed59180c79, type: 2}
   - {fileID: 11400000, guid: fc64a26d5f4bcc8419b7c068bbf123dd, type: 2}
   - {fileID: 11400000, guid: 2aa957f4b62b3d04796c037aa85a9abc, type: 2}
-  - {fileID: 11400000, guid: fc400fecafe275f4c8b31bfc775ba779, type: 2}
   - {fileID: 11400000, guid: 3f1fddb58e977d642a9a4edff49b59db, type: 2}
-  _ingredientLookup:
+  ingredientsByType:
     _serializedList: []
