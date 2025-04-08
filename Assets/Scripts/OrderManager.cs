@@ -45,4 +45,14 @@ public class OrderManager : MonoBehaviour
 
         Debug.LogWarning("No inactive orders available.");
     }
+    
+    public int OrdersCountActive()
+    {
+        int count = 0;
+        foreach (var order in orders)
+        {
+            if (order.gameObject.activeSelf) count++;
+        }
+        return count;
+    }
 }

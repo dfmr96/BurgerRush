@@ -17,40 +17,51 @@ public class GameManager : MonoBehaviour
 
     public BurgerComplexityData HardBurger => hardBurger;
 
-    [Header("Game Settings")]
-    [SerializeField] private float gameDuration = 60f;
+    [Header("Debug Info")] [SerializeField, ReadOnly]
+    private string currentDifficultyLabel;
+
+    [SerializeField, ReadOnly] private int currentProgressionIndex = -1;
+    [SerializeField, ReadOnly] private int deliveredOrders = 0;
+
+    [Header("Game Settings")] [SerializeField]
+    private float gameDuration = 60f;
+
     [SerializeField] private float orderInterval = 5f;
 
-    [Header("UI Elements")]
-    [SerializeField] private TMP_Text timerText;
+    [Header("UI Elements")] [SerializeField]
+    private TMP_Text timerText;
+
     [SerializeField] private GameObject timeUpPanel;
     [SerializeField] private Slider timeSlider;
     [SerializeField] private Button restartButton;
     [SerializeField] private TMP_Text finalScoreText;
 
-    
-    [Header("Score Settings")]
-    [SerializeField] private int score = 0;
+
+    [Header("Score Settings")] [SerializeField]
+    private int score = 0;
+
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private int pointsPerOrder = 100;
-    [Header("Manager References")]
-    [SerializeField] private OrderManager orderManager;
 
-    [Header("Complexity Data")]
-    [SerializeField, ReadOnly] private string currentDifficultyLabel;
-    [SerializeField, ReadOnly] private int currentProgressionIndex = -1;
-    [SerializeField, ReadOnly] private int deliveredOrders = 0;
-    [SerializeField] private BurgerComplexityData easyBurger;
+    [Header("Manager References")] [SerializeField]
+    private OrderManager orderManager;
+
+    [Header("Complexity Data")] [SerializeField]
+    private BurgerComplexityData easyBurger;
+
     [SerializeField] private BurgerComplexityData mediumBurger;
     [SerializeField] private BurgerComplexityData hardBurger;
     [SerializeField] private List<ComplexityProgressionStep> progression;
 
-
+    [Header("Order Slot Settings")] 
+    [SerializeField] private int maxConcurrentOrders = 3;
+    [SerializeField] private float minOrderDelay = 1f;
+    [SerializeField] private float maxOrderDelay = 2.5f;
 
     private float timeRemaining;
-    private float orderTimer;
     private bool gameRunning = false;
-    
+    private bool isSpawningOrder = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -64,8 +75,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        timeUpPanel.SetActive(false);
-        restartButton.gameObject.SetActive(false);
+        gameRunning = true;
         StartGame();
     }
 
@@ -74,32 +84,36 @@ public class GameManager : MonoBehaviour
         if (!gameRunning) return;
 
         timeRemaining -= Time.deltaTime;
-        orderTimer += Time.deltaTime;
-
         UpdateTimerUI();
-
-        if (orderTimer >= orderInterval)
-        {
-            orderTimer = 0f;
-            orderManager.GenerateOrder(EasyBurger); //TODO Dynamic difficulty
-        }
 
         if (timeRemaining <= 0f)
         {
             EndGame();
+            return;
+        }
+
+        if (!isSpawningOrder)
+        {
+            int activeOrders = orderManager.OrdersCountActive();
+            if (activeOrders < maxConcurrentOrders)
+            {
+                StartCoroutine(GenerateOrderWithDelay());
+            }
         }
     }
 
+
     private void StartGame()
     {
+        timeUpPanel.SetActive(false);
+        restartButton.gameObject.SetActive(false);
+
         gameRunning = true;
         timeRemaining = gameDuration;
-        orderTimer = 0f;
-
         timeSlider.maxValue = gameDuration;
         timeSlider.value = gameDuration;
-        orderManager.GenerateOrder(EasyBurger);
         UpdateTimerUI();
+        orderManager.GenerateOrder(easyBurger);
     }
 
     private void EndGame()
@@ -107,7 +121,7 @@ public class GameManager : MonoBehaviour
         gameRunning = false;
         timeUpPanel.SetActive(true);
         restartButton.gameObject.SetActive(true);
-        
+
         finalScoreText.text = $"Final Score: {score}";
     }
 
@@ -118,7 +132,7 @@ public class GameManager : MonoBehaviour
 
         timeSlider.value = timeRemaining;
     }
-    
+
     public void AddScore()
     {
         score += pointsPerOrder;
@@ -129,11 +143,12 @@ public class GameManager : MonoBehaviour
     {
         scoreText.text = $"Score: {score}";
     }
-    
+
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
     public void OnOrderDelivered()
     {
         deliveredOrders++;
@@ -148,7 +163,7 @@ public class GameManager : MonoBehaviour
         var complexity = step.GetRandomComplexity(easyBurger, mediumBurger, hardBurger);
         orderManager.GenerateOrder(complexity);
     }
-    
+
     private ComplexityProgressionStep GetCurrentProgressionStep()
     {
         for (int i = 0; i < progression.Count; i++)
@@ -157,11 +172,32 @@ public class GameManager : MonoBehaviour
             if (deliveredOrders >= step.minOrdersDelivered && deliveredOrders <= step.maxOrdersDelivered)
             {
                 currentProgressionIndex = i;
-                currentDifficultyLabel = $"Step {currentProgressionIndex} ({step.minOrdersDelivered}-{step.maxOrdersDelivered})";
+                currentDifficultyLabel =
+                    $"Step {currentProgressionIndex} ({step.minOrdersDelivered}-{step.maxOrdersDelivered})";
                 return step;
             }
         }
 
         return null;
+    }
+
+    private IEnumerator GenerateOrderWithDelay()
+    {
+        isSpawningOrder = true;
+
+        float delay = Random.Range(minOrderDelay, maxOrderDelay);
+        yield return new WaitForSeconds(delay);
+
+        var step = GetCurrentProgressionStep();
+        if (step == null)
+        {
+            Debug.LogWarning("No complexity step found.");
+            isSpawningOrder = false;
+            yield break;
+        }
+
+        var complexity = step.GetRandomComplexity(easyBurger, mediumBurger, hardBurger);
+        orderManager.GenerateOrder(complexity);
+        isSpawningOrder = false;
     }
 }
