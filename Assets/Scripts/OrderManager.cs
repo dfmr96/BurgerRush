@@ -9,10 +9,7 @@ public class OrderManager : MonoBehaviour
 {
     [Tooltip("Reference to the database of ingredients.")] [SerializeField]
     private IngredientsDB ingredientsDB;
-
-    [Tooltip("Dictionary to cache ingredients by name for faster lookup.")] [SerializeField]
-    private SerializedDictionary<string, IngredientData> ingredientLookup;
-
+    
     [SerializeField] private SerializedDictionary<IngredientData, int> ingredientIndexMap;
 
     [field: Tooltip("Array of orders in Game Scene")]
@@ -22,21 +19,20 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private IngredientData topBun;
     [SerializeField] private IngredientData bottomBun;
     
-    
+    [Header("Order Difficulty Settings")]
+    [SerializeField] private int maxMiddleIngredients = 3;
 
     public Order[] Orders => orders;
 
     private void Awake()
     {
         // Cache ingredients by name and index for faster lookup
-        ingredientLookup = new SerializedDictionary<string, IngredientData>(ingredientsDB.ingredients.Length);
         ingredientIndexMap = new SerializedDictionary<IngredientData, int>(ingredientsDB.ingredients.Length);
 
         // Initialize the dictionaries
         for (var i = 0; i < ingredientsDB.ingredients.Length; i++)
         {
             var ingredient = ingredientsDB.ingredients[i];
-            ingredientLookup[ingredient.name] = ingredient;
             ingredientIndexMap[ingredient] = i;
         }
     }
@@ -51,10 +47,10 @@ public class OrderManager : MonoBehaviour
 
             order.gameObject.SetActive(true);
 
-            var maxIngredientCount = ingredientsDB.ingredients.Length;
-            var maxMiddleIngredients = maxIngredientCount - 2;
+            int maxAvailableMiddle = ingredientsDB.ingredients.Length - 2;
+            int clampedMiddleCount = Mathf.Clamp(maxMiddleIngredients, 0, maxAvailableMiddle);
 
-            var ingredientCount = Random.Range(2, maxMiddleIngredients + 2); //+2 for bread
+            int ingredientCount = Random.Range(2, clampedMiddleCount + 2); // +2 for buns
             var selectedIngredients = new IngredientData[ingredientCount];
 
             if (!TryGetBreadIngredients(out var upperBread, out var lowerBread)) return;
