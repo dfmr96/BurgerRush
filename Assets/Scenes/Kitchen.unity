@@ -1199,10 +1199,30 @@ MonoBehaviour:
   scoreText: {fileID: 235365909}
   pointsPerOrder: 100
   orderManager: {fileID: 403844510}
-  burgerComplexityDatas:
-  - {fileID: 11400000, guid: 0e54f1dc75344df4fbf36f27cfd88c00, type: 2}
-  - {fileID: 11400000, guid: b2fa1ff137262fd429032eabe7bae36c, type: 2}
-  - {fileID: 11400000, guid: c2535b43939fecc4884791e67e660ded, type: 2}
+  easyBurger: {fileID: 11400000, guid: 0e54f1dc75344df4fbf36f27cfd88c00, type: 2}
+  mediumBurger: {fileID: 11400000, guid: b2fa1ff137262fd429032eabe7bae36c, type: 2}
+  hardBurger: {fileID: 11400000, guid: c2535b43939fecc4884791e67e660ded, type: 2}
+  progression:
+  - minOrdersDelivered: 0
+    maxOrdersDelivered: 3
+    easyWeight: 100
+    mediumWeight: 0
+    hardWeight: 0
+  - minOrdersDelivered: 4
+    maxOrdersDelivered: 6
+    easyWeight: 70
+    mediumWeight: 30
+    hardWeight: 0
+  - minOrdersDelivered: 7
+    maxOrdersDelivered: 10
+    easyWeight: 40
+    mediumWeight: 50
+    hardWeight: 10
+  - minOrdersDelivered: 11
+    maxOrdersDelivered: 100
+    easyWeight: 20
+    mediumWeight: 50
+    hardWeight: 30
 --- !u!4 &363890153
 Transform:
   m_ObjectHideFlags: 0

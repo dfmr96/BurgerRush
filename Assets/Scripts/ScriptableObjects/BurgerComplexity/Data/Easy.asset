@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Easy
   m_EditorClassIdentifier: 
   label: Easy
-  minToppings: 1
+  minToppings: 0
   maxToppings: 1

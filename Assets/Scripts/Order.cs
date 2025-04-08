@@ -58,7 +58,7 @@ public class Order : MonoBehaviour
     private void Complete()
     {
         Debug.Log("Order delivered!");
-        gameManager.AddScore();
+        GameManager.Instance.OnOrderDelivered();
         highlightImage.enabled = false;
         gameObject.SetActive(false);
     }

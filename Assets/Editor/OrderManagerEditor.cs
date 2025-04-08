@@ -29,7 +29,14 @@ namespace Editor
 
             EditorGUILayout.LabelField("Generate Orders by Complexity", EditorStyles.boldLabel);
 
-            foreach (var complexity in gameManager.BurgerComplexityDatas)
+            var complexities = new[]
+            {
+                gameManager.EasyBurger,
+                gameManager.MediumBurger,
+                gameManager.HardBurger
+            };
+
+            foreach (var complexity in complexities)
             {
                 if (complexity == null) continue;
 

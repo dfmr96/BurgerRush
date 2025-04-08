@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjects.BurgerComplexityData;
 using TMPro;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,7 +11,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public List<BurgerComplexityData> BurgerComplexityDatas => burgerComplexityDatas;
+    public BurgerComplexityData EasyBurger => easyBurger;
+
+    public BurgerComplexityData MediumBurger => mediumBurger;
+
+    public BurgerComplexityData HardBurger => hardBurger;
 
     [Header("Game Settings")]
     [SerializeField] private float gameDuration = 60f;
@@ -32,7 +37,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private OrderManager orderManager;
 
     [Header("Complexity Data")]
-    [SerializeField] private List<BurgerComplexityData> burgerComplexityDatas;
+    [SerializeField, ReadOnly] private string currentDifficultyLabel;
+    [SerializeField, ReadOnly] private int currentProgressionIndex = -1;
+    [SerializeField, ReadOnly] private int deliveredOrders = 0;
+    [SerializeField] private BurgerComplexityData easyBurger;
+    [SerializeField] private BurgerComplexityData mediumBurger;
+    [SerializeField] private BurgerComplexityData hardBurger;
+    [SerializeField] private List<ComplexityProgressionStep> progression;
+
+
 
     private float timeRemaining;
     private float orderTimer;
@@ -68,7 +81,7 @@ public class GameManager : MonoBehaviour
         if (orderTimer >= orderInterval)
         {
             orderTimer = 0f;
-            orderManager.GenerateOrder(BurgerComplexityDatas[0]); //TODO Dynamic difficulty
+            orderManager.GenerateOrder(EasyBurger); //TODO Dynamic difficulty
         }
 
         if (timeRemaining <= 0f)
@@ -85,7 +98,7 @@ public class GameManager : MonoBehaviour
 
         timeSlider.maxValue = gameDuration;
         timeSlider.value = gameDuration;
-        orderManager.GenerateOrder((BurgerComplexityDatas[0]));
+        orderManager.GenerateOrder(EasyBurger);
         UpdateTimerUI();
     }
 
@@ -120,5 +133,35 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void OnOrderDelivered()
+    {
+        deliveredOrders++;
+
+        var step = GetCurrentProgressionStep();
+        if (step == null)
+        {
+            Debug.LogWarning("No complexity step found for current order count.");
+            return;
+        }
+
+        var complexity = step.GetRandomComplexity(easyBurger, mediumBurger, hardBurger);
+        orderManager.GenerateOrder(complexity);
+    }
+    
+    private ComplexityProgressionStep GetCurrentProgressionStep()
+    {
+        for (int i = 0; i < progression.Count; i++)
+        {
+            var step = progression[i];
+            if (deliveredOrders >= step.minOrdersDelivered && deliveredOrders <= step.maxOrdersDelivered)
+            {
+                currentProgressionIndex = i;
+                currentDifficultyLabel = $"Step {currentProgressionIndex} ({step.minOrdersDelivered}-{step.maxOrdersDelivered})";
+                return step;
+            }
+        }
+
+        return null;
     }
 }
