@@ -6,11 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Kitchen.unity
+    guid: 518d11cc3b30904458619db18d8e142b
+  - enabled: 0
     path: Assets/Scenes/TouchTest.unity
     guid: db25703316c023c4483a7b6585931d85
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 2021d7891bb56c24593bf76c92b462c6, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: deae45078e6b86040a1fd0580434d54c, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: f7b438222b3452e408f9d26f162d880b, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: d33bcadfbf96a8f42a6f9a8aefb9ef23, type: 2}
