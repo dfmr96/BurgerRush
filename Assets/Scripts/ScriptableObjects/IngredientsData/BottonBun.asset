@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45dabdb591e39c4d9c6f4009bfc6626, type: 3}
   m_Name: BottonBun
   m_EditorClassIdentifier: 
-  ingredientName: Botton Bun
+  ingredientName: Bottom Bun
   ingredientIcon: {fileID: 1666929222, guid: 1dd747ee04ac3d04186e1c82fbc52f51, type: 3}

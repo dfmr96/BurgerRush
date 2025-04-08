@@ -19,6 +19,9 @@ public class OrderManager : MonoBehaviour
     
     [SerializeField] private Order[] orders;
     
+    [SerializeField] private IngredientData topBun;
+    [SerializeField] private IngredientData bottomBun;
+    
     
 
     public Order[] Orders => orders;
@@ -105,12 +108,18 @@ public class OrderManager : MonoBehaviour
 
     private bool TryGetBreadIngredients(out IngredientData upperBread, out IngredientData lowerBread)
     {
-        var foundUpper = ingredientLookup.TryGetValue("UpperBread", out upperBread);
-        var foundLower = ingredientLookup.TryGetValue("LowerBread", out lowerBread);
+        upperBread = topBun;
+        lowerBread = bottomBun;
 
-        if (!foundUpper || !foundLower)
+        if (upperBread == null || lowerBread == null)
         {
-            Debug.LogError("Error: Missing required bread ingredients in the database.");
+            Debug.LogError("Top or Bottom Bun references not assigned in the Inspector.");
+            return false;
+        }
+
+        if (!ingredientIndexMap.ContainsKey(upperBread) || !ingredientIndexMap.ContainsKey(lowerBread))
+        {
+            Debug.LogError("Top or Bottom Bun not found in ingredient database.");
             return false;
         }
 

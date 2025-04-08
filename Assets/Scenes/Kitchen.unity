@@ -983,6 +983,8 @@ MonoBehaviour:
   - {fileID: 696356179}
   - {fileID: 753886709}
   - {fileID: 525123672}
+  topBun: {fileID: 11400000, guid: 3f1fddb58e977d642a9a4edff49b59db, type: 2}
+  bottomBun: {fileID: 11400000, guid: fc400fecafe275f4c8b31bfc775ba779, type: 2}
 --- !u!4 &403844511
 Transform:
   m_ObjectHideFlags: 0
