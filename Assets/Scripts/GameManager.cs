@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -14,6 +15,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private GameObject timeUpPanel;
     [SerializeField] private Slider timeSlider;
+    [SerializeField] private Button restartButton;
+    [SerializeField] private TMP_Text finalScoreText;
+
     
     [Header("Score Settings")]
     [SerializeField] private int score = 0;
@@ -29,6 +33,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         timeUpPanel.SetActive(false);
+        restartButton.gameObject.SetActive(false);
         StartGame();
     }
 
@@ -69,6 +74,9 @@ public class GameManager : MonoBehaviour
     {
         gameRunning = false;
         timeUpPanel.SetActive(true);
+        restartButton.gameObject.SetActive(true);
+        
+        finalScoreText.text = $"Final Score: {score}";
     }
 
     private void UpdateTimerUI()
@@ -88,5 +96,10 @@ public class GameManager : MonoBehaviour
     private void UpdateScoreUI()
     {
         scoreText.text = $"Score: {score}";
+    }
+    
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
