@@ -1188,7 +1188,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a748d5a2c582a9444984cce6ee6b465c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameDuration: 30
+  currentDifficultyLabel: 
+  currentProgressionIndex: -1
+  deliveredOrders: 0
+  gameDuration: 60
   orderInterval: 30
   timerText: {fileID: 32404314}
   timeUpPanel: {fileID: 1726539875}
@@ -1223,6 +1226,9 @@ MonoBehaviour:
     easyWeight: 20
     mediumWeight: 50
     hardWeight: 30
+  maxConcurrentOrders: 3
+  minOrderDelay: 3
+  maxOrderDelay: 6
 --- !u!4 &363890153
 Transform:
   m_ObjectHideFlags: 0

@@ -40,7 +40,7 @@ namespace Editor
             {
                 if (complexity == null) continue;
 
-                if (GUILayout.Button($"Generate: {complexity.label}"))
+                if (GUILayout.Button($"Generate: {complexity.Label}"))
                 {
                     manager.GenerateOrder(complexity);
                 }
