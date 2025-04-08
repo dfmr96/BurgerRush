@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using Databases;
 using ScriptableObjects;
+using ScriptableObjects.BurgerComplexityData;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,15 +15,11 @@ public class OrderManager : MonoBehaviour
     
     [SerializeField] private Order[] orders;
     
-    [Header("Order Difficulty Settings")]
-    [SerializeField] private int maxMiddleIngredients = 3;
-
     public Order[] Orders => orders;
 
     // ReSharper disable Unity.PerformanceAnalysis
     [ContextMenu("Generate Order")]
-    [ContextMenu("Generate Order")]
-    public void GenerateOrder()
+    public void GenerateOrder(BurgerComplexityData complexityData)
     {
         foreach (var order in Orders)
         {
@@ -32,15 +29,16 @@ public class OrderManager : MonoBehaviour
 
             List<IngredientData> selectedIngredients = new();
 
-            var topBun = ingredientsDB.GetRandomIngredientOfType(IngredientType.TopBun);
-            selectedIngredients.Add(topBun);
-            var bottomBun = ingredientsDB.GetRandomIngredientOfType(IngredientType.BottomBun);
+            selectedIngredients.Add(ingredientsDB.GetRandomIngredientOfType(IngredientType.TopBun));
 
-            selectedIngredients.Add(ingredientsDB.GetRandomIngredientOfType(IngredientType.Topping));
+            int toppingCount = Random.Range(complexityData.minToppings, complexityData.maxToppings + 1);
+            for (int i = 0; i < toppingCount; i++)
+            {
+                selectedIngredients.Add(ingredientsDB.GetRandomIngredientOfType(IngredientType.Topping));
+            }
             selectedIngredients.Add(ingredientsDB.GetRandomIngredientOfType(IngredientType.Protein));
 
-            selectedIngredients.Add(bottomBun);
-
+            selectedIngredients.Add(ingredientsDB.GetRandomIngredientOfType(IngredientType.BottomBun));
             order.SetIngredients(selectedIngredients.ToArray());
             return;
         }

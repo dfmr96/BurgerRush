@@ -1189,7 +1189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameDuration: 30
-  orderInterval: 5
+  orderInterval: 30
   timerText: {fileID: 32404314}
   timeUpPanel: {fileID: 1726539875}
   timeSlider: {fileID: 736049246}
@@ -1199,6 +1199,10 @@ MonoBehaviour:
   scoreText: {fileID: 235365909}
   pointsPerOrder: 100
   orderManager: {fileID: 403844510}
+  burgerComplexityDatas:
+  - {fileID: 11400000, guid: 0e54f1dc75344df4fbf36f27cfd88c00, type: 2}
+  - {fileID: 11400000, guid: b2fa1ff137262fd429032eabe7bae36c, type: 2}
+  - {fileID: 11400000, guid: c2535b43939fecc4884791e67e660ded, type: 2}
 --- !u!4 &363890153
 Transform:
   m_ObjectHideFlags: 0
@@ -1244,15 +1248,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientsDB: {fileID: 11400000, guid: 0c47b397f70ccd148ae6bed00d8afaac, type: 2}
-  ingredientIndexMap:
-    _serializedList: []
   orders:
   - {fileID: 696356179}
   - {fileID: 753886709}
   - {fileID: 525123672}
-  topBun: {fileID: 11400000, guid: 3f1fddb58e977d642a9a4edff49b59db, type: 2}
-  bottomBun: {fileID: 11400000, guid: fc400fecafe275f4c8b31bfc775ba779, type: 2}
-  maxMiddleIngredients: 3
 --- !u!4 &403844511
 Transform:
   m_ObjectHideFlags: 0

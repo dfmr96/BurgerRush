@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects.BurgerComplexityData;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
+
+    public List<BurgerComplexityData> BurgerComplexityDatas => burgerComplexityDatas;
+
     [Header("Game Settings")]
     [SerializeField] private float gameDuration = 60f;
     [SerializeField] private float orderInterval = 5f;
@@ -26,9 +31,23 @@ public class GameManager : MonoBehaviour
     [Header("Manager References")]
     [SerializeField] private OrderManager orderManager;
 
+    [Header("Complexity Data")]
+    [SerializeField] private List<BurgerComplexityData> burgerComplexityDatas;
+
     private float timeRemaining;
     private float orderTimer;
     private bool gameRunning = false;
+    
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -49,7 +68,7 @@ public class GameManager : MonoBehaviour
         if (orderTimer >= orderInterval)
         {
             orderTimer = 0f;
-            orderManager.GenerateOrder();
+            orderManager.GenerateOrder(BurgerComplexityDatas[0]); //TODO Dynamic difficulty
         }
 
         if (timeRemaining <= 0f)
@@ -66,7 +85,7 @@ public class GameManager : MonoBehaviour
 
         timeSlider.maxValue = gameDuration;
         timeSlider.value = gameDuration;
-        orderManager.GenerateOrder();
+        orderManager.GenerateOrder((BurgerComplexityDatas[0]));
         UpdateTimerUI();
     }
 

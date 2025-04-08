@@ -12,18 +12,31 @@ namespace Editor
 
             GUILayout.Space(10);
 
-            // Solo si estamos en Play Mode
-            if (Application.isPlaying)
-            {
-                if (GUILayout.Button("Generate Orders"))
-                {
-                    OrderManager manager = (OrderManager)target;
-                    manager.GenerateOrder();
-                }
-            }
-            else
+            if (!Application.isPlaying)
             {
                 EditorGUILayout.HelpBox("Enter Play Mode to generate Orders", MessageType.Info);
+                return;
+            }
+
+            var manager = (OrderManager)target;
+            var gameManager = GameManager.Instance;
+
+            if (gameManager == null)
+            {
+                EditorGUILayout.HelpBox("GameManager not found in the scene.", MessageType.Error);
+                return;
+            }
+
+            EditorGUILayout.LabelField("Generate Orders by Complexity", EditorStyles.boldLabel);
+
+            foreach (var complexity in gameManager.BurgerComplexityDatas)
+            {
+                if (complexity == null) continue;
+
+                if (GUILayout.Button($"Generate: {complexity.label}"))
+                {
+                    manager.GenerateOrder(complexity);
+                }
             }
         }
     }
