@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects;
 using ScriptableObjects.BurgerComplexityData;
 using TMPro;
 using Unity.Collections;
@@ -17,17 +18,14 @@ public class GameManager : MonoBehaviour
 
     public BurgerComplexityData HardBurger => hardBurger;
 
-    [Header("Debug Info")] [SerializeField, ReadOnly]
-    private string currentDifficultyLabel;
-
+    [Header("Debug Info")] 
+    [SerializeField, ReadOnly] private string currentDifficultyLabel;
     [SerializeField, ReadOnly] private int currentProgressionIndex = -1;
     [SerializeField, ReadOnly] private int deliveredOrders = 0;
 
     [Header("Game Settings")] [SerializeField]
     private float gameDuration = 60f;
-
-    [SerializeField] private float orderInterval = 5f;
-
+    
     [Header("UI Elements")] [SerializeField]
     private TMP_Text timerText;
 
@@ -39,16 +37,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Score Settings")] [SerializeField]
     private int score = 0;
-
     [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private int pointsPerOrder = 100;
 
     [Header("Manager References")] [SerializeField]
     private OrderManager orderManager;
 
-    [Header("Complexity Data")] [SerializeField]
-    private BurgerComplexityData easyBurger;
-
+    [Header("Complexity Data")] 
+    [SerializeField] private BurgerComplexityData easyBurger;
     [SerializeField] private BurgerComplexityData mediumBurger;
     [SerializeField] private BurgerComplexityData hardBurger;
     [SerializeField] private List<ComplexityProgressionStep> progression;
@@ -133,12 +128,6 @@ public class GameManager : MonoBehaviour
         timeSlider.value = timeRemaining;
     }
 
-    public void AddScore()
-    {
-        score += pointsPerOrder;
-        UpdateScoreUI();
-    }
-
     private void UpdateScoreUI()
     {
         scoreText.text = $"Score: {score}";
@@ -149,19 +138,33 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void OnOrderDelivered()
+    public void OnOrderDelivered(BurgerComplexityData complexity, Stack<IngredientData> ingredients)
     {
+        int totalScore = CalculateScore(complexity, ingredients);
+        score += totalScore;
         deliveredOrders++;
 
-        var step = GetCurrentProgressionStep();
-        if (step == null)
+        UpdateScoreUI();
+
+        Debug.Log($"Order delivered! Score: {totalScore} (Base: {complexity.BaseScore}, Toppings: x{CountToppings(ingredients)} * {complexity.PointsPerTopping})");
+    }
+    private int CalculateScore(BurgerComplexityData complexity, Stack<IngredientData> ingredients)
+    {
+        return complexity.BaseScore + CountToppings(ingredients) * complexity.PointsPerTopping;
+    }
+
+    private static int CountToppings(Stack<IngredientData> ingredients)
+    {
+        int toppingCount = 0;
+        foreach (var ingredient in ingredients)
         {
-            Debug.LogWarning("No complexity step found for current order count.");
-            return;
+            if (ingredient.Type == IngredientType.Topping)
+            {
+                toppingCount++;
+            }
         }
 
-        var complexity = step.GetRandomComplexity(easyBurger, mediumBurger, hardBurger);
-        orderManager.GenerateOrder(complexity);
+        return toppingCount;
     }
 
     private ComplexityProgressionStep GetCurrentProgressionStep()

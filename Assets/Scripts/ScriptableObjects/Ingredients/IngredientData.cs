@@ -7,10 +7,10 @@ namespace ScriptableObjects
     {
         [SerializeField] private string ingredientName;
         [SerializeField] private Sprite ingredientIcon;
+        [SerializeField] private IngredientType type;
 
         public string IngredientName => ingredientName;
         public Sprite IngredientIcon => ingredientIcon;
-        [SerializeField] private IngredientType type;
         public IngredientType Type => type;
 
     }

@@ -15,3 +15,5 @@ MonoBehaviour:
   label: Easy
   minToppings: 0
   maxToppings: 1
+  baseScore: 100
+  pointsPerTopping: 10

@@ -31,7 +31,7 @@ public class OrderManager : MonoBehaviour
 
             selectedIngredients.Add(ingredientsDB.GetRandomIngredientOfType(IngredientType.TopBun));
 
-            int toppingCount = Random.Range(complexityData.minToppings, complexityData.maxToppings + 1);
+            int toppingCount = Random.Range(complexityData.MinToppings, complexityData.MaxToppings + 1);
             for (int i = 0; i < toppingCount; i++)
             {
                 selectedIngredients.Add(ingredientsDB.GetRandomIngredientOfType(IngredientType.Topping));
@@ -40,6 +40,7 @@ public class OrderManager : MonoBehaviour
 
             selectedIngredients.Add(ingredientsDB.GetRandomIngredientOfType(IngredientType.BottomBun));
             order.SetIngredients(selectedIngredients.ToArray());
+            order.SetComplexity(complexityData);
             return;
         }
 

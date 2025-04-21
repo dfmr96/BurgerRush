@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using ScriptableObjects;
+using ScriptableObjects.BurgerComplexityData;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +12,8 @@ public class Order : MonoBehaviour
     [SerializeField] private TMP_Text orderText;
     [SerializeField] private IngredientStacker stacker;
     [SerializeField] private GameManager gameManager;
-
+    [SerializeField] private BurgerComplexityData complexity;
+    
     public Stack<IngredientData> Ingredients { get; private set; } = new();
     private bool _isDeliverable;
 
@@ -58,8 +60,12 @@ public class Order : MonoBehaviour
     private void Complete()
     {
         Debug.Log("Order delivered!");
-        GameManager.Instance.OnOrderDelivered();
+        GameManager.Instance.OnOrderDelivered(complexity, Ingredients);
         highlightImage.enabled = false;
         gameObject.SetActive(false);
+    }
+    public void SetComplexity(BurgerComplexityData data)
+    {
+        complexity = data;
     }
 }
