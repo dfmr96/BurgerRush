@@ -137,6 +137,20 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    
+    public void BreakCombo()
+    {
+        // A futuro podrías tener una lógica más compleja de combo
+        Debug.Log("Combo roto.");
+        // Acá podrías también actualizar la UI si tenés racha visible
+    }
+
+    public void DecreaseScore(int amount)
+    {
+        score = Mathf.Max(0, score - amount); // Evita puntaje negativo
+        UpdateScoreUI();
+        Debug.Log($"Puntaje penalizado: -{amount}. Puntaje actual: {score}");
+    }
 
     public void OnOrderDelivered(BurgerComplexityData complexity, Stack<IngredientData> ingredients)
     {

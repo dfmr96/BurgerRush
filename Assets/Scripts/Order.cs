@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexityData;
@@ -9,17 +10,76 @@ public class Order : MonoBehaviour
 {
     [SerializeField] private Button deliverButton;
     [SerializeField] private Image highlightImage;
-    [SerializeField] private TMP_Text orderText;
     [SerializeField] private IngredientStacker stacker;
-    [SerializeField] private GameManager gameManager;
     [SerializeField] private BurgerComplexityData complexity;
+    [SerializeField] private float lifespan = 10f; // segundos
+    [SerializeField] private Image timerBar;
+    [SerializeField] private Slider timerSlider;
+    [SerializeField] private Transform ingredientContainer; // contenedor con Vertical Layout
+    [SerializeField] private GameObject ingredientImagePrefab; // prefab con Image
+    [SerializeField] private RectTransform orderRectTransform;
+
     
     public Stack<IngredientData> Ingredients { get; private set; } = new();
+    public Action<Order> OnOrderExpired;
+    
     private bool _isDeliverable;
+    private float timer;
+    private bool isExpired;
 
+    private void OnEnable()
+    {
+        timer = lifespan;
+        isExpired = false;
+
+        if (timerBar != null)
+            timerBar.fillAmount = 1f;
+    }
+    
     private void Start()
     {
         deliverButton.onClick.AddListener(AttemptDelivery);
+    }
+    
+    private void Update()
+    {
+        if (isExpired) return;
+
+        timer -= Time.deltaTime;
+
+        if (timerBar != null)
+        {
+            float normalizedTime = timer / lifespan;
+
+            // Update fill amount
+            timerSlider.value = normalizedTime;
+
+            // Base color: verde a rojo
+            Color baseColor = Color.Lerp(Color.red, Color.green, normalizedTime);
+
+            // Si quedan menos de 3 segundos, hacer que el color parpadee (oscile su intensidad)
+            if (timer <= 3f)
+            {
+                float pulse = Mathf.PingPong(Time.time * 4f, 1f); // velocidad de parpadeo
+                baseColor = Color.Lerp(Color.red * 0.5f, Color.red, pulse);
+            }
+
+            timerBar.color = baseColor;
+        }
+
+        if (timer <= 0f)
+        {
+            ExpireOrder();
+        }
+    }
+    
+    private void ExpireOrder()
+    {
+        if (isExpired) return;
+        isExpired = true;
+
+        OnOrderExpired?.Invoke(this);
+        gameObject.SetActive(false);
     }
 
     public void SetIngredients(IngredientData[] ingredients)
@@ -31,9 +91,24 @@ public class Order : MonoBehaviour
 
     private void UpdateUI()
     {
-        var order = "Order:";
-        foreach (var ingredient in Ingredients) order += $"\n- {ingredient.IngredientName}";
-        orderText.text = order;
+        // Limpiar sprites anteriores
+        foreach (Transform child in ingredientContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Mostrar ingredientes como imágenes
+        foreach (var ingredient in Ingredients)
+        {
+            var imageGO = Instantiate(ingredientImagePrefab, ingredientContainer);
+            var image = imageGO.GetComponent<Image>();
+            if (image != null)
+            {
+                image.sprite = ingredient.IngredientIcon;
+            }
+        }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(orderRectTransform);
+
     }
 
     public void MarkAsDeliverable(bool canDeliver)

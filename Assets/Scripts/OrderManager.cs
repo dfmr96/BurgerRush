@@ -16,6 +16,15 @@ public class OrderManager : MonoBehaviour
     [SerializeField] private Order[] orders;
     
     public Order[] Orders => orders;
+    
+    private void Start()
+    {
+        // Suscribirse a eventos de expiración de órdenes
+        foreach (var order in orders)
+        {
+            order.OnOrderExpired += HandleOrderExpired;
+        }
+    }
 
     // ReSharper disable Unity.PerformanceAnalysis
     [ContextMenu("Generate Order")]
@@ -25,7 +34,6 @@ public class OrderManager : MonoBehaviour
         {
             if (order.gameObject.activeSelf) continue;
 
-            order.gameObject.SetActive(true);
 
             List<IngredientData> selectedIngredients = new();
 
@@ -37,10 +45,11 @@ public class OrderManager : MonoBehaviour
                 selectedIngredients.Add(ingredientsDB.GetRandomIngredientOfType(IngredientType.Topping));
             }
             selectedIngredients.Add(ingredientsDB.GetRandomIngredientOfType(IngredientType.Protein));
-
             selectedIngredients.Add(ingredientsDB.GetRandomIngredientOfType(IngredientType.BottomBun));
+
             order.SetIngredients(selectedIngredients.ToArray());
             order.SetComplexity(complexityData);
+            order.gameObject.SetActive(true);
             return;
         }
 
@@ -55,5 +64,15 @@ public class OrderManager : MonoBehaviour
             if (order.gameObject.activeSelf) count++;
         }
         return count;
+    }
+    
+    private void HandleOrderExpired(Order expiredOrder)
+    {
+        Debug.Log("¡Una orden expiró!");
+
+        // Aplicar consecuencias de la orden vencida
+        GameManager.Instance.BreakCombo(); // Rompe la racha
+        GameManager.Instance.DecreaseScore(50); // Penaliza el puntaje
+        // También podrías reproducir un sonido o feedback visual acá
     }
 }
