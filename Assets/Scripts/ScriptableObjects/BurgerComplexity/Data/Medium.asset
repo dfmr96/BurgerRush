@@ -17,3 +17,4 @@ MonoBehaviour:
   maxToppings: 4
   baseScore: 150
   pointsPerTopping: 25
+  scorePopupStyle: {fileID: 11400000, guid: c24f30d80f1c4c843981c5fe1ff86085, type: 2}

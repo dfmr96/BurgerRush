@@ -16,8 +16,8 @@ namespace ScriptableObjects.BurgerComplexityData
         
         [SerializeField] private int baseScore;
         [SerializeField] private int pointsPerTopping;
-        [SerializeField] private Material scoreTextMaterial;
-        public Material ScoreTextMaterial => scoreTextMaterial;
+        [SerializeField] private ScorePopUpStyle scorePopupStyle;
+        public ScorePopUpStyle ScorePopupStyle => scorePopupStyle;
         public string Label => label;
         public int MaxToppings => maxToppings;
         public int MinToppings => minToppings;

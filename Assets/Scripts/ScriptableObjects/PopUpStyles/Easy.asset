@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3fcae27b1a9d3419319a9b7b57ceec, type: 3}
+  m_Name: Easy
+  m_EditorClassIdentifier: 
+  fontMaterial: {fileID: 2100000, guid: 61ee235f86f96f241a1194a0f0d6c637, type: 2}
+  gradientTopLeft: {r: 1, g: 1, b: 1, a: 1}
+  gradientTopRight: {r: 1, g: 1, b: 1, a: 1}
+  gradientBottomLeft: {r: 0.72156864, g: 1, b: 0.72156864, a: 1}
+  gradientBottomRight: {r: 0.72156864, g: 1, b: 0.72156864, a: 1}

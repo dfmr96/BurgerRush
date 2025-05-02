@@ -28,7 +28,20 @@ public class ScorePopUp : MonoBehaviour
     {
         rectTransform.anchoredPosition = startAnchoredPos;
         scoreText.text = $"+{score}";
-        scoreText.fontSharedMaterial = complexity.ScoreTextMaterial;
+
+        var style = complexity.ScorePopupStyle;
+        if (style != null)
+        {
+            scoreText.fontSharedMaterial = style.fontMaterial;
+            scoreText.enableVertexGradient = true;
+            scoreText.colorGradient = style.Gradient;
+        }
+        else
+        {
+            Debug.LogError("[SCOREPOPUP] No material assigned");
+        }
+
+        scoreText.enabled = true;
 
         timer = 0f;
         isActive = true;
