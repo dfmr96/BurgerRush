@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjects.BurgerComplexityData;
 using TMPro;
 using UnityEngine;
 
@@ -23,14 +24,16 @@ public class ScorePopUp : MonoBehaviour
         scoreText.enabled = false;
     }
 
-    public void Show(int score)
+    public void Show(int score, BurgerComplexityData complexity)
     {
         rectTransform.anchoredPosition = startAnchoredPos;
         scoreText.text = $"+{score}";
+        scoreText.fontSharedMaterial = complexity.ScoreTextMaterial;
+
         timer = 0f;
         isActive = true;
+        gameObject.SetActive(true);
 
-        scoreText.enabled = true; // Activar el texto
         var canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup != null)
             canvasGroup.alpha = 1f;

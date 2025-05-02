@@ -99,9 +99,9 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public void ShowScorePopup(int _score)
+    public void ShowScorePopup(int _score, BurgerComplexityData complexity)
     {
-        scorePopup.Show(_score);
+        scorePopup.Show(_score, complexity);
     }
 
 
@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
         UpdateScoreUI();
 
         Debug.Log($"Order delivered! Score: {totalScore} (Base: {complexity.BaseScore}, Toppings: x{CountToppings(ingredients)} * {complexity.PointsPerTopping})");
-        ShowScorePopup(totalScore);
+        ShowScorePopup(totalScore, complexity);
     }
     private int CalculateScore(BurgerComplexityData complexity, Stack<IngredientData> ingredients)
     {
