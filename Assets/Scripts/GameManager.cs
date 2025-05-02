@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
     private float timeRemaining;
     private bool gameRunning = false;
     private bool isSpawningOrder = false;
+    
+    [SerializeField] private ScorePopUp scorePopup;
 
     private void Awake()
     {
@@ -95,6 +97,11 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(GenerateOrderWithDelay());
             }
         }
+    }
+    
+    public void ShowScorePopup(int _score)
+    {
+        scorePopup.Show(_score);
     }
 
 
@@ -161,6 +168,7 @@ public class GameManager : MonoBehaviour
         UpdateScoreUI();
 
         Debug.Log($"Order delivered! Score: {totalScore} (Base: {complexity.BaseScore}, Toppings: x{CountToppings(ingredients)} * {complexity.PointsPerTopping})");
+        ShowScorePopup(totalScore);
     }
     private int CalculateScore(BurgerComplexityData complexity, Stack<IngredientData> ingredients)
     {

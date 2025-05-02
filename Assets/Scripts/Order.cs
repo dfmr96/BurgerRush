@@ -19,6 +19,7 @@ public class Order : MonoBehaviour
     [SerializeField] private GameObject ingredientImagePrefab; // prefab con Image
     [SerializeField] private RectTransform orderRectTransform;
 
+
     
     public Stack<IngredientData> Ingredients { get; private set; } = new();
     public Action<Order> OnOrderExpired;
@@ -134,8 +135,8 @@ public class Order : MonoBehaviour
 
     private void Complete()
     {
-        Debug.Log("Order delivered!");
         GameManager.Instance.OnOrderDelivered(complexity, Ingredients);
+
         highlightImage.enabled = false;
         gameObject.SetActive(false);
     }
