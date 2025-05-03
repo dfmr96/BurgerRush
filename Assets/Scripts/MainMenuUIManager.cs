@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace
 {
-    public class UIManager: MonoBehaviour
+    public class MainMenuUIManager: MonoBehaviour
     {
         [SerializeField] private GameObject startGamePanel;
 
