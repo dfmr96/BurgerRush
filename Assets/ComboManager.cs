@@ -5,32 +5,18 @@ using UnityEngine;
 
 public class ComboManager : MonoBehaviour
 {
-    [SerializeField] private float comboWindow = 5f;
     [SerializeField] private TMP_Text comboText;
-
-    private float timer;
-    private int currentStreak = 0;
+    [SerializeField] private int minComboStreak = 3;
+    [field:SerializeField] private int currentStreak = 0;
     private bool comboActive = false;
 
     public int CurrentStreak => currentStreak;
 
-    private void Update()
-    {
-        if (!comboActive) return;
-
-        timer += Time.deltaTime;
-        if (timer >= comboWindow)
-        {
-            ResetCombo();
-        }
-    }
-
     public void RegisterDelivery()
     {
-        timer = 0f;
         currentStreak = CurrentStreak + 1;
 
-        if (CurrentStreak >= 3)
+        if (CurrentStreak >= minComboStreak)
         {
             comboActive = true;
             UpdateComboUI();

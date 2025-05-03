@@ -150,6 +150,7 @@ public class GameManager : MonoBehaviour
     public void BreakCombo()
     {
         comboManager.ResetCombo();
+        Debug.Log("Combo broken!!!");
     }
 
     public void DecreaseScore(int amount)
