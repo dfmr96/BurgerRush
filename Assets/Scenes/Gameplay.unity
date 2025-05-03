@@ -1498,8 +1498,8 @@ MonoBehaviour:
     easyWeight: 20
     mediumWeight: 50
     hardWeight: 30
-  maxConcurrentOrders: 3
-  minOrderDelay: 2
+  maxConcurrentOrders: 5
+  minOrderDelay: 1.5
   maxOrderDelay: 4
   scorePopup: {fileID: 677952393}
   comboManager: {fileID: 599541427}
