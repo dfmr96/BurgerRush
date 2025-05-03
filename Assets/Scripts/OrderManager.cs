@@ -49,7 +49,11 @@ public class OrderManager : MonoBehaviour
 
             order.SetIngredients(selectedIngredients.ToArray());
             order.SetComplexity(complexityData);
-            order.gameObject.SetActive(true);
+
+            order.gameObject.SetActive(true); // Primero activar
+
+            bool isBonus = Random.value < complexityData.ChanceToBeBonus;
+            order.SetBonus(isBonus);         // Luego asignar bonus
             return;
         }
 

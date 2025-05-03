@@ -103,7 +103,16 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public void ShowScorePopup(int _score, BurgerComplexityData complexity)
+    public void AddBonusTime(float amount)
+    {
+        timeRemaining += amount;
+        timeRemaining = Mathf.Min(timeRemaining, gameDuration); // Evita pasar el tiempo máximo
+
+        UpdateTimerUI(); // Refresca UI si es necesario
+        Debug.Log($"🕒 Tiempo bonus añadido: +{amount} segundos");
+    }
+
+    private void ShowScorePopup(int _score, BurgerComplexityData complexity)
     {
         scorePopup.Show(_score, complexity);
     }
@@ -162,7 +171,7 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Puntaje penalizado: -{amount}. Puntaje actual: {score}");
     }
 
-    public void OnOrderDelivered(BurgerComplexityData complexity, Stack<IngredientData> ingredients)
+    public void OnOrderDelivered(BurgerComplexityData complexity, Stack<IngredientData> ingredients, bool gaveBonus)
     {
         comboManager.RegisterDelivery();
         
@@ -170,6 +179,11 @@ public class GameManager : MonoBehaviour
         float multiplier = comboManager.GetMultiplier();
         int finalScore = Mathf.RoundToInt(baseScore * multiplier);
         score += finalScore;
+        
+        if (gaveBonus && complexity.BonusTimeOnDelivery > 0f)
+        {
+            AddBonusTime(complexity.BonusTimeOnDelivery);
+        }
 
         deliveredOrders++;
         UpdateScoreUI();

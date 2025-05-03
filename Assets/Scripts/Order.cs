@@ -18,16 +18,20 @@ public class Order : MonoBehaviour
     [SerializeField] private Transform ingredientContainer; // contenedor con Vertical Layout
     [SerializeField] private GameObject ingredientImagePrefab; // prefab con Image
     [SerializeField] private RectTransform orderRectTransform;
+    [SerializeField] private GameObject bonusIcon;
 
 
     
     public Stack<IngredientData> Ingredients { get; private set; } = new();
     public Action<Order> OnOrderExpired;
+    public bool IsBonusOrder => isBonusOrder;
     
     private bool _isDeliverable;
+    private bool isBonusOrder = false;
     private float timer;
     private bool isExpired;
 
+    
     private void OnEnable()
     {
         timer = lifespan;
@@ -35,6 +39,9 @@ public class Order : MonoBehaviour
 
         if (timerBar != null)
             timerBar.fillAmount = 1f;
+
+        if (bonusIcon != null)
+            bonusIcon.SetActive(false); // 🔁 siempre se oculta de inicio
     }
     
     private void Start()
@@ -44,6 +51,7 @@ public class Order : MonoBehaviour
     
     private void Update()
     {
+        if (!GameManager.Instance || !GameManager.Instance.IsGameRunning) return;
         if (isExpired) return;
 
         timer -= Time.deltaTime;
@@ -72,6 +80,14 @@ public class Order : MonoBehaviour
         {
             ExpireOrder();
         }
+    }
+    
+    public void SetBonus(bool value)
+    {
+        isBonusOrder = value;
+
+        if (bonusIcon != null)
+            bonusIcon.SetActive(isBonusOrder);
     }
     
     private void ExpireOrder()
@@ -135,7 +151,7 @@ public class Order : MonoBehaviour
 
     private void Complete()
     {
-        GameManager.Instance.OnOrderDelivered(complexity, Ingredients);
+        GameManager.Instance.OnOrderDelivered(complexity, Ingredients, isBonusOrder);
 
         highlightImage.enabled = false;
         gameObject.SetActive(false);
