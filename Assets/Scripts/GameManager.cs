@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
     private bool isSpawningOrder = false;
     
     [SerializeField] private ScorePopUp scorePopup;
+    
+    [SerializeField] private ComboManager comboManager;
 
     private void Awake()
     {
@@ -161,14 +163,16 @@ public class GameManager : MonoBehaviour
 
     public void OnOrderDelivered(BurgerComplexityData complexity, Stack<IngredientData> ingredients)
     {
-        int totalScore = CalculateScore(complexity, ingredients);
-        score += totalScore;
-        deliveredOrders++;
+        int baseScore = CalculateScore(complexity, ingredients);
+        float multiplier = comboManager.GetMultiplier();
+        int finalScore = Mathf.RoundToInt(baseScore * multiplier);
+        score += finalScore;
 
+        deliveredOrders++;
+        comboManager.RegisterDelivery();
         UpdateScoreUI();
 
-        Debug.Log($"Order delivered! Score: {totalScore} (Base: {complexity.BaseScore}, Toppings: x{CountToppings(ingredients)} * {complexity.PointsPerTopping})");
-        ShowScorePopup(totalScore, complexity);
+        ShowScorePopup(finalScore, complexity);
     }
     private int CalculateScore(BurgerComplexityData complexity, Stack<IngredientData> ingredients)
     {
