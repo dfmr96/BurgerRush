@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     public BurgerComplexityData HardBurger => hardBurger;
 
+    public bool IsGameRunning => isGameRunning;
+
     [Header("Debug Info")] 
     [SerializeField, ReadOnly] private string currentDifficultyLabel;
     [SerializeField, ReadOnly] private int currentProgressionIndex = -1;
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float maxOrderDelay = 2.5f;
 
     private float timeRemaining;
-    private bool gameRunning = false;
+    private bool isGameRunning = false;
     private bool isSpawningOrder = false;
     
     [SerializeField] private ScorePopUp scorePopup;
@@ -74,13 +76,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameRunning = true;
+        isGameRunning = true;
         StartGame();
     }
 
     private void Update()
     {
-        if (!gameRunning) return;
+        if (!IsGameRunning) return;
 
         timeRemaining -= Time.deltaTime;
         UpdateTimerUI();
@@ -112,7 +114,7 @@ public class GameManager : MonoBehaviour
         timeUpPanel.SetActive(false);
         restartButton.gameObject.SetActive(false);
 
-        gameRunning = true;
+        isGameRunning = true;
         timeRemaining = gameDuration;
         timeSlider.maxValue = gameDuration;
         timeSlider.value = gameDuration;
@@ -122,7 +124,7 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
-        gameRunning = false;
+        isGameRunning = false;
         timeUpPanel.SetActive(true);
         restartButton.gameObject.SetActive(true);
 
