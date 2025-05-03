@@ -12,6 +12,8 @@ public class ComboManager : MonoBehaviour
     private int currentStreak = 0;
     private bool comboActive = false;
 
+    public int CurrentStreak => currentStreak;
+
     private void Update()
     {
         if (!comboActive) return;
@@ -26,9 +28,9 @@ public class ComboManager : MonoBehaviour
     public void RegisterDelivery()
     {
         timer = 0f;
-        currentStreak++;
+        currentStreak = CurrentStreak + 1;
 
-        if (currentStreak >= 3)
+        if (CurrentStreak >= 3)
         {
             comboActive = true;
             UpdateComboUI();
@@ -37,15 +39,17 @@ public class ComboManager : MonoBehaviour
 
     public float GetMultiplier()
     {
-        if (currentStreak < 3) return 1f;
+        if (CurrentStreak < 3) return 1f;
 
-        int cappedStreak = Mathf.Min(currentStreak, 21);
+        int cappedStreak = Mathf.Min(CurrentStreak, 21);
         float multiplier = 1f + ((cappedStreak - 2) * 0.1f); // 3 = x1.1, ..., 21+ = x2.0
         return Mathf.Min(multiplier, 2.0f);
     }
 
     public void ResetCombo()
     {
+        if (!comboActive) return; // Protección
+
         currentStreak = 0;
         comboActive = false;
         comboText.gameObject.SetActive(false);

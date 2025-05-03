@@ -149,9 +149,7 @@ public class GameManager : MonoBehaviour
     
     public void BreakCombo()
     {
-        // A futuro podrías tener una lógica más compleja de combo
-        Debug.Log("Combo roto.");
-        // Acá podrías también actualizar la UI si tenés racha visible
+        comboManager.ResetCombo();
     }
 
     public void DecreaseScore(int amount)
@@ -163,15 +161,15 @@ public class GameManager : MonoBehaviour
 
     public void OnOrderDelivered(BurgerComplexityData complexity, Stack<IngredientData> ingredients)
     {
+        comboManager.RegisterDelivery();
+        
         int baseScore = CalculateScore(complexity, ingredients);
         float multiplier = comboManager.GetMultiplier();
         int finalScore = Mathf.RoundToInt(baseScore * multiplier);
         score += finalScore;
 
         deliveredOrders++;
-        comboManager.RegisterDelivery();
         UpdateScoreUI();
-
         ShowScorePopup(finalScore, complexity);
     }
     private int CalculateScore(BurgerComplexityData complexity, Stack<IngredientData> ingredients)
