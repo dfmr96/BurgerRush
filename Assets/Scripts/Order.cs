@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using DefaultNamespace;
+using DefaultNamespace.Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexityData;
 using TMPro;
@@ -96,6 +98,8 @@ public class Order : MonoBehaviour
     {
         if (isExpired) return;
         isExpired = true;
+        
+        AudioManager.Instance?.PlaySFX(SFXType.OrderExpired);
 
         OnOrderExpired?.Invoke(this);
         gameObject.SetActive(false);
@@ -162,11 +166,17 @@ public class Order : MonoBehaviour
     private void Complete()
     {
         GameManager.Instance.OnOrderDelivered(Complexity, Ingredients, isBonusOrder);
-        
+
         if (timer <= 3f && timer > 0f)
         {
             PlayerStatsManager.AddClutchDelivery();
+            AudioManager.Instance?.PlaySFX(SFXType.ClutchDelivery);
         }
+        else
+        {
+            AudioManager.Instance?.PlaySFX(SFXType.OrderDelivered);
+        }
+
         stacker.OrderManager.AddTimeToAllActiveOrdersExcept(this, complexity.ClutchBonusTime);
 
         highlightImage.enabled = false;

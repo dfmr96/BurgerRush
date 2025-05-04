@@ -51,6 +51,7 @@ MonoBehaviour:
   sfxSource: {fileID: 6543760527766500082}
   previewMusicClip: {fileID: 8300000, guid: e09bf1199c88b2749b730a676c5557cd, type: 3}
   previewSfxClip: {fileID: 8300000, guid: 9b5251b20c0453d419a249539a465104, type: 3}
+  sfxLibrary: {fileID: 11400000, guid: 79deffbbb0e37d849bbb6a68afbcb90b, type: 2}
 --- !u!1 &6179096804629580683
 GameObject:
   m_ObjectHideFlags: 0

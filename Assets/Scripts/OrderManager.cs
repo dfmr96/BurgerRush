@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using Databases;
+using DefaultNamespace;
+using DefaultNamespace.Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexityData;
 using UnityEngine;
@@ -51,6 +53,8 @@ public class OrderManager : MonoBehaviour
             order.SetComplexity(complexityData);
 
             order.gameObject.SetActive(true); // Primero activar
+
+            AudioManager.Instance?.PlaySFX(SFXType.NewOrder);
 
             bool isBonus = Random.value < complexityData.ChanceToBeBonus;
             order.SetBonus(isBonus);         // Luego asignar bonus

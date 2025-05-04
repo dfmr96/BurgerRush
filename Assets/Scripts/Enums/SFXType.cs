@@ -4,13 +4,10 @@
     {
         ButtonClick,
         IngredientPlaced,
-        IngredientDiscarded,
         StackCleared,
         OrderDelivered,
         OrderExpired,
-        OrderFailed,
         NewOrder,
-        ClutchDelivery,
-        ErrorDelivery,
+        ClutchDelivery
     }
 }

@@ -13,4 +13,18 @@ MonoBehaviour:
   m_Name: SFXLibrary_Main
   m_EditorClassIdentifier: 
   clips:
-    _serializedList: []
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 8300000, guid: 9b5251b20c0453d419a249539a465104, type: 3}
+    - Key: 1
+      Value: {fileID: 8300000, guid: c24f7dc11ac8d144fb51c92a99856d9f, type: 3}
+    - Key: 2
+      Value: {fileID: 8300000, guid: 650dfd38db6963441bd792379316043d, type: 3}
+    - Key: 3
+      Value: {fileID: 8300000, guid: ff8fe12e46a9fb346ba26939d16412f3, type: 3}
+    - Key: 4
+      Value: {fileID: 8300000, guid: bb3bdf854b937a648a440f9ddcb3ecb5, type: 3}
+    - Key: 5
+      Value: {fileID: 8300000, guid: 0f941ef97af69f644afc04f104c3d416, type: 3}
+    - Key: 6
+      Value: {fileID: 8300000, guid: 920ca3698bcc4fe4699f0ca50d64d5cd, type: 3}

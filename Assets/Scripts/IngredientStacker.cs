@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using DefaultNamespace;
+using DefaultNamespace.Enums;
 using ScriptableObjects;
 using UnityEngine;
 
@@ -44,6 +46,9 @@ public class IngredientStacker : MonoBehaviour
         PlayerStatsManager.AddIngredient();
         UpdateStackVisual();
         ValidateOrders();
+        
+        AudioManager.Instance?.PlaySFX(SFXType.IngredientPlaced);
+
     }
 
     public void ClearStack()
@@ -52,6 +57,8 @@ public class IngredientStacker : MonoBehaviour
         PlayerStatsManager.AddDiscarded();
         UpdateStackVisual();
         ValidateOrders();
+        
+        AudioManager.Instance?.PlaySFX(SFXType.StackCleared);
     }
     
     private void UpdateStackVisual()
