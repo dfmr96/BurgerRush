@@ -39,6 +39,7 @@ public class IngredientStacker : MonoBehaviour
         }
 
         _stackedIngredients.Push(ingredientData);
+        PlayerStatsManager.AddIngredient();
         UpdateStackVisual();
         ValidateOrders();
     }
