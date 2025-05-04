@@ -9,5 +9,10 @@ namespace ScriptableObjects
     {
         [SerializedDictionary("SFX Type", "Audio Clip")]
         public SerializedDictionary<SFXType, AudioClip> clips;
+        
+        public bool TryGetClip(SFXType type, out AudioClip clip)
+        {
+            return clips.TryGetValue(type, out clip);
+        }
     }
 }
