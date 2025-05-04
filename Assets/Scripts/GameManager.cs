@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     private float timeRemaining;
     private bool isGameRunning = false;
     private bool isSpawningOrder = false;
+    private float totalSessionTime = 0f;
     
     [SerializeField] private ScorePopUp scorePopup;
     
@@ -84,6 +85,8 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (!IsGameRunning) return;
+        
+        totalSessionTime += Time.deltaTime;
 
         timeRemaining -= Time.deltaTime;
         UpdateTimerUI();
@@ -140,6 +143,10 @@ public class GameManager : MonoBehaviour
         timeUpPanel.SetActive(true);
         restartButton.gameObject.SetActive(true);
 
+        int secondsPlayed = Mathf.FloorToInt(totalSessionTime);
+        PlayerStatsManager.AddSecondsPlayed(secondsPlayed);
+        PlayerStatsManager.UpdateLongestSession(secondsPlayed);
+        
         finalScoreText.text = $"Final Score: {score}";
     }
 

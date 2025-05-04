@@ -21,6 +21,7 @@ public static class PlayerStatsManager
     private const string Key_EasyFails = "EasyFails";
     private const string Key_MediumFails = "MediumFails";
     private const string Key_HardFails = "HardFails";
+    private const string Key_LongestSession = "LongestSessionDuration";
 
 
     // --- Métodos de modificación ---
@@ -46,6 +47,8 @@ public static class PlayerStatsManager
     public static int GetEasyDeliveries() => PlayerPrefs.GetInt(Key_EasyDeliveries, 0);
     public static int GetMediumDeliveries() => PlayerPrefs.GetInt(Key_MediumDeliveries, 0);
     public static int GetHardDeliveries() => PlayerPrefs.GetInt(Key_HardDeliveries, 0);
+    public static int GetLongestSession() => PlayerPrefs.GetInt(Key_LongestSession, 0);
+    
 
 
     public static void UpdatePerfectStreak(int value)
@@ -65,6 +68,13 @@ public static class PlayerStatsManager
         if (streak > PlayerPrefs.GetInt(Key_MaxStreak, 0))
             PlayerPrefs.SetInt(Key_MaxStreak, streak);
     }
+    
+    public static void UpdateLongestSession(int seconds)
+    {
+        int previous = PlayerPrefs.GetInt(Key_LongestSession, 0);
+        if (seconds > previous)
+            PlayerPrefs.SetInt(Key_LongestSession, seconds);
+    }
 
     public static void SetPlayerName(string name) => PlayerPrefs.SetString(Key_PlayerName, name);
     public static string GetPlayerName() => PlayerPrefs.GetString(Key_PlayerName, "Player");
@@ -74,6 +84,12 @@ public static class PlayerStatsManager
         int current = PlayerPrefs.GetInt(Key_DifficultyUnlocked, 0);
         if (level > current)
             PlayerPrefs.SetInt(Key_DifficultyUnlocked, level);
+    }
+    
+    public static void AddSecondsPlayed(int seconds)
+    {
+        int current = PlayerPrefs.GetInt(Key_TotalSecondsPlayed, 0);
+        PlayerPrefs.SetInt(Key_TotalSecondsPlayed, current + seconds);
     }
 
     public static int GetDifficultyUnlocked() => PlayerPrefs.GetInt(Key_DifficultyUnlocked, 0);
@@ -97,6 +113,8 @@ public static class PlayerStatsManager
         PlayerPrefs.DeleteKey(Key_EasyFails);
         PlayerPrefs.DeleteKey(Key_MediumFails);
         PlayerPrefs.DeleteKey(Key_HardFails);
+        PlayerPrefs.DeleteKey(Key_LongestSession);
+
     }
 
     // --- Métodos utilitarios ---
