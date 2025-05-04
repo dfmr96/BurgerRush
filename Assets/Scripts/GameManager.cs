@@ -176,6 +176,21 @@ public class GameManager : MonoBehaviour
 
     public void OnOrderDelivered(BurgerComplexityData complexity, Stack<IngredientData> ingredients, bool gaveBonus)
     {
+        PlayerStatsManager.AddBurger();
+        
+        switch (complexity.Difficulty)
+        {
+            case BurgerComplexityData.DifficultyType.Easy:
+                PlayerStatsManager.AddEasyDelivery();
+                break;
+            case BurgerComplexityData.DifficultyType.Medium:
+                PlayerStatsManager.AddMediumDelivery();
+                break;
+            case BurgerComplexityData.DifficultyType.Hard:
+                PlayerStatsManager.AddHardDelivery();
+                break;
+        }
+        
         comboManager.RegisterDelivery();
         
         int baseScore = CalculateScore(complexity, ingredients);

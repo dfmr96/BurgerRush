@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370699e346be4708acc5d260b6dd3d40, type: 3}
   m_Name: Hard
   m_EditorClassIdentifier: 
+  difficulty: 2
   label: Hard
   minToppings: 4
   maxToppings: 6

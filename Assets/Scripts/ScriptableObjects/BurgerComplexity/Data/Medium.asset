@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370699e346be4708acc5d260b6dd3d40, type: 3}
   m_Name: Medium
   m_EditorClassIdentifier: 
+  difficulty: 1
   label: Medium
   minToppings: 2
   maxToppings: 4
