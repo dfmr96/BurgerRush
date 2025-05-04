@@ -5,9 +5,14 @@ namespace ScriptableObjects.BurgerComplexityData
     [CreateAssetMenu(fileName = "BurgerComplexity", menuName = "BurgerRush/Burger Complexity")]
     public class BurgerComplexityData : ScriptableObject
     {
+        
         public enum DifficultyType { Easy, Medium, Hard }
         [SerializeField] private DifficultyType difficulty;
         public DifficultyType Difficulty => difficulty;
+        
+        [Header("Clutch Settings")]
+        [Tooltip("Tiempo bonus si se entrega en los últimos 3 segundos")]
+        public float ClutchBonusTime = 0f;
         
         [Tooltip("Visual identifier only")] 
         [SerializeField] private string label;

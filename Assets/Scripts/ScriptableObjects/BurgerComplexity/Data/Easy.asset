@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370699e346be4708acc5d260b6dd3d40, type: 3}
   m_Name: Easy
   m_EditorClassIdentifier: 
+  difficulty: 0
+  ClutchBonusTime: 1
   label: Easy
   minToppings: 0
   maxToppings: 1
   baseScore: 100
   pointsPerTopping: 10
   scorePopupStyle: {fileID: 11400000, guid: 05eb98cd20dce3143a6f31f84a90891f, type: 2}
+  bonusTimeOnDelivery: 0
+  chanceToBeBonus: 0

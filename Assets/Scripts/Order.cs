@@ -150,10 +150,24 @@ public class Order : MonoBehaviour
             Debug.Log("This order does not match the current stack.");
         }
     }
+    public void AddBonusTime(float bonus)
+    {
+        timer += bonus;
+        timer = Mathf.Min(timer, lifespan); // evita pasarse del máximo
+
+        // Opcional: feedback visual
+        Debug.Log($"🕒 Orden extendida: +{bonus}s restantes");
+    }
 
     private void Complete()
     {
         GameManager.Instance.OnOrderDelivered(Complexity, Ingredients, isBonusOrder);
+        
+        if (timer <= 3f && timer > 0f)
+        {
+            PlayerStatsManager.AddClutchDelivery();
+        }
+        stacker.OrderManager.AddTimeToAllActiveOrdersExcept(this, complexity.ClutchBonusTime);
 
         highlightImage.enabled = false;
         gameObject.SetActive(false);

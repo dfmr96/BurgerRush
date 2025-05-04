@@ -13,6 +13,8 @@ public class IngredientStacker : MonoBehaviour
     private readonly Stack<IngredientData> _stackedIngredients = new();
     private readonly List<GameObject> _visualStack = new();
 
+    public OrderManager OrderManager => orderManager;
+
     private void Awake()
     {
         if (stackContainer == null)
@@ -78,7 +80,7 @@ public class IngredientStacker : MonoBehaviour
 
     private void ValidateOrders()
     {
-        foreach (var order in orderManager.Orders)
+        foreach (var order in OrderManager.Orders)
         {
             if (!order.gameObject.activeSelf) continue;
 

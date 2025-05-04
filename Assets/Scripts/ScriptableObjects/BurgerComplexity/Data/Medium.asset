@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Medium
   m_EditorClassIdentifier: 
   difficulty: 1
+  ClutchBonusTime: 2
   label: Medium
   minToppings: 2
   maxToppings: 4

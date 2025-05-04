@@ -70,6 +70,17 @@ public class OrderManager : MonoBehaviour
         return count;
     }
     
+    public void AddTimeToAllActiveOrdersExcept(Order exclude, float bonus)
+    {
+        foreach (var order in orders)
+        {
+            if (order == exclude) continue;
+            if (!order.gameObject.activeSelf) continue;
+
+            order.AddBonusTime(bonus);
+        }
+    }
+    
     private void HandleOrderExpired(Order expiredOrder)
     {
         Debug.Log("¡Una orden expiró!");
