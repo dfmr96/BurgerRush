@@ -25,7 +25,9 @@ public class Order : MonoBehaviour
     public Stack<IngredientData> Ingredients { get; private set; } = new();
     public Action<Order> OnOrderExpired;
     public bool IsBonusOrder => isBonusOrder;
-    
+
+    public BurgerComplexityData Complexity => complexity;
+
     private bool _isDeliverable;
     private bool isBonusOrder = false;
     private float timer;
@@ -151,7 +153,7 @@ public class Order : MonoBehaviour
 
     private void Complete()
     {
-        GameManager.Instance.OnOrderDelivered(complexity, Ingredients, isBonusOrder);
+        GameManager.Instance.OnOrderDelivered(Complexity, Ingredients, isBonusOrder);
 
         highlightImage.enabled = false;
         gameObject.SetActive(false);

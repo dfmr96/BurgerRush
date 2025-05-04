@@ -75,6 +75,19 @@ public class OrderManager : MonoBehaviour
         Debug.Log("¡Una orden expiró!");
         
         PlayerStatsManager.AddOrderFail();
+        
+        switch (expiredOrder.Complexity.Difficulty)
+        {
+            case BurgerComplexityData.DifficultyType.Easy:
+                PlayerStatsManager.AddEasyFail();
+                break;
+            case BurgerComplexityData.DifficultyType.Medium:
+                PlayerStatsManager.AddMediumFail();
+                break;
+            case BurgerComplexityData.DifficultyType.Hard:
+                PlayerStatsManager.AddHardFail();
+                break;
+        }
 
         // Aplicar consecuencias de la orden vencida
         GameManager.Instance.BreakCombo(); // Rompe la racha

@@ -18,6 +18,9 @@ public static class PlayerStatsManager
     private const string Key_EasyDeliveries = "EasyDeliveries";
     private const string Key_MediumDeliveries = "MediumDeliveries";
     private const string Key_HardDeliveries = "HardDeliveries";
+    private const string Key_EasyFails = "EasyFails";
+    private const string Key_MediumFails = "MediumFails";
+    private const string Key_HardFails = "HardFails";
 
 
     // --- Métodos de modificación ---
@@ -32,6 +35,13 @@ public static class PlayerStatsManager
     public static void AddEasyDelivery() => IncrementInt(Key_EasyDeliveries);
     public static void AddMediumDelivery() => IncrementInt(Key_MediumDeliveries);
     public static void AddHardDelivery() => IncrementInt(Key_HardDeliveries);
+    public static void AddEasyFail() => IncrementInt(Key_EasyFails);
+    public static void AddMediumFail() => IncrementInt(Key_MediumFails);
+    public static void AddHardFail() => IncrementInt(Key_HardFails);
+
+    public static int GetEasyFails() => PlayerPrefs.GetInt(Key_EasyFails, 0);
+    public static int GetMediumFails() => PlayerPrefs.GetInt(Key_MediumFails, 0);
+    public static int GetHardFails() => PlayerPrefs.GetInt(Key_HardFails, 0);
         
     public static int GetEasyDeliveries() => PlayerPrefs.GetInt(Key_EasyDeliveries, 0);
     public static int GetMediumDeliveries() => PlayerPrefs.GetInt(Key_MediumDeliveries, 0);
@@ -84,6 +94,9 @@ public static class PlayerStatsManager
         PlayerPrefs.DeleteKey(Key_MaxStreak);
         PlayerPrefs.DeleteKey(Key_PlayerName);
         PlayerPrefs.DeleteKey(Key_DifficultyUnlocked);
+        PlayerPrefs.DeleteKey(Key_EasyFails);
+        PlayerPrefs.DeleteKey(Key_MediumFails);
+        PlayerPrefs.DeleteKey(Key_HardFails);
     }
 
     // --- Métodos utilitarios ---
