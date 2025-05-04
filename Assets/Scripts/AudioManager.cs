@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using DefaultNamespace.Enums;
+using ScriptableObjects;
+using UnityEngine;
 using UnityEngine.Audio;
 
 namespace DefaultNamespace
@@ -17,6 +19,9 @@ namespace DefaultNamespace
         [Header("Audio Clips")]
         [SerializeField] private AudioClip previewMusicClip;
         [SerializeField] private AudioClip previewSfxClip;
+        
+        [Header("SFX Library")]
+        [SerializeField] private SFXLibrary sfxLibrary;
 
         private void Awake()
         {
@@ -81,6 +86,18 @@ namespace DefaultNamespace
         public float GetSavedVolume(string key, float defaultValue)
         {
             return PlayerPrefs.GetFloat(key, defaultValue);
+        }
+        
+        public void PlaySFX(SFXType type)
+        {
+            if (sfxLibrary.clips.TryGetValue(type, out var clip) && clip != null)
+            {
+                sfxSource.PlayOneShot(clip);
+            }
+            else
+            {
+                Debug.LogWarning($"🎵 SFX clip for {type} not found!");
+            }
         }
     }
 }
