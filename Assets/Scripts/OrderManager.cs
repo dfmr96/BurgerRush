@@ -73,10 +73,12 @@ public class OrderManager : MonoBehaviour
     private void HandleOrderExpired(Order expiredOrder)
     {
         Debug.Log("¡Una orden expiró!");
+        
+        PlayerStatsManager.AddOrderFail();
 
         // Aplicar consecuencias de la orden vencida
         GameManager.Instance.BreakCombo(); // Rompe la racha
-        GameManager.Instance.DecreaseScore(50); // Penaliza el puntaje
+        GameManager.Instance.DecreaseScore(50); // Penaliza el puntaje //TODO Penalizacion por dificultad
         // También podrías reproducir un sonido o feedback visual acá
     }
 }
