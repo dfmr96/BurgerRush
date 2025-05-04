@@ -146,6 +146,7 @@ public class GameManager : MonoBehaviour
         int secondsPlayed = Mathf.FloorToInt(totalSessionTime);
         PlayerStatsManager.AddSecondsPlayed(secondsPlayed);
         PlayerStatsManager.UpdateLongestSession(secondsPlayed);
+        PlayerStatsManager.UpdateHighScore(score);
         
         finalScoreText.text = $"Final Score: {score}";
     }

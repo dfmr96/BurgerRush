@@ -15,6 +15,8 @@ public class ComboManager : MonoBehaviour
     public void RegisterDelivery()
     {
         currentStreak = CurrentStreak + 1;
+        PlayerStatsManager.UpdateMaxStreak(CurrentStreak);
+
 
         if (CurrentStreak >= minComboStreak)
         {
