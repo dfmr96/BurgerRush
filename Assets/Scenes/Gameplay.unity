@@ -4167,6 +4167,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 230400500}
   - {fileID: 1946811554}
   - {fileID: 1067058301}
   - {fileID: 736049245}
@@ -4174,7 +4175,6 @@ RectTransform:
   - {fileID: 1726539876}
   - {fileID: 677952394}
   - {fileID: 599541426}
-  - {fileID: 230400500}
   - {fileID: 856281932}
   - {fileID: 990515185}
   m_Father: {fileID: 0}

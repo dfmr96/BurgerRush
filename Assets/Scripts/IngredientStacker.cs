@@ -46,6 +46,7 @@ public class IngredientStacker : MonoBehaviour
     public void ClearStack()
     {
         _stackedIngredients.Clear();
+        PlayerStatsManager.AddDiscarded();
         UpdateStackVisual();
         ValidateOrders();
     }
