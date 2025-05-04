@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexityData;
 using TMPro;
@@ -120,6 +121,8 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
+        PlayerStatsManager.AddPlay();
+        
         timeUpPanel.SetActive(false);
         restartButton.gameObject.SetActive(false);
 
