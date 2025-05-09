@@ -4,12 +4,14 @@ using DefaultNamespace;
 using DefaultNamespace.Enums;
 using ScriptableObjects;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class IngredientStacker : MonoBehaviour
 {
     [SerializeField] private OrderManager orderManager;
     [SerializeField] private Transform stackContainer; // Visual container
     [SerializeField] private GameObject stackedIngredientPrefab; // Prefab for stacked ingredients
+    [SerializeField] private List<IngredientButton> ingredientButtons;
 
     [SerializeField] private float yOffset;
     private readonly Stack<IngredientData> _stackedIngredients = new();
@@ -28,8 +30,7 @@ public class IngredientStacker : MonoBehaviour
     private void Start()
     {
         // Find all IngredientButtons in the scene
-        var buttons = FindObjectsOfType<IngredientButton>();
-        foreach (var button in buttons)
+        foreach (var button in ingredientButtons)
             // Initialize each button with the StackIngredient method
             button.Initialize(StackIngredient);
     }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Patty
   m_EditorClassIdentifier: 
   ingredientName: Patty
-  ingredientIcon: {fileID: -2092832389, guid: 1dd747ee04ac3d04186e1c82fbc52f51, type: 3}
+  ingredientIcon: {fileID: -1637849991, guid: 86de8d81397b28744b3f8997626b67a3, type: 3}
   type: 1

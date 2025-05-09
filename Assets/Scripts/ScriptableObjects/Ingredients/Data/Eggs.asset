@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Eggs
   m_EditorClassIdentifier: 
   ingredientName: Eggs
-  ingredientIcon: {fileID: -1027580255, guid: 1dd747ee04ac3d04186e1c82fbc52f51, type: 3}
+  ingredientIcon: {fileID: 1230525329, guid: 86de8d81397b28744b3f8997626b67a3, type: 3}
   type: 2

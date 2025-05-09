@@ -120,18 +120,23 @@ public class Order : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        // Mostrar ingredientes como imágenes
-        foreach (var ingredient in Ingredients)
+        var ingredientList = new List<IngredientData>(Ingredients);
+
+        // Mostrar ingredientes de abajo hacia arriba, los últimos deben tener mayor prioridad
+        for (int i = 0; i < ingredientList.Count; i++)
         {
             var imageGO = Instantiate(ingredientImagePrefab, ingredientContainer);
             var image = imageGO.GetComponent<Image>();
             if (image != null)
             {
-                image.sprite = ingredient.IngredientIcon;
+                image.sprite = ingredientList[i].IngredientIcon;
             }
-        }
-        LayoutRebuilder.ForceRebuildLayoutImmediate(orderRectTransform);
 
+            // Este ingrediente se coloca al fondo visual (para que el siguiente lo tape)
+            imageGO.transform.SetAsFirstSibling();
+        }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(orderRectTransform);
     }
 
     public void MarkAsDeliverable(bool canDeliver)

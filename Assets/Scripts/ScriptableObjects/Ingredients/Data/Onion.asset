@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Onion
   m_EditorClassIdentifier: 
   ingredientName: Onion
-  ingredientIcon: {fileID: 1828899194, guid: 1dd747ee04ac3d04186e1c82fbc52f51, type: 3}
+  ingredientIcon: {fileID: -444621793, guid: 86de8d81397b28744b3f8997626b67a3, type: 3}
   type: 2
