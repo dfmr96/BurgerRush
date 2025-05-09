@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 namespace DefaultNamespace
@@ -6,10 +7,12 @@ namespace DefaultNamespace
     public class GameplayUIManager : MonoBehaviour
     {
         [SerializeField] private GameObject pausePanel;
-
+        [SerializeField] private GameObject optionPanel;
         public void OnPausePressed()
         {
             Time.timeScale = 0f;
+            EventSystem.current.SetSelectedGameObject(null);
+            Debug.Log("Pause Pressed");
             pausePanel.SetActive(true);
         }
 
@@ -29,6 +32,13 @@ namespace DefaultNamespace
         {
             Time.timeScale = 1f;
             SceneManager.LoadScene("MainMenu");
+        }
+        
+        public void OnOptionPressed()
+        {
+            Debug.Log("Option Pressed");
+            optionPanel.SetActive(true);
+            Canvas.ForceUpdateCanvases();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,7 +29,6 @@ namespace DefaultNamespace
 
         [SerializeField] private Button openSettingsButton;
         [SerializeField] private Button closeSettingsButton;
-
         private void Start()
         {
             // Setup initial slider values
@@ -45,6 +45,7 @@ namespace DefaultNamespace
                     if (sfxVolumeSlider)
                         sfxVolumeSlider.value = AudioManager.Instance.GetSavedVolume("SFXVolume", 1f);
                 }
+                audioSettingsPanel.SetActive(false);
             }
 
             // Add listeners to sliders
@@ -55,10 +56,6 @@ namespace DefaultNamespace
 
             // Initial UI update
             UpdateValueText();
-
-            // Initially hide the settings panel if available
-            if (audioSettingsPanel)
-                audioSettingsPanel.SetActive(false);
         }
 
         private void SetupSliderListeners()
