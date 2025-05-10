@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexityData;
 using TMPro;
@@ -13,13 +14,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public BurgerComplexityData EasyBurger => easyBurger;
-
-    public BurgerComplexityData MediumBurger => mediumBurger;
-
-    public BurgerComplexityData HardBurger => hardBurger;
-
-    public bool IsGameRunning => isGameRunning;
 
     [Header("Debug Info")] 
     [SerializeField, ReadOnly] private string currentDifficultyLabel;
@@ -55,14 +49,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float minOrderDelay = 1f;
     [SerializeField] private float maxOrderDelay = 2.5f;
 
+    
+    [SerializeField] private ScorePopUp scorePopup;
+    [SerializeField] private ComboManager comboManager;
+    [SerializeField] private SFXType gameplayTheme;
+
     private float timeRemaining;
     private bool isGameRunning = false;
     private bool isSpawningOrder = false;
     private float totalSessionTime = 0f;
-    
-    [SerializeField] private ScorePopUp scorePopup;
-    
-    [SerializeField] private ComboManager comboManager;
+    public BurgerComplexityData EasyBurger => easyBurger;
+    public BurgerComplexityData MediumBurger => mediumBurger;
+    public BurgerComplexityData HardBurger => hardBurger;
+    public bool IsGameRunning => isGameRunning;
 
     private void Awake()
     {
@@ -124,7 +123,7 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         PlayerStatsManager.AddPlay();
-        
+        AudioManager.Instance.PlayBackgroundMusic(gameplayTheme);
         timeUpPanel.SetActive(false);
 
         isGameRunning = true;

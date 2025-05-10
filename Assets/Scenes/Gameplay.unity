@@ -1622,6 +1622,7 @@ MonoBehaviour:
   maxOrderDelay: 4
   scorePopup: {fileID: 677952393}
   comboManager: {fileID: 599541427}
+  gameplayTheme: 8
 --- !u!4 &363890153
 Transform:
   m_ObjectHideFlags: 0

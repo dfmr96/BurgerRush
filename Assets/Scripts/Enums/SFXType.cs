@@ -9,6 +9,7 @@
         OrderExpired,
         NewOrder,
         ClutchDelivery,
-        MainMenuTheme
+        MainMenuTheme,
+        GameplayTheme,
     }
 }
