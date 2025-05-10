@@ -43,7 +43,7 @@ public static  class VibrationManager
         switch (preset)
         {
             case VibrationPreset.Light:
-                Vibrate(20, AMPLITUDE_LIGHT);
+                Vibrate(30, AMPLITUDE_MEDIUM);
                 break;
             case VibrationPreset.UI:
                 Vibrate(40, 100);

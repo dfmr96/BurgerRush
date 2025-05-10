@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ComboManager : MonoBehaviour
 {
+    public static ComboManager Instance { get; private set; }
     [SerializeField] private TMP_Text comboText;
     [SerializeField] private int minComboStreak = 3;
     [field:SerializeField] private int currentStreak = 0;
@@ -13,6 +14,17 @@ public class ComboManager : MonoBehaviour
     private bool comboActive = false;
 
     public int CurrentStreak => currentStreak;
+    
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -30,6 +42,8 @@ public class ComboManager : MonoBehaviour
             comboActive = true;
             UpdateComboUI();
         }
+        
+        
     }
 
     public float GetMultiplier()

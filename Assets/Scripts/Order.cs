@@ -179,7 +179,7 @@ public class Order : MonoBehaviour
         }
         else
         {
-            AudioManager.Instance?.PlaySFX(SFXType.OrderDelivered);
+            AudioManager.Instance.PlayOrderDeliveredSFX(ComboManager.Instance.CurrentStreak);
         }
         VibrationManager.Vibrate(VibrationPreset.OrderCompleted);
         stacker.OrderManager.AddTimeToAllActiveOrdersExcept(this, complexity.ClutchBonusTime);

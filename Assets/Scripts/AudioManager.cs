@@ -1,4 +1,5 @@
-﻿using DefaultNamespace.Enums;
+﻿using System.Collections.Generic;
+using DefaultNamespace.Enums;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -20,6 +21,9 @@ public class AudioManager : MonoBehaviour
         
     [Header("SFX Library")]
     [SerializeField] private SFXLibrary sfxLibrary;
+    
+    [SerializeField] private int pooledSourcesCount = 2;
+    private List<AudioSource> pooledSources = new();
 
     private void Awake()
     {
@@ -27,12 +31,41 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            InitializeSFXPool();
         }
         else
         {
             Destroy(gameObject);
         }
+
         LoadSavedVolumes();
+    }
+    
+    private void InitializeSFXPool()
+    {
+        for (int i = 0; i < pooledSourcesCount; i++)
+        {
+            var source = gameObject.AddComponent<AudioSource>();
+            source.outputAudioMixerGroup = sfxSource.outputAudioMixerGroup;
+            source.playOnAwake = false;
+            pooledSources.Add(source);
+        }
+    }
+    
+    private AudioSource GetAvailableSource()
+    {
+        foreach (var source in pooledSources)
+        {
+            if (!source.isPlaying)
+                return source;
+        }
+
+        // Si todos están ocupados, opcionalmente podés clonar uno (o retornar null)
+        var newSource = gameObject.AddComponent<AudioSource>();
+        newSource.outputAudioMixerGroup = sfxSource.outputAudioMixerGroup;
+        newSource.playOnAwake = false;
+        pooledSources.Add(newSource);
+        return newSource;
     }
 
     public void SetMasterVolume(float value)
@@ -95,6 +128,21 @@ public class AudioManager : MonoBehaviour
         else
         {
             Debug.LogWarning($"🎵 SFX clip for {type} not found!");
+        }
+    }
+    public void PlayOrderDeliveredSFX(int combo)
+    {
+        if (sfxLibrary.clips.TryGetValue(SFXType.OrderDelivered, out var clip) && clip != null)
+        {
+            float pitch = Mathf.Lerp(0.8f, 2f, Mathf.InverseLerp(0, 21, combo));
+            Debug.Log($"🎧 Playing OrderDelivered with pitch: {pitch} | Combo: {combo} | Clip: {clip.name}");
+
+            AudioSource source = GetAvailableSource();
+            if (source != null)
+            {
+                source.pitch = pitch;
+                source.PlayOneShot(clip);
+            }
         }
     }
 }
