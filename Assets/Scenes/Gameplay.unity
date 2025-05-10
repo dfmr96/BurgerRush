@@ -5353,7 +5353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1726539876
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5609,6 +5609,7 @@ GameObject:
   - component: {fileID: 1790080715}
   - component: {fileID: 1790080718}
   - component: {fileID: 1790080719}
+  - component: {fileID: 1790080720}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -5763,6 +5764,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vibrationPreset: 1
+--- !u!114 &1790080720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790080713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da71646540d81af4e8db793b8d2eb8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundToPlay: 0
 --- !u!224 &1809790403 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3912464092632638002, guid: 8cc4d2e65e38a7041967db6c5edca650, type: 3}

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5465542493140614579}
   - component: {fileID: 5182053448366036387}
   - component: {fileID: 6084609492030345791}
+  - component: {fileID: 2436934565564215089}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -200,6 +201,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vibrationPreset: 1
+--- !u!114 &2436934565564215089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2815127778351386739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da71646540d81af4e8db793b8d2eb8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundToPlay: 0
 --- !u!1 &5990870303720552574
 GameObject:
   m_ObjectHideFlags: 0

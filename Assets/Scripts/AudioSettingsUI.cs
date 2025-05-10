@@ -1,150 +1,151 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace DefaultNamespace
+public class AudioSettingsUI : MonoBehaviour
 {
-    public class AudioSettingsUI : MonoBehaviour
+    [Header("Volume Sliders")] [SerializeField]
+    private Slider masterVolumeSlider;
+
+    [SerializeField] private Slider musicVolumeSlider;
+    [SerializeField] private Slider sfxVolumeSlider;
+
+    [Header("Value Text (Optional)")] [SerializeField]
+    private TextMeshProUGUI masterValueText;
+
+    [SerializeField] private TextMeshProUGUI musicValueText;
+    [SerializeField] private TextMeshProUGUI sfxValueText;
+
+    [Header("Audio Preview Buttons")] [SerializeField]
+    private Button musicPreviewButton;
+
+    [SerializeField] private Button sfxPreviewButton;
+
+    [Header("Panel Controls")] [SerializeField]
+    private GameObject audioSettingsPanel;
+
+    [SerializeField] private Button openSettingsButton;
+    [SerializeField] private Button closeSettingsButton;
+    private void Start()
     {
-        [Header("Volume Sliders")] [SerializeField]
-        private Slider masterVolumeSlider;
-
-        [SerializeField] private Slider musicVolumeSlider;
-        [SerializeField] private Slider sfxVolumeSlider;
-
-        [Header("Value Text (Optional)")] [SerializeField]
-        private TextMeshProUGUI masterValueText;
-
-        [SerializeField] private TextMeshProUGUI musicValueText;
-        [SerializeField] private TextMeshProUGUI sfxValueText;
-
-        [Header("Audio Preview Buttons")] [SerializeField]
-        private Button musicPreviewButton;
-
-        [SerializeField] private Button sfxPreviewButton;
-
-        [Header("Panel Controls")] [SerializeField]
-        private GameObject audioSettingsPanel;
-
-        [SerializeField] private Button openSettingsButton;
-        [SerializeField] private Button closeSettingsButton;
-        private void Start()
-        {
-            // Setup initial slider values
-            if (AudioManager.Instance != null)
-            {
-                if (AudioManager.Instance != null)
-                {
-                    if (masterVolumeSlider)
-                        masterVolumeSlider.value = AudioManager.Instance.GetSavedVolume("MasterVolume", 1f);
-
-                    if (musicVolumeSlider)
-                        musicVolumeSlider.value = AudioManager.Instance.GetSavedVolume("MusicVolume", 0.7f);
-
-                    if (sfxVolumeSlider)
-                        sfxVolumeSlider.value = AudioManager.Instance.GetSavedVolume("SFXVolume", 1f);
-                }
-            }
-
-            // Add listeners to sliders
-            SetupSliderListeners();
-
-            // Add listeners to buttons
-            SetupButtonListeners();
-
-            // Initial UI update
-            UpdateValueText();
-        }
-
-        private void SetupSliderListeners()
+        // Setup initial slider values
+        if (AudioManager.Instance != null)
         {
             if (masterVolumeSlider)
-                masterVolumeSlider.onValueChanged.AddListener(OnMasterVolumeChanged);
+                masterVolumeSlider.SetValueWithoutNotify(AudioManager.Instance.GetSavedVolume("MasterVolume", 1f));
 
             if (musicVolumeSlider)
-                musicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
+                musicVolumeSlider.SetValueWithoutNotify(AudioManager.Instance.GetSavedVolume("MusicVolume", 0.7f));
 
             if (sfxVolumeSlider)
-                sfxVolumeSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
+                sfxVolumeSlider.SetValueWithoutNotify(AudioManager.Instance.GetSavedVolume("SFXVolume", 1f));
+
         }
 
-        private void SetupButtonListeners()
+        // Add listeners to sliders
+        SetupSliderListeners();
+
+        // Add listeners to buttons
+        SetupButtonListeners();
+
+        // Initial UI update
+        UpdateValueText();
+        
+        if (AudioManager.Instance != null)
         {
-            if (musicPreviewButton)
-                musicPreviewButton.onClick.AddListener(OnMusicPreviewClicked);
-
-            if (sfxPreviewButton)
-                sfxPreviewButton.onClick.AddListener(OnSFXPreviewClicked);
-
-            if (openSettingsButton)
-                openSettingsButton.onClick.AddListener(OnOpenSettingsClicked);
-
-            if (closeSettingsButton)
-                closeSettingsButton.onClick.AddListener(OnCloseSettingsClicked);
+            AudioManager.Instance.SetMasterVolume(masterVolumeSlider.value);
+            AudioManager.Instance.SetMusicVolume(musicVolumeSlider.value);
+            AudioManager.Instance.SetSFXVolume(sfxVolumeSlider.value);
         }
+    }
 
-        // Slider event handlers
-        public void OnMasterVolumeChanged(float value)
-        {
-            if (AudioManager.Instance != null)
-                AudioManager.Instance.SetMasterVolume(value);
+    private void SetupSliderListeners()
+    {
+        if (masterVolumeSlider)
+            masterVolumeSlider.onValueChanged.AddListener(OnMasterVolumeChanged);
 
-            UpdateValueText();
-        }
+        if (musicVolumeSlider)
+            musicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeChanged);
 
-        public void OnMusicVolumeChanged(float value)
-        {
-            if (AudioManager.Instance != null)
-                AudioManager.Instance.SetMusicVolume(value);
+        if (sfxVolumeSlider)
+            sfxVolumeSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
+    }
 
-            UpdateValueText();
-        }
+    private void SetupButtonListeners()
+    {
+        if (musicPreviewButton)
+            musicPreviewButton.onClick.AddListener(OnMusicPreviewClicked);
 
-        public void OnSFXVolumeChanged(float value)
-        {
-            if (AudioManager.Instance != null)
-                AudioManager.Instance.SetSFXVolume(value);
+        if (sfxPreviewButton)
+            sfxPreviewButton.onClick.AddListener(OnSFXPreviewClicked);
 
-            UpdateValueText();
-        }
+        if (openSettingsButton)
+            openSettingsButton.onClick.AddListener(OnOpenSettingsClicked);
 
-        // Button event handlers
-        public void OnMusicPreviewClicked()
-        {
-            if (AudioManager.Instance != null)
-                AudioManager.Instance.PlayBackgroundMusic();
-        }
+        if (closeSettingsButton)
+            closeSettingsButton.onClick.AddListener(OnCloseSettingsClicked);
+    }
 
-        public void OnSFXPreviewClicked()
-        {
-            if (AudioManager.Instance != null)
-                AudioManager.Instance.PlayButtonClickSound();
-        }
+    // Slider event handlers
+    public void OnMasterVolumeChanged(float value)
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.SetMasterVolume(value);
 
-        public void OnOpenSettingsClicked()
-        {
-            if (audioSettingsPanel)
-                audioSettingsPanel.SetActive(true);
-        }
+        UpdateValueText();
+    }
 
-        public void OnCloseSettingsClicked()
-        {
-            if (audioSettingsPanel)
-                audioSettingsPanel.SetActive(false);
-        }
+    public void OnMusicVolumeChanged(float value)
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.SetMusicVolume(value);
 
-        // Update UI text elements
-        private void UpdateValueText()
-        {
-            if (masterValueText && masterVolumeSlider)
-                masterValueText.text = Mathf.RoundToInt(masterVolumeSlider.value * 100).ToString() + "%";
+        UpdateValueText();
+    }
 
-            if (musicValueText && musicVolumeSlider)
-                musicValueText.text = Mathf.RoundToInt(musicVolumeSlider.value * 100).ToString() + "%";
+    public void OnSFXVolumeChanged(float value)
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.SetSFXVolume(value);
 
-            if (sfxValueText && sfxVolumeSlider)
-                sfxValueText.text = Mathf.RoundToInt(sfxVolumeSlider.value * 100).ToString() + "%";
-        }
+        UpdateValueText();
+    }
+
+    // Button event handlers
+    public void OnMusicPreviewClicked()
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayBackgroundMusic();
+    }
+
+    public void OnSFXPreviewClicked()
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayButtonClickSound();
+    }
+
+    public void OnOpenSettingsClicked()
+    {
+        if (audioSettingsPanel)
+            audioSettingsPanel.SetActive(true);
+    }
+
+    public void OnCloseSettingsClicked()
+    {
+        if (audioSettingsPanel)
+            audioSettingsPanel.SetActive(false);
+    }
+
+    // Update UI text elements
+    private void UpdateValueText()
+    {
+        if (masterValueText && masterVolumeSlider)
+            masterValueText.text = Mathf.RoundToInt(masterVolumeSlider.value * 100).ToString() + "%";
+
+        if (musicValueText && musicVolumeSlider)
+            musicValueText.text = Mathf.RoundToInt(musicVolumeSlider.value * 100).ToString() + "%";
+
+        if (sfxValueText && sfxVolumeSlider)
+            sfxValueText.text = Mathf.RoundToInt(sfxVolumeSlider.value * 100).ToString() + "%";
     }
 }
