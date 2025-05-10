@@ -21,6 +21,7 @@ public class IngredientButton : MonoBehaviour
         button.onClick.AddListener(() =>
         {
             onClickCallback?.Invoke(ingredientData);
+            AudioManager.Instance.PlayIngredientPlacedSFX();
         });
     }
 }

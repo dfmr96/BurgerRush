@@ -134,13 +134,27 @@ public class AudioManager : MonoBehaviour
     {
         if (sfxLibrary.clips.TryGetValue(SFXType.OrderDelivered, out var clip) && clip != null)
         {
-            float pitch = Mathf.Lerp(0.8f, 2f, Mathf.InverseLerp(0, 21, combo));
+            float pitch = Mathf.Lerp(0.8f, 1.5f, Mathf.InverseLerp(3, 21, combo));
             Debug.Log($"🎧 Playing OrderDelivered with pitch: {pitch} | Combo: {combo} | Clip: {clip.name}");
 
             AudioSource source = GetAvailableSource();
             if (source != null)
             {
                 source.pitch = pitch;
+                source.PlayOneShot(clip);
+            }
+        }
+    }
+    
+    public void PlayIngredientPlacedSFX()
+    {
+        if (sfxLibrary.clips.TryGetValue(SFXType.IngredientPlaced, out var clip) && clip != null)
+        {
+            AudioSource source = GetAvailableSource();
+            if (source != null)
+            {
+                //float randomPitch = Random.Range(.9f, 1.1f);
+                //source.pitch = randomPitch;
                 source.PlayOneShot(clip);
             }
         }
