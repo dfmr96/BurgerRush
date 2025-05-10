@@ -54,8 +54,9 @@ public class OrderManager : MonoBehaviour
 
             order.gameObject.SetActive(true); // Primero activar
 
-            AudioManager.Instance?.PlaySFX(SFXType.NewOrder);
-
+            //AudioManager.Instance?.PlaySFX(SFXType.NewOrder);
+            AudioManager.Instance.PlayNewOrderSFX(complexityData);
+            
             bool isBonus = Random.value < complexityData.ChanceToBeBonus;
             order.SetBonus(isBonus);         // Luego asignar bonus
             return;

@@ -22,3 +22,4 @@ MonoBehaviour:
   scorePopupStyle: {fileID: 11400000, guid: 5078b540b7b1c4b4daf9f0111a508ef4, type: 2}
   bonusTimeOnDelivery: 8
   chanceToBeBonus: 0.45
+  orderCreatedPitch: 1.3

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using DefaultNamespace.Enums;
 using ScriptableObjects;
+using ScriptableObjects.BurgerComplexityData;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -155,6 +156,20 @@ public class AudioManager : MonoBehaviour
             {
                 //float randomPitch = Random.Range(.9f, 1.1f);
                 //source.pitch = randomPitch;
+                source.PlayOneShot(clip);
+            }
+        }
+    }
+    
+    public void PlayNewOrderSFX(BurgerComplexityData complexity)
+    {
+        if (sfxLibrary.clips.TryGetValue(SFXType.NewOrder, out var clip) && clip != null && complexity != null)
+        {
+            AudioSource source = GetAvailableSource();
+            if (source != null)
+            {
+                float pitch = complexity.OrderCreatedPitch;
+                source.pitch = pitch;
                 source.PlayOneShot(clip);
             }
         }

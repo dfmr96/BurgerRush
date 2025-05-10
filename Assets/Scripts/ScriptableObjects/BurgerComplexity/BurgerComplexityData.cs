@@ -36,6 +36,9 @@ namespace ScriptableObjects.BurgerComplexityData
         
         [Tooltip("Chance (0-1) for this order to be flagged as bonus time order.")]
         [SerializeField] private float chanceToBeBonus = 0f;
+        
+        [Range(0.5f, 2f)]
+        [SerializeField] private float orderCreatedPitch = 1f;
         public float ChanceToBeBonus => chanceToBeBonus;
         
         public ScorePopUpStyle ScorePopupStyle => scorePopupStyle;
@@ -46,5 +49,7 @@ namespace ScriptableObjects.BurgerComplexityData
         public int BaseScore => baseScore;
 
         public int PointsPerTopping => pointsPerTopping;
+
+        public float OrderCreatedPitch => orderCreatedPitch;
     }
 }
