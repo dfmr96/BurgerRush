@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject timeUpPanel;
     [SerializeField] private Slider timeSlider;
-    [SerializeField] private Button restartButton;
     [SerializeField] private TMP_Text finalScoreText;
 
 
@@ -127,7 +126,6 @@ public class GameManager : MonoBehaviour
         PlayerStatsManager.AddPlay();
         
         timeUpPanel.SetActive(false);
-        restartButton.gameObject.SetActive(false);
 
         isGameRunning = true;
         timeRemaining = gameDuration;
@@ -141,14 +139,15 @@ public class GameManager : MonoBehaviour
     {
         isGameRunning = false;
         timeUpPanel.SetActive(true);
-        restartButton.gameObject.SetActive(true);
 
         int secondsPlayed = Mathf.FloorToInt(totalSessionTime);
         PlayerStatsManager.AddSecondsPlayed(secondsPlayed);
         PlayerStatsManager.UpdateLongestSession(secondsPlayed);
         PlayerStatsManager.UpdateHighScore(score);
         
-        finalScoreText.text = $"Final Score: {score}";
+        finalScoreText.text = 
+            $"<color=#FFD700><b>Final Score:</b></color> {score}\n" +
+            $"<color=#00FFFF><b>Best Score:</b></color> {PlayerStatsManager.GetHighScore()}";
     }
 
     private void UpdateTimerUI()

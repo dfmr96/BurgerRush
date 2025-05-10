@@ -43,6 +43,8 @@ public static class PlayerStatsManager
     public static int GetEasyFails() => PlayerPrefs.GetInt(Key_EasyFails, 0);
     public static int GetMediumFails() => PlayerPrefs.GetInt(Key_MediumFails, 0);
     public static int GetHardFails() => PlayerPrefs.GetInt(Key_HardFails, 0);
+    
+    public static int GetHighScore() => PlayerPrefs.GetInt(Key_HighScore, 0);
         
     public static int GetEasyDeliveries() => PlayerPrefs.GetInt(Key_EasyDeliveries, 0);
     public static int GetMediumDeliveries() => PlayerPrefs.GetInt(Key_MediumDeliveries, 0);
