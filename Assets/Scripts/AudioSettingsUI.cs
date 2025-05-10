@@ -45,7 +45,6 @@ namespace DefaultNamespace
                     if (sfxVolumeSlider)
                         sfxVolumeSlider.value = AudioManager.Instance.GetSavedVolume("SFXVolume", 1f);
                 }
-                audioSettingsPanel.SetActive(false);
             }
 
             // Add listeners to sliders

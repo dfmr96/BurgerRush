@@ -1148,6 +1148,7 @@ GameObject:
   - component: {fileID: 816707891}
   - component: {fileID: 816707892}
   - component: {fileID: 816707893}
+  - component: {fileID: 816707894}
   m_Layer: 5
   m_Name: Options Button
   m_TagString: Untagged
@@ -1319,6 +1320,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0.23137255, g: 0.16470589, b: 0.1254902, a: 1}
   m_EffectDistance: {x: 6, y: 6}
   m_UseGraphicAlpha: 1
+--- !u!114 &816707894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816707886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1b595c41a74c85acbf0d16f67284de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vibrationPreset: 1
 --- !u!1 &942123632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,6 +1384,7 @@ GameObject:
   - component: {fileID: 1005612495}
   - component: {fileID: 1005612496}
   - component: {fileID: 1005612497}
+  - component: {fileID: 1005612498}
   m_Layer: 5
   m_Name: Credits Button
   m_TagString: Untagged
@@ -1529,6 +1544,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0.23137255, g: 0.16470589, b: 0.1254902, a: 1}
   m_EffectDistance: {x: 6, y: 6}
   m_UseGraphicAlpha: 1
+--- !u!114 &1005612498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005612490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1b595c41a74c85acbf0d16f67284de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vibrationPreset: 1
 --- !u!1 &1055052405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,6 +1572,7 @@ GameObject:
   - component: {fileID: 1055052410}
   - component: {fileID: 1055052411}
   - component: {fileID: 1055052412}
+  - component: {fileID: 1055052413}
   m_Layer: 5
   m_Name: Stats
   m_TagString: Untagged
@@ -1715,6 +1744,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0.23137255, g: 0.16470589, b: 0.1254902, a: 1}
   m_EffectDistance: {x: 6, y: 6}
   m_UseGraphicAlpha: 1
+--- !u!114 &1055052413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055052405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1b595c41a74c85acbf0d16f67284de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vibrationPreset: 1
 --- !u!1 &1108520886
 GameObject:
   m_ObjectHideFlags: 0

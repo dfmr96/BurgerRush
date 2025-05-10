@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 153059126}
   - component: {fileID: 153059125}
   - component: {fileID: 153059124}
+  - component: {fileID: 153059127}
   m_Layer: 5
   m_Name: PlayAgainButton
   m_TagString: Untagged
@@ -642,6 +643,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 153059122}
   m_CullTransparentMesh: 1
+--- !u!114 &153059127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153059122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1b595c41a74c85acbf0d16f67284de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vibrationPreset: 1
 --- !u!1001 &157170837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3389,17 +3403,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 380.8495, y: 617.0159}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &915247929 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5366404071732573724, guid: 806a6f7428e9fbd49801d47d3200ac7e, type: 3}
-  m_PrefabInstance: {fileID: 5291104330004586058}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77fed047c34b4a5e8ad53db96dcdc514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &990515185 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6599513659728833923, guid: 806a6f7428e9fbd49801d47d3200ac7e, type: 3}
@@ -3871,6 +3874,7 @@ GameObject:
   - component: {fileID: 1174865016}
   - component: {fileID: 1174865015}
   - component: {fileID: 1174865014}
+  - component: {fileID: 1174865017}
   m_Layer: 5
   m_Name: ClearStackButton
   m_TagString: Untagged
@@ -3991,6 +3995,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174865012}
   m_CullTransparentMesh: 1
+--- !u!114 &1174865017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174865012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1b595c41a74c85acbf0d16f67284de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vibrationPreset: 0
 --- !u!1 &1198927331 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1270692945932476772, guid: 806a6f7428e9fbd49801d47d3200ac7e, type: 3}
@@ -5141,14 +5158,14 @@ PrefabInstance:
     - target: {fileID: 4221612029105255845, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 915247929}
+      objectReference: {fileID: 695349869}
     - target: {fileID: 4221612029105255845, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnOpenSettingsClicked
+      value: OnRestartPressed
       objectReference: {fileID: 0}
     - target: {fileID: 4221612029105255845, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DefaultNamespace.AudioSettingsUI, Assembly-CSharp
+      value: DefaultNamespace.GameplayUIManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4941198356012770842, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
       propertyPath: m_Pivot.x
@@ -5624,6 +5641,7 @@ GameObject:
   - component: {fileID: 1790080716}
   - component: {fileID: 1790080715}
   - component: {fileID: 1790080718}
+  - component: {fileID: 1790080719}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -5765,6 +5783,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1790080719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790080713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1b595c41a74c85acbf0d16f67284de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vibrationPreset: 1
 --- !u!224 &1809790403 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3912464092632638002, guid: 8cc4d2e65e38a7041967db6c5edca650, type: 3}
@@ -6074,6 +6105,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1011624346}
     m_Modifications:
+    - target: {fileID: 734077633551182550, guid: 8c02e1b71a056d940b47f67e5aec4f77, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1211274279656416752, guid: 8c02e1b71a056d940b47f67e5aec4f77, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -6582,6 +6617,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -5.0000153
       objectReference: {fileID: 0}
+    - target: {fileID: 2429895644478507306, guid: 806a6f7428e9fbd49801d47d3200ac7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2813119375738766777, guid: 806a6f7428e9fbd49801d47d3200ac7e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6685,6 +6724,10 @@ PrefabInstance:
     - target: {fileID: 4839552683015908637, guid: 806a6f7428e9fbd49801d47d3200ac7e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -5.0000153
+      objectReference: {fileID: 0}
+    - target: {fileID: 4924609298429655834, guid: 806a6f7428e9fbd49801d47d3200ac7e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4967466716978939064, guid: 806a6f7428e9fbd49801d47d3200ac7e, type: 3}
       propertyPath: m_AnchorMax.x

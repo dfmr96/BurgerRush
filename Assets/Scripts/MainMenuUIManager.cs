@@ -1,37 +1,34 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace DefaultNamespace
+public class MainMenuUIManager: MonoBehaviour
 {
-    public class MainMenuUIManager: MonoBehaviour
+    [Header("Panels")]
+    [SerializeField] private GameObject startGamePanel;
+    [SerializeField] private GameObject statsPanel;
+
+    public void OnPlayPressed()
     {
-        [Header("Panels")]
-        [SerializeField] private GameObject startGamePanel;
-        [SerializeField] private GameObject statsPanel;
+        startGamePanel.SetActive(true);
+    }
 
-        public void OnPlayPressed()
-        {
-            startGamePanel.SetActive(true);
-        }
-
-        public void OnStartGamePressed()
-        {
-            SceneManager.LoadScene("Gameplay");
-        }
+    public void OnStartGamePressed()
+    {
+        SceneManager.LoadScene("Gameplay");
+    }
         
-        public void OnCancelStartGame()
-        {
-            startGamePanel.SetActive(false);
-        }
+    public void OnCancelStartGame()
+    {
+        startGamePanel.SetActive(false);
+    }
         
-        public void OnStatsPressed()
-        {
-            statsPanel.SetActive(true);
-        }
+    public void OnStatsPressed()
+    {
+        statsPanel.SetActive(true);
+    }
 
-        public void OnCloseStatsPressed()
-        {
-            statsPanel.SetActive(false);
-        }
+    public void OnCloseStatsPressed()
+    {
+        statsPanel.SetActive(false);
     }
 }

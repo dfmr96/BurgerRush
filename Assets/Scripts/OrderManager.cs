@@ -88,7 +88,7 @@ public class OrderManager : MonoBehaviour
     private void HandleOrderExpired(Order expiredOrder)
     {
         Debug.Log("¡Una orden expiró!");
-        
+        VibrationManager.Vibrate(VibrationPreset.OrderFailed);
         PlayerStatsManager.AddOrderFail();
         
         switch (expiredOrder.Complexity.Difficulty)
@@ -105,7 +105,7 @@ public class OrderManager : MonoBehaviour
         }
 
         // Aplicar consecuencias de la orden vencida
-        GameManager.Instance.BreakCombo(); // Rompe la racha
+        GameManager.Instance.BreakCombo();
         GameManager.Instance.DecreaseScore(50); // Penaliza el puntaje //TODO Penalizacion por dificultad
         // También podrías reproducir un sonido o feedback visual acá
     }

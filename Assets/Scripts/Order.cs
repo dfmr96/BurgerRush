@@ -181,7 +181,7 @@ public class Order : MonoBehaviour
         {
             AudioManager.Instance?.PlaySFX(SFXType.OrderDelivered);
         }
-
+        VibrationManager.Vibrate(VibrationPreset.OrderCompleted);
         stacker.OrderManager.AddTimeToAllActiveOrdersExcept(this, complexity.ClutchBonusTime);
 
         highlightImage.enabled = false;

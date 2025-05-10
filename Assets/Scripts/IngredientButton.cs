@@ -18,6 +18,9 @@ public class IngredientButton : MonoBehaviour
     {
         iconImage.sprite = ingredientData.IngredientIcon;
         button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(() => onClickCallback?.Invoke(ingredientData));
+        button.onClick.AddListener(() =>
+        {
+            onClickCallback?.Invoke(ingredientData);
+        });
     }
 }
