@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,9 +9,15 @@ public class ComboManager : MonoBehaviour
     [SerializeField] private TMP_Text comboText;
     [SerializeField] private int minComboStreak = 3;
     [field:SerializeField] private int currentStreak = 0;
+    [SerializeField] private Gradient comboGradient;
     private bool comboActive = false;
 
     public int CurrentStreak => currentStreak;
+
+    private void Start()
+    {
+        comboText.SetText(string.Empty);
+    }
 
     public void RegisterDelivery()
     {
@@ -46,6 +53,8 @@ public class ComboManager : MonoBehaviour
     private void UpdateComboUI()
     {
         comboText.gameObject.SetActive(true);
+        float t = Mathf.InverseLerp(3, 21, CurrentStreak);
+        comboText.color = comboGradient.Evaluate(t);
         comboText.text = $"COMBO x{GetMultiplier():0.0}!";
     }
 }
