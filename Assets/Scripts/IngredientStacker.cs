@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
-using DefaultNamespace.Enums;
+using Enums;
 using ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UIElements;

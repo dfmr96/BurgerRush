@@ -1,4 +1,4 @@
-﻿namespace DefaultNamespace.Enums
+﻿namespace Enums
 {
     public enum SFXType
     {
@@ -8,6 +8,7 @@
         OrderDelivered,
         OrderExpired,
         NewOrder,
-        ClutchDelivery
+        ClutchDelivery,
+        MainMenuTheme
     }
 }

@@ -1,5 +1,5 @@
 ﻿using AYellowpaper.SerializedCollections;
-using DefaultNamespace.Enums;
+using Enums;
 using UnityEngine;
 
 namespace ScriptableObjects

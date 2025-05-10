@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using Databases;
 using DefaultNamespace;
-using DefaultNamespace.Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexityData;
 using UnityEngine;

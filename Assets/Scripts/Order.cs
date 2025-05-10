@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DefaultNamespace;
-using DefaultNamespace.Enums;
+using Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexityData;
 using TMPro;

@@ -115,7 +115,7 @@ public class AudioSettingsUI : MonoBehaviour
     public void OnMusicPreviewClicked()
     {
         if (AudioManager.Instance != null)
-            AudioManager.Instance.PlayBackgroundMusic();
+            AudioManager.Instance.PlayBackgroundMusicSample();
     }
 
     public void OnSFXPreviewClicked()

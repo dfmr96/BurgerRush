@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using DefaultNamespace.Enums;
+using Enums;
 using UnityEngine;
 using UnityEngine.UI;
 

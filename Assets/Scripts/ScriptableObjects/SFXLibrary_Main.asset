@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
     _serializedList:
+    - Key: 7
+      Value: {fileID: 8300000, guid: d60132da45f3cef4fb91882285a61693, type: 3}
     - Key: 0
       Value: {fileID: 8300000, guid: 9b5251b20c0453d419a249539a465104, type: 3}
     - Key: 1

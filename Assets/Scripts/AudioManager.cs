@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using DefaultNamespace.Enums;
+﻿using System;
+using System.Collections.Generic;
+using Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexityData;
 using UnityEngine;
@@ -38,10 +39,13 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
 
+    private void Start()
+    {
         LoadSavedVolumes();
     }
-    
+
     private void InitializeSFXPool()
     {
         for (int i = 0; i < pooledSourcesCount; i++)
@@ -87,13 +91,27 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", value);
     }
 
-    public void PlayBackgroundMusic()
+    public void PlayBackgroundMusicSample()
     {
         if (previewMusicClip)
         {
             musicSource.clip = previewMusicClip;
             musicSource.loop = false;
             musicSource.Play();
+        }
+    }
+    
+    public void PlayBackgroundMusic(SFXType musicType)
+    {
+        if (sfxLibrary.clips.TryGetValue(musicType, out var clip) && clip != null)
+        {
+            musicSource.clip = clip;
+            musicSource.loop = true;
+            musicSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning($"🎵 Music clip for {musicType} not found!");
         }
     }
 
@@ -105,9 +123,12 @@ public class AudioManager : MonoBehaviour
 
     private void LoadSavedVolumes()
     {
-        SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume", 1f));
-        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.7f));
-        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 1f));
+        SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume", 0));
+        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0));
+        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 0));
+        Debug.Log($"MASTER VOLUME: {PlayerPrefs.GetFloat("MasterVolume", 0)}");
+        Debug.Log($"MUSIC VOLUME:  {PlayerPrefs.GetFloat("MusicVolume", 0)}");
+        Debug.Log($"SFX VOLUME: {PlayerPrefs.GetFloat("SFXVolume", 0)}");
     }
 
     private float LinearToDecibel(float value)
