@@ -41,12 +41,12 @@ public class Order : MonoBehaviour
     {
         timer = lifespan;
         isExpired = false;
-
+        stacker.ValidateOrder(this);
         if (timerBar != null)
             timerBar.fillAmount = 1f;
 
         if (bonusIcon != null)
-            bonusIcon.SetActive(false); // 🔁 siempre se oculta de inicio
+            bonusIcon.SetActive(false);
     }
     
     private void Start()

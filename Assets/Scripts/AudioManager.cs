@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Databases;
 using Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexityData;
@@ -139,6 +140,9 @@ public class AudioManager : MonoBehaviour
         {
             Debug.LogWarning($"🎵 Music clip for {musicType} not found!");
         }
+
+        bool shouldLoop = musicType != SFXType.GameOverTheme;
+        musicSource.loop = shouldLoop;
     }
 
     public void PlayButtonClickSound()

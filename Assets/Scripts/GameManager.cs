@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddBonusTime(float amount)
+    private void AddBonusTime(float amount)
     {
         timeRemaining += amount;
         timeRemaining = Mathf.Min(timeRemaining, gameDuration); // Evita pasar el tiempo máximo
@@ -154,6 +154,7 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
+        AudioManager.Instance.PlayBackgroundMusic(SFXType.GameOverTheme);
         isGameRunning = false;
         timeUpPanel.SetActive(true);
 

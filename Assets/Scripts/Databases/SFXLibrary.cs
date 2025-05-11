@@ -2,7 +2,7 @@
 using Enums;
 using UnityEngine;
 
-namespace ScriptableObjects
+namespace Databases
 {
     [CreateAssetMenu(fileName = "SFXLibrary", menuName = "Audio/SFX Library", order = 0)]
     public class SFXLibrary : ScriptableObject

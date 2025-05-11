@@ -34,7 +34,6 @@ public class OrderManager : MonoBehaviour
         foreach (var order in Orders)
         {
             if (order.gameObject.activeSelf) continue;
-            order.SetBonus(false); 
             
             List<IngredientData> selectedIngredients = new();
 

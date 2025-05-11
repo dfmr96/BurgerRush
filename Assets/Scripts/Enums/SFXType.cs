@@ -11,5 +11,6 @@
         ClutchDelivery,
         MainMenuTheme,
         GameplayTheme,
+        GameOverTheme,
     }
 }

@@ -96,6 +96,12 @@ public class IngredientStacker : MonoBehaviour
             order.MarkAsDeliverable(isMatch);
         }
     }
+
+    public void ValidateOrder(Order order)
+    {
+        var isMatch = IsMatch(order.Ingredients, _stackedIngredients);
+        order.MarkAsDeliverable(isMatch);
+    }
     public void OnClearStackButtonPressed()
     {
         ClearStack();
