@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour
         
         finalScoreText.text = 
             $"<color=#FFD700><b>Final Score:</b></color> {score}\n" +
-            $"<color=#00FFFF><b>Best Score:</b></color> {PlayerStatsManager.G}";
+            $"<color=#00FFFF><b>Best Score:</b></color> {PlayerStatsManager.GetHighScore()}";
     }
 
     private void UpdateTimerUI()
