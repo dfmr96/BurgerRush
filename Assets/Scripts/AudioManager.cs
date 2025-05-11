@@ -91,6 +91,32 @@ public class AudioManager : MonoBehaviour
         PlayerPrefs.SetFloat("SFXVolume", value);
     }
 
+
+    private void LoadSavedVolumes()
+    {
+        SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume", 0));
+        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0));
+        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 0));
+        Debug.Log($"MASTER VOLUME: {PlayerPrefs.GetFloat("MasterVolume", 0)}");
+        Debug.Log($"MUSIC VOLUME:  {PlayerPrefs.GetFloat("MusicVolume", 0)}");
+        Debug.Log($"SFX VOLUME: {PlayerPrefs.GetFloat("SFXVolume", 0)}");
+    }
+
+    private float LinearToDecibel(float value)
+    {
+        return Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20f;
+    }
+        
+    public float GetSavedVolume(string key, float defaultValue)
+    {
+        return PlayerPrefs.GetFloat(key, defaultValue);
+    }
+    
+    public void SetMusicPitch(float pitch)
+    {
+        musicSource.pitch = pitch;
+    }
+        
     public void PlayBackgroundMusicSample()
     {
         if (previewMusicClip)
@@ -120,27 +146,6 @@ public class AudioManager : MonoBehaviour
         if (previewSfxClip)
             sfxSource.PlayOneShot(previewSfxClip);
     }
-
-    private void LoadSavedVolumes()
-    {
-        SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume", 0));
-        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0));
-        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 0));
-        Debug.Log($"MASTER VOLUME: {PlayerPrefs.GetFloat("MasterVolume", 0)}");
-        Debug.Log($"MUSIC VOLUME:  {PlayerPrefs.GetFloat("MusicVolume", 0)}");
-        Debug.Log($"SFX VOLUME: {PlayerPrefs.GetFloat("SFXVolume", 0)}");
-    }
-
-    private float LinearToDecibel(float value)
-    {
-        return Mathf.Log10(Mathf.Max(value, 0.0001f)) * 20f;
-    }
-        
-    public float GetSavedVolume(string key, float defaultValue)
-    {
-        return PlayerPrefs.GetFloat(key, defaultValue);
-    }
-        
     public void PlaySFX(SFXType type)
     {
         if (sfxLibrary.clips.TryGetValue(type, out var clip) && clip != null)

@@ -39,6 +39,8 @@ namespace ScriptableObjects.BurgerComplexityData
         
         [Range(0.5f, 2f)]
         [SerializeField] private float orderCreatedPitch = 1f;
+
+        [SerializeField] private Color orderBackgroundColor;
         public float ChanceToBeBonus => chanceToBeBonus;
         
         public ScorePopUpStyle ScorePopupStyle => scorePopupStyle;
@@ -51,5 +53,7 @@ namespace ScriptableObjects.BurgerComplexityData
         public int PointsPerTopping => pointsPerTopping;
 
         public float OrderCreatedPitch => orderCreatedPitch;
+
+        public Color OrderBackgroundColor => orderBackgroundColor;
     }
 }

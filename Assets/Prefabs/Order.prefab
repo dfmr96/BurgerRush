@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -6.3}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &734077633551182550
@@ -526,6 +526,7 @@ MonoBehaviour:
   timerBar: {fileID: 3114005305958181773}
   timerSlider: {fileID: 2329081810010781436}
   ingredientContainer: {fileID: 1211274279656416752}
+  ingredientContainerImage: {fileID: 734077633551182550}
   ingredientImagePrefab: {fileID: 5885693047445056936, guid: e9f635a984f3c3245b8e19a6b35c325a, type: 3}
   orderRectTransform: {fileID: 2935319965170639991}
   bonusIcon: {fileID: 5663379126378495603}

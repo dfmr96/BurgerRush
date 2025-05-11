@@ -34,8 +34,8 @@ public class OrderManager : MonoBehaviour
         foreach (var order in Orders)
         {
             if (order.gameObject.activeSelf) continue;
-
-
+            order.SetBonus(false); 
+            
             List<IngredientData> selectedIngredients = new();
 
             selectedIngredients.Add(ingredientsDB.GetRandomIngredientOfType(IngredientType.TopBun));
@@ -50,6 +50,7 @@ public class OrderManager : MonoBehaviour
 
             order.SetIngredients(selectedIngredients.ToArray());
             order.SetComplexity(complexityData);
+            order.SetBackgroundColor(complexityData.OrderBackgroundColor);
 
             order.gameObject.SetActive(true); // Primero activar
 

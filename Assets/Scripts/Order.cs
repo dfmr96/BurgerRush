@@ -18,6 +18,7 @@ public class Order : MonoBehaviour
     [SerializeField] private Image timerBar;
     [SerializeField] private Slider timerSlider;
     [SerializeField] private Transform ingredientContainer; // contenedor con Vertical Layout
+    [SerializeField] private Image ingredientContainerImage;
     [SerializeField] private GameObject ingredientImagePrefab; // prefab con Image
     [SerializeField] private RectTransform orderRectTransform;
     [SerializeField] private GameObject bonusIcon;
@@ -110,6 +111,12 @@ public class Order : MonoBehaviour
         Ingredients = new Stack<IngredientData>();
         for (var i = ingredients.Length - 1; i >= 0; i--) Ingredients.Push(ingredients[i]);
         UpdateUI();
+    }
+    
+    public void SetBackgroundColor(Color color)
+    {
+        if (ingredientContainerImage != null)
+            ingredientContainerImage.color = color;
     }
 
     private void UpdateUI()

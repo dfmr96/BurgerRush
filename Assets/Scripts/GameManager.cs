@@ -53,8 +53,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ScorePopUp scorePopup;
     [SerializeField] private ComboManager comboManager;
     [SerializeField] private SFXType gameplayTheme;
+    [SerializeField] private float speedUpThreshold;
 
     private float timeRemaining;
+    private bool musicSpedUp = false;
     private bool isGameRunning = false;
     private bool isSpawningOrder = false;
     private float totalSessionTime = 0f;
@@ -103,8 +105,24 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(GenerateOrderWithDelay());
             }
         }
+
+        HandleMusicSpeedUp();
     }
-    
+
+    private void HandleMusicSpeedUp()
+    {
+        if (timeRemaining <= speedUpThreshold && !musicSpedUp)
+        {
+            AudioManager.Instance.SetMusicPitch(1.25f);
+            musicSpedUp = true;
+        }
+        else if (timeRemaining > speedUpThreshold && musicSpedUp)
+        {
+            AudioManager.Instance.SetMusicPitch(1f);
+            musicSpedUp = false;
+        }
+    }
+
     public void AddBonusTime(float amount)
     {
         timeRemaining += amount;

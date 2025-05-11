@@ -1295,21 +1295,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 430501072}
     m_Modifications:
+    - target: {fileID: 734077633551182550, guid: 8c02e1b71a056d940b47f67e5aec4f77, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 734077633551182550, guid: 8c02e1b71a056d940b47f67e5aec4f77, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 233221460, guid: c50faff1e17451c4089528c5e5af9690, type: 3}
     - target: {fileID: 1211274279656416752, guid: 8c02e1b71a056d940b47f67e5aec4f77, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -60
       objectReference: {fileID: 0}
     - target: {fileID: 1211274279656416752, guid: 8c02e1b71a056d940b47f67e5aec4f77, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2262849511361950298, guid: 8c02e1b71a056d940b47f67e5aec4f77, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2262849511361950298, guid: 8c02e1b71a056d940b47f67e5aec4f77, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2935319965170639991, guid: 8c02e1b71a056d940b47f67e5aec4f77, type: 3}
       propertyPath: m_Pivot.x
@@ -1623,6 +1631,7 @@ MonoBehaviour:
   scorePopup: {fileID: 677952393}
   comboManager: {fileID: 599541427}
   gameplayTheme: 8
+  speedUpThreshold: 10
 --- !u!4 &363890153
 Transform:
   m_ObjectHideFlags: 0
