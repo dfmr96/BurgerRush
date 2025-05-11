@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Services;
 using Services.Cloud;
 using TMPro;
 using Unity.Services.Authentication;
@@ -16,43 +17,44 @@ public class NicknamePanelController : MonoBehaviour
     
     private void OnEnable()
     {
-        UGSInitializer.OnUGSReady += InitPanel;
+        UGSInitializer.OnUGSReady += CheckIfNicknameIsNeeded;
     }
 
     private void OnDisable()
     {
-        UGSInitializer.OnUGSReady -= InitPanel;
+        UGSInitializer.OnUGSReady -= CheckIfNicknameIsNeeded;
     }
     
-    private void InitPanel()
+    private async void CheckIfNicknameIsNeeded()
     {
-        // Primero chequeo localmente
+        // 1. Chequear si ya hay nickname en local
         string localName = PlayerPrefs.GetString("PlayerName", "");
-
         if (!string.IsNullOrWhiteSpace(localName))
         {
+            Debug.Log($"✅ Nickname found in local: {localName}. Panel not shown.");
             nicknamePanel.SetActive(false);
-            Debug.Log($"✅ Nickname already stored locally: {localName}. Skipping panel.");
             return;
         }
 
-        // Si no hay, buscar en la nube
-        LoadNameFromCloud();
-    }
-
-    private async void LoadNameFromCloud()
-    {
-        var name = await CloudNicknameHandler.LoadNickname();
-
-        if (!string.IsNullOrWhiteSpace(name))
+        // 2. Chequear en la nube
+        var cloudName = await CloudNicknameHandler.LoadNickname();
+        if (!string.IsNullOrWhiteSpace(cloudName))
         {
-            Debug.Log($"👤 Nickname already set: {name}. Hiding panel.");
+            Debug.Log($"✅ Nickname found in cloud: {cloudName}. Caching locally.");
+            PlayerPrefs.SetString("PlayerName", cloudName);
+            PlayerPrefs.Save();
             nicknamePanel.SetActive(false);
             return;
         }
 
-        // Mostrar el panel y permitir ingresar el nombre
+        // 3. No hay nickname → mostrar panel
+        Debug.Log("👤 No nickname found. Showing panel.");
         nicknamePanel.SetActive(true);
+        SetupUI();
+    }
+    
+    private void SetupUI()
+    {
         nameInputField.text = "";
         nameInputField.onValueChanged.AddListener(OnInputChanged);
         UpdateButtonInteractable();

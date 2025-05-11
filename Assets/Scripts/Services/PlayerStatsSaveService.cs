@@ -95,5 +95,33 @@ namespace Services
             PlayerStatsExporter.ImportFromJson(JsonUtility.ToJson(wrapper.data), db);
             return true;
         }
+        
+        public static bool CompareJsonChecksums(string jsonA, string jsonB)
+        {
+            string checksumA = ExtractChecksum(jsonA);
+            string checksumB = ExtractChecksum(jsonB);
+
+            if (string.IsNullOrEmpty(checksumA) || string.IsNullOrEmpty(checksumB))
+            {
+                Debug.LogWarning("⚠️ One or both JSONs lack a valid checksum.");
+                return false;
+            }
+
+            return checksumA == checksumB;
+        }
+
+        private static string ExtractChecksum(string json)
+        {
+            try
+            {
+                var wrapper = JsonUtility.FromJson<PlayerStatsSaveWrapper>(json);
+                return wrapper.checksum;
+            }
+            catch
+            {
+                Debug.LogWarning("⚠️ Could not extract checksum from JSON.");
+                return null;
+            }
+        }
     }
 }

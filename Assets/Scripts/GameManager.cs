@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Databases;
 using Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexityData;
+using Services.Cloud;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
@@ -12,7 +14,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
+    [SerializeField] private PlayerStatsDatabase statsDB;
 
     [Header("Debug Info")] 
     [SerializeField, ReadOnly] private string currentDifficultyLabel;
@@ -152,7 +154,7 @@ public class GameManager : MonoBehaviour
         orderManager.GenerateOrder(easyBurger);
     }
 
-    private void EndGame()
+    private async void EndGame()
     {
         StopAllCoroutines();
         AudioManager.Instance.PlayBackgroundMusic(SFXType.GameOverTheme);
@@ -167,6 +169,8 @@ public class GameManager : MonoBehaviour
         finalScoreText.text = 
             $"<color=#FFD700><b>Final Score:</b></color> {score}\n" +
             $"<color=#00FFFF><b>Best Score:</b></color> {PlayerStatsManager.GetHighScore()}";
+        
+        await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
     }
 
     private void UpdateTimerUI()
