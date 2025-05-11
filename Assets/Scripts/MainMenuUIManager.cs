@@ -28,10 +28,10 @@ public class MainMenuUIManager: MonoBehaviour
         switch (status)
         {
             case 1:
-                syncStatusText.text = "<color=green>✔ Synced</color>";
+                syncStatusText.text = "<color=green>Synced</color>";
                 break;
             case 0:
-                syncStatusText.text = "<color=red>✖ Not Synced</color>";
+                syncStatusText.text = "<color=red>Not Synced</color>";
                 break;
             default:
                 syncStatusText.text = "<color=yellow>? Sync Unknown</color>";
