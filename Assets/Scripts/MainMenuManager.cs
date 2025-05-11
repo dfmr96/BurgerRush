@@ -10,6 +10,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private SFXType mainMenuThemeSFX;
     [SerializeField] private PlayerStatsDatabase statsDB;
 
+    public static event Action<int> OnCloudSyncStatusChanged;
+
     private void Start()
     {
         AudioManager.Instance.PlayBackgroundMusic(mainMenuThemeSFX);
@@ -18,26 +20,40 @@ public class MainMenuManager : MonoBehaviour
 
     private async void ValidateCloudSync()
     {
-        string localJson = PlayerStatsSaveService.ExportWithChecksum(statsDB);
-        string cloudJson = await CloudSaveEntity<string>.Load("PlayerStats");
+        int syncResult = -1;
 
-        if (string.IsNullOrEmpty(cloudJson))
+        try
         {
-            Debug.Log("☁️ No cloud data found. Saving local data...");
-            await CloudSaveEntity<string>.Save("PlayerStats", localJson);
-            return;
+            string localJson = PlayerStatsSaveService.ExportWithChecksum(statsDB);
+            string cloudJson = await CloudSaveEntity<string>.Load("PlayerStats");
+
+            if (string.IsNullOrEmpty(cloudJson))
+            {
+                Debug.Log("☁️ No cloud data found. Saving local data...");
+                await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
+                syncResult = 1;
+            }
+            else if (PlayerStatsSaveService.CompareJsonChecksums(localJson, cloudJson))
+            {
+                Debug.Log("✅ Cloud data is up to date with local data.");
+                syncResult = 1;
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ Cloud and local data differ. Overwriting cloud with local.");
+                await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
+                syncResult = 1;
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"❌ Failed to validate cloud sync: {e.Message}");
+            syncResult = 0;
         }
 
-        bool areSame = PlayerStatsSaveService.CompareJsonChecksums(localJson, cloudJson);
-        if (areSame)
-        {
-            Debug.Log("✅ Cloud data is up to date with local data.");
-        }
-        else
-        {
-            Debug.LogWarning("⚠️ Cloud and local data differ. Overwriting cloud with local.");
-            await CloudSaveEntity<string>.Save("PlayerStats", localJson);
-        }
+        PlayerPrefs.SetInt("LastCloudSyncSuccess", syncResult);
+        PlayerPrefs.Save();
+        OnCloudSyncStatusChanged?.Invoke(syncResult);
     }
 
     private void OnDestroy()
