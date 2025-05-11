@@ -13,7 +13,7 @@ using Unity.Services.CloudSave;
 /// </summary>
 public class CloudSaveSystem_Base : MonoBehaviour
 {
-    [Header("Referencias UI")]
+    /*[Header("Referencias UI")]
     public InputField playerNameInput;
     public Text scoreText;
     public Text levelText;
@@ -38,7 +38,7 @@ public class CloudSaveSystem_Base : MonoBehaviour
     {
         // Deshabilitar botones hasta que se inicialice
         /*saveButton.interactable = false;
-        loadButton.interactable = false;*/
+        loadButton.interactable = false;#1#
 
         await InitializeUnityServices();
     }
@@ -196,5 +196,5 @@ public class CloudSaveSystem_Base : MonoBehaviour
         {
             levelText.text = "Nivel: " + level;
         }
-    }
+    }*/
 }

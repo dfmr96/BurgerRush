@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 14473563}
-  - component: {fileID: 14473562}
+  - component: {fileID: 14473564}
   m_Layer: 0
   m_Name: CloudManager
   m_TagString: Untagged
@@ -139,24 +139,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &14473562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14473561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a1ae94d94bf2345a4186556923056b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerNameInput: {fileID: 0}
-  scoreText: {fileID: 0}
-  levelText: {fileID: 0}
-  syncStatusText: {fileID: 0}
-  saveButton: {fileID: 0}
-  loadButton: {fileID: 0}
 --- !u!4 &14473563
 Transform:
   m_ObjectHideFlags: 0
@@ -172,6 +154,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &14473564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14473561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab4eeaebc48e4045b04b4333ffa85a4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statsDB: {fileID: 11400000, guid: c28bae35f805bda4f9f79c25aa3b0213, type: 2}
 --- !u!1 &26454368
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +259,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &60127820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 60127821}
+  - component: {fileID: 60127822}
+  m_Layer: 0
+  m_Name: UnityInitializer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &60127821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60127820}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 611.65393, y: 1049.8724, z: -11.03384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &60127822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60127820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b87b5aa8120a4167986e79267355d47c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &588874497
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +489,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14473562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CloudSaveSystem_Base, Assembly-CSharp
         m_MethodName: SaveGameDataButton
         m_Mode: 1
@@ -796,7 +835,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 14473562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CloudSaveSystem_Base, Assembly-CSharp
         m_MethodName: LoadGameDataButton
         m_Mode: 1
@@ -988,3 +1027,4 @@ SceneRoots:
   - {fileID: 14473563}
   - {fileID: 588874501}
   - {fileID: 1342755990}
+  - {fileID: 60127821}

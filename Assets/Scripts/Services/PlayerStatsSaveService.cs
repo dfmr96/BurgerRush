@@ -10,13 +10,20 @@ namespace Services
         public static string ExportWithChecksum(PlayerStatsDatabase db)
         {
             var rawData = new PlayerStatsSaveData();
+            
+            Debug.Log("📊 Exporting player stats with checksum...");
     
             foreach (var pair in db.stats)
             {
-                var value = PlayerStatsService.Get(pair.Value);
+                var stat = pair.Value;
+                var value = PlayerStatsService.Get(stat);
+
+                // ✅ Log para verificar que se están guardando datos reales
+                Debug.Log($"✔️ {stat.statKey} = {value}");
+
                 rawData.stats.Add(new PlayerStatsSaveData.StatEntry
                 {
-                    key = pair.Key,
+                    key = stat.statKey,
                     value = value.ToString()
                 });
             }
@@ -30,7 +37,10 @@ namespace Services
                 checksum = checksum
             };
 
-            return JsonUtility.ToJson(wrapper, true);
+            string finalJson = JsonUtility.ToJson(wrapper, true);
+            Debug.Log($"📦 Final JSON with checksum:\n{finalJson}");
+
+            return finalJson;
         }
         
         public static bool ImportWithValidation(string json, PlayerStatsDatabase db)
