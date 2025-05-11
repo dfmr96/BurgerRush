@@ -31,12 +31,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text finalScoreText;
 
 
-    [Header("Score Settings")] [SerializeField]
-    private int score = 0;
+    [Header("Score Settings")] 
+    [SerializeField] private int score = 0;
     [SerializeField] private TMP_Text scoreText;
 
-    [Header("Manager References")] [SerializeField]
-    private OrderManager orderManager;
+    [Header("Manager References")] 
+    [SerializeField] private OrderManager orderManager;
 
     [Header("Complexity Data")] 
     [SerializeField] private BurgerComplexityData easyBurger;
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float speedUpThreshold;
 
     private float timeRemaining;
-    private bool musicSpedUp = false;
+    private bool musicSpeedUp = false;
     private bool isGameRunning = false;
     private bool isSpawningOrder = false;
     private float totalSessionTime = 0f;
@@ -111,15 +111,15 @@ public class GameManager : MonoBehaviour
 
     private void HandleMusicSpeedUp()
     {
-        if (timeRemaining <= speedUpThreshold && !musicSpedUp)
+        if (timeRemaining <= speedUpThreshold && !musicSpeedUp)
         {
             AudioManager.Instance.SetMusicPitch(1.25f);
-            musicSpedUp = true;
+            musicSpeedUp = true;
         }
-        else if (timeRemaining > speedUpThreshold && musicSpedUp)
+        else if (timeRemaining > speedUpThreshold && musicSpeedUp)
         {
             AudioManager.Instance.SetMusicPitch(1f);
-            musicSpedUp = false;
+            musicSpeedUp = false;
         }
     }
 
@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour
         PlayerStatsManager.AddPlay();
         AudioManager.Instance.PlayBackgroundMusic(gameplayTheme);
         timeUpPanel.SetActive(false);
+        musicSpeedUp = false;
 
         isGameRunning = true;
         timeRemaining = gameDuration;
@@ -154,6 +155,7 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
+        StopAllCoroutines();
         AudioManager.Instance.PlayBackgroundMusic(SFXType.GameOverTheme);
         isGameRunning = false;
         timeUpPanel.SetActive(true);
