@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 14473563}
   - component: {fileID: 14473564}
+  - component: {fileID: 14473565}
   m_Layer: 0
   m_Name: CloudManager
   m_TagString: Untagged
@@ -167,6 +168,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsDB: {fileID: 11400000, guid: c28bae35f805bda4f9f79c25aa3b0213, type: 2}
+--- !u!114 &14473565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14473561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b9c83b072249dc8e0e2d5b5c9968f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nicknameToSave: dfmr96
 --- !u!1 &26454368
 GameObject:
   m_ObjectHideFlags: 0
