@@ -152,27 +152,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statsDB: {fileID: 11400000, guid: c28bae35f805bda4f9f79c25aa3b0213, type: 2}
-  savedJson: "{\n    \"stats\": [\n        {\n            \"key\": \"ClutchDeliveries\",\n           
-    \"value\": \"39\"\n        },\n        {\n            \"key\": \"DifficultyUnlocked\",\n           
-    \"value\": \"0\"\n        },\n        {\n            \"key\": \"EasyDeliveries\",\n           
-    \"value\": \"325\"\n        },\n        {\n            \"key\": \"EasyFails\",\n           
-    \"value\": \"147\"\n        },\n        {\n            \"key\": \"HardDeliveries\",\n           
-    \"value\": \"38\"\n        },\n        {\n            \"key\": \"HardFails\",\n           
-    \"value\": \"30\"\n        },\n        {\n            \"key\": \"HighScore\",\n           
-    \"value\": \"7100\"\n        },\n        {\n            \"key\": \"LongestSessionDuration\",\n           
-    \"value\": \"109\"\n        },\n        {\n            \"key\": \"MaxStreak\",\n           
-    \"value\": \"19\"\n        },\n        {\n            \"key\": \"MediumDeliveries\",\n           
-    \"value\": \"132\"\n        },\n        {\n            \"key\": \"MediumFails\",\n           
-    \"value\": \"50\"\n        },\n        {\n            \"key\": \"OrdersOnTime\",\n           
-    \"value\": \"0\"\n        },\n        {\n            \"key\": \"PerfectBurgerStreak\",\n           
-    \"value\": \"0\"\n        },\n        {\n            \"key\": \"PlayerName\",\n           
-    \"value\": \"Player\"\n        },\n        {\n            \"key\": \"TotalBurgersDelivered\",\n           
-    \"value\": \"495\"\n        },\n        {\n            \"key\": \"TotalBurgersDiscarded\",\n           
-    \"value\": \"555\"\n        },\n        {\n            \"key\": \"TotalIngredientsPlaced\",\n           
-    \"value\": \"2542\"\n        },\n        {\n            \"key\": \"TotalOrdersFailed\",\n           
-    \"value\": \"227\"\n        },\n        {\n            \"key\": \"TotalPlays\",\n           
-    \"value\": \"80\"\n        },\n        {\n            \"key\": \"TotalSecondsPlayed\",\n           
-    \"value\": \"1244\"\n        }\n    ]\n}"
+  savedJson: "{\n    \"data\": {\n        \"stats\": [\n            {\n               
+    \"key\": \"ClutchDeliveries\",\n                \"value\": \"39\"\n           
+    },\n            {\n                \"key\": \"DifficultyUnlocked\",\n               
+    \"value\": \"0\"\n            },\n            {\n                \"key\": \"EasyDeliveries\",\n               
+    \"value\": \"325\"\n            },\n            {\n                \"key\": \"EasyFails\",\n               
+    \"value\": \"147\"\n            },\n            {\n                \"key\": \"HardDeliveries\",\n               
+    \"value\": \"38\"\n            },\n            {\n                \"key\": \"HardFails\",\n               
+    \"value\": \"30\"\n            },\n            {\n                \"key\": \"HighScore\",\n               
+    \"value\": \"7100\"\n            },\n            {\n                \"key\":
+    \"LongestSessionDuration\",\n                \"value\": \"109\"\n           
+    },\n            {\n                \"key\": \"MaxStreak\",\n                \"value\":
+    \"19\"\n            },\n            {\n                \"key\": \"MediumDeliveries\",\n               
+    \"value\": \"132\"\n            },\n            {\n                \"key\": \"MediumFails\",\n               
+    \"value\": \"50\"\n            },\n            {\n                \"key\": \"OrdersOnTime\",\n               
+    \"value\": \"0\"\n            },\n            {\n                \"key\": \"PerfectBurgerStreak\",\n               
+    \"value\": \"0\"\n            },\n            {\n                \"key\": \"PlayerName\",\n               
+    \"value\": \"Player\"\n            },\n            {\n                \"key\":
+    \"TotalBurgersDelivered\",\n                \"value\": \"495\"\n            },\n           
+    {\n                \"key\": \"TotalBurgersDiscarded\",\n                \"value\":
+    \"555\"\n            },\n            {\n                \"key\": \"TotalIngredientsPlaced\",\n               
+    \"value\": \"2542\"\n            },\n            {\n                \"key\":
+    \"TotalOrdersFailed\",\n                \"value\": \"227\"\n            },\n           
+    {\n                \"key\": \"TotalPlays\",\n                \"value\": \"1080\"\n           
+    },\n            {\n                \"key\": \"TotalSecondsPlayed\",\n               
+    \"value\": \"1244\"\n            }\n        ]\n    },\n    \"checksum\": \"e709603ad576cf1293998cb8717b82a038784e263c42ca2cea3e2f11b399222c\"\n}"
 --- !u!4 &349154445
 Transform:
   m_ObjectHideFlags: 0

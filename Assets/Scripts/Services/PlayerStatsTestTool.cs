@@ -46,5 +46,43 @@ namespace Services
         {
             PlayerStatsExporter.ImportFromJson(savedJson, statsDB);
         }
+        
+        //------------------- Checksum Methods ------------------//
+        
+        [ContextMenu("🔐 Export With Checksum (Editor Field)")]
+        public void ExportWithChecksum()
+        {
+            savedJson = PlayerStatsSaveService.ExportWithChecksum(statsDB);
+            Debug.Log("✅ Stats exported with checksum.");
+        }
+
+        [ContextMenu("🧪 Validate JSON With Checksum")]
+        public void ValidateCurrentJson()
+        {
+            bool valid = PlayerStatsSaveService.ImportWithValidation(savedJson, statsDB);
+            Debug.Log(valid ? "✅ Checksum is valid." : "❌ Checksum mismatch detected.");
+        }
+
+        [ContextMenu("💾 Save Checksum JSON to File")]
+        public void SaveChecksumJsonToFile()
+        {
+            string json = PlayerStatsSaveService.ExportWithChecksum(statsDB);
+            File.WriteAllText(FilePath, json);
+            Debug.Log($"💾 Checksum save written to {FilePath}");
+        }
+        
+        [ContextMenu("🔄 Restore From File With Checksum Validation")]
+        public void RestoreChecksumJsonFromFile()
+        {
+            if (!File.Exists(FilePath))
+            {
+                Debug.LogWarning("⚠ Backup file with checksum not found.");
+                return;
+            }
+
+            string json = File.ReadAllText(FilePath);
+            bool valid = PlayerStatsSaveService.ImportWithValidation(json, statsDB);
+            Debug.Log(valid ? "✅ Restored from file with valid checksum." : "❌ Checksum mismatch. Restore aborted.");
+        }
     }
 }

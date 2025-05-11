@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Services.Utils
 {
-    public class SaveCheckSumUtility
+    public static class SaveCheckSumUtility
     {
         public static string GenerateChecksum(string json)
         {
