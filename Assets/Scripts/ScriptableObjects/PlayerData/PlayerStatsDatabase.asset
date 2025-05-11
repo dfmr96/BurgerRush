@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c08fb6fc6542e6b71b7f27b62c3802, type: 3}
+  m_Name: PlayerStatsDatabase
+  m_EditorClassIdentifier: 
+  stats:
+    _serializedList:
+    - Key: TotalPlays
+      Value: {fileID: 11400000, guid: 5a46d91551d534b4c93ada37d9b9ea9b, type: 2}
+    - Key: TotalBurgersDelivered
+      Value: {fileID: 11400000, guid: 7053005afe14e754789c48a5933ead43, type: 2}
+    - Key: TotalOrdersFailed
+      Value: {fileID: 11400000, guid: 165de309575e5004181d5fcf8960cffc, type: 2}
+    - Key: TotalBurgersDiscarded
+      Value: {fileID: 11400000, guid: 7b2afbb32ccdb804d8db3e019dc19c54, type: 2}
+    - Key: TotalIngredientsPlaced
+      Value: {fileID: 11400000, guid: dcd19b9e8c22d6c449ac0f11ee580c51, type: 2}
+    - Key: TotalSecondsPlayed
+      Value: {fileID: 11400000, guid: 2a1e881e6eb49b64298068b37b84bb1b, type: 2}
+    - Key: OrdersOnTime
+      Value: {fileID: 11400000, guid: 4edb4aeecc1c19a47ad78914d93f63d0, type: 2}
+    - Key: ClutchDeliveries
+      Value: {fileID: 11400000, guid: ef14ad5ee04a04a4cb02c01cc2dcc546, type: 2}
+    - Key: PerfectBurgerStreak
+      Value: {fileID: 11400000, guid: 5e2131ab85c5f3047b77834beb467c9c, type: 2}
+    - Key: HighScore
+      Value: {fileID: 11400000, guid: df5e10cea8e8c464a87c7654667edf0f, type: 2}
+    - Key: MaxStreak
+      Value: {fileID: 11400000, guid: f0ed2a668505193419e673de1d9fe715, type: 2}
+    - Key: PlayerName
+      Value: {fileID: 11400000, guid: 5c44b41b5a358824f9bbed016c4de32a, type: 2}
+    - Key: DifficultyUnlocked
+      Value: {fileID: 11400000, guid: 2a8fad6d25c0fbe43a1ffddec9c23642, type: 2}
+    - Key: EasyDeliveries
+      Value: {fileID: 11400000, guid: 602e13b14d91aad49ae70badd1ee9111, type: 2}
+    - Key: MediumDeliveries
+      Value: {fileID: 11400000, guid: 2280a6ff3c973ce48858c50d3dda6184, type: 2}
+    - Key: HardDeliveries
+      Value: {fileID: 11400000, guid: a077b619286457043a29d85846a79ee0, type: 2}
+    - Key: EasyFails
+      Value: {fileID: 11400000, guid: c1da5a340e0257947af83655b257006d, type: 2}
+    - Key: MediumFails
+      Value: {fileID: 11400000, guid: e022afc5514975c4bb61cc2f1270baa9, type: 2}
+    - Key: HardFails
+      Value: {fileID: 11400000, guid: cefb06fc6d20a2041859d28adb2e475a, type: 2}
+    - Key: LongestSessionDuration
+      Value: {fileID: 11400000, guid: 28837758c706c3e4faa2edc6acfff894, type: 2}
