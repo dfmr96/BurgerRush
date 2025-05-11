@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Databases;
+using Save;
 using Unity.Services.CloudSave;
 using UnityEngine;
 
@@ -13,22 +14,21 @@ namespace Services.Cloud
 
         public static async Task SaveStatsToCloud(PlayerStatsDatabase db)
         {
-            string json = PlayerStatsSaveService.ExportWithChecksum(db);
-            var dict = new Dictionary<string, object> { { CloudKey, (object)json } }; // 👈 casteo explícito
-            await CloudSaveService.Instance.Data.ForceSaveAsync(dict);
+            var wrapper = PlayerStatsSaveService.ExportWrapperWithChecksum(db);
+            await CloudSaveEntity<PlayerStatsSaveWrapper>.Save(CloudKey, wrapper);
         }
 
         public static async Task<bool> LoadStatsFromCloud(PlayerStatsDatabase db)
         {
-            string json = await CloudSaveServiceWrapper.LoadAsync<string>(CloudKey);
+            var wrapper = await CloudSaveEntity<PlayerStatsSaveWrapper>.Load(CloudKey);
 
-            if (string.IsNullOrEmpty(json))
+            if (wrapper == null)
             {
                 Debug.LogWarning("⚠️ No cloud data found.");
                 return false;
             }
 
-            bool valid = PlayerStatsSaveService.ImportWithValidation(json, db);
+            bool valid = PlayerStatsSaveService.ValidateAndImportWrapper(wrapper, db);
 
             if (valid)
                 Debug.Log("✅ Cloud stats loaded and validated.");
@@ -40,7 +40,7 @@ namespace Services.Cloud
 
         public static async Task DeleteStatsFromCloud()
         {
-            await CloudSaveServiceWrapper.DeleteAsync(CloudKey);
+            await CloudSaveEntity<PlayerStatsSaveWrapper>.Delete(CloudKey);
             Debug.Log("🗑️ Cloud stats deleted.");
         }
     }

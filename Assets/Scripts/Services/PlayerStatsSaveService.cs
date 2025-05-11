@@ -57,5 +57,43 @@ namespace Services
             PlayerStatsExporter.ImportFromJson(JsonUtility.ToJson(wrapper.data), db);
             return true;
         }
+        
+        public static PlayerStatsSaveWrapper ExportWrapperWithChecksum(PlayerStatsDatabase db)
+        {
+            var rawData = new PlayerStatsSaveData();
+
+            foreach (var pair in db.stats)
+            {
+                var value = PlayerStatsService.Get(pair.Value);
+                rawData.stats.Add(new PlayerStatsSaveData.StatEntry
+                {
+                    key = pair.Key,
+                    value = value.ToString()
+                });
+            }
+
+            string jsonData = JsonUtility.ToJson(rawData);
+            string checksum = SaveCheckSumUtility.GenerateChecksum(jsonData);
+
+            return new PlayerStatsSaveWrapper
+            {
+                data = rawData,
+                checksum = checksum
+            };
+        }
+
+        public static bool ValidateAndImportWrapper(PlayerStatsSaveWrapper wrapper, PlayerStatsDatabase db)
+        {
+            string recomputed = SaveCheckSumUtility.GenerateChecksum(JsonUtility.ToJson(wrapper.data));
+
+            if (wrapper.checksum != recomputed)
+            {
+                Debug.LogWarning("❌ Checksum mismatch: data may be corrupted or tampered.");
+                return false;
+            }
+
+            PlayerStatsExporter.ImportFromJson(JsonUtility.ToJson(wrapper.data), db);
+            return true;
+        }
     }
 }
