@@ -5,5 +5,6 @@
     {
         public PlayerStatsSaveData data;
         public string checksum;
+        public long lastSavedAt;
     }
 }

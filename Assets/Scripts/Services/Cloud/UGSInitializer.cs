@@ -10,6 +10,8 @@ namespace Services.Cloud
     {
         public static event Action OnUGSReady;
 
+        public static bool IsCloudAvailable { get; private set; } = false;
+
         private async void Awake()
         {
             await InitializeServices();
@@ -29,11 +31,13 @@ namespace Services.Cloud
                     await AuthenticationService.Instance.SignInAnonymouslyAsync();
                 }
 
+                IsCloudAvailable = true;
                 Debug.Log($"✅ Unity Services initialized. PlayerID: {AuthenticationService.Instance.PlayerId}");
                 OnUGSReady?.Invoke();
             }
             catch (Exception e)
             {
+                IsCloudAvailable = false;
                 Debug.LogError($"❌ UGS Initialization failed: {e.Message}");
             }
         }

@@ -47,5 +47,67 @@ namespace Services
 
             PlayerPrefs.Save();
         }
+        
+        public static bool HasAnyStatSaved(PlayerStatsDatabase db)
+        {
+            foreach (var pair in db.stats)
+            {
+                string key = pair.Key;
+                var stat = pair.Value;
+
+                switch (stat.statType)
+                {
+                    case StatType.Int:
+                        if (PlayerPrefs.HasKey(key) && PlayerPrefs.GetInt(key) != 0)
+                            return true;
+                        break;
+                    case StatType.Float:
+                        if (PlayerPrefs.HasKey(key) && PlayerPrefs.GetFloat(key) != 0f)
+                            return true;
+                        break;
+                    case StatType.String:
+                        if (PlayerPrefs.HasKey(key) && !string.IsNullOrEmpty(PlayerPrefs.GetString(key)))
+                            return true;
+                        break;
+                    case StatType.Bool:
+                        if (PlayerPrefs.HasKey(key) && PlayerPrefs.GetInt(key) != 0)
+                            return true;
+                        break;
+                }
+            }
+
+            return false;
+        }
+        
+        public static void InitializeAllStats(PlayerStatsDatabase db)
+        {
+            foreach (var pair in db.stats)
+            {
+                var stat = pair.Value;
+
+                if (!PlayerPrefs.HasKey(stat.statKey))
+                {
+                    switch (stat.statType)
+                    {
+                        case StatType.Int:
+                            PlayerPrefs.SetInt(stat.statKey, 0);
+                            break;
+                        case StatType.Float:
+                            PlayerPrefs.SetFloat(stat.statKey, 0f);
+                            break;
+                        case StatType.String:
+                            PlayerPrefs.SetString(stat.statKey, "");
+                            break;
+                        case StatType.Bool:
+                            PlayerPrefs.SetInt(stat.statKey, 0);
+                            break;
+                    }
+                }
+            }
+
+            PlayerPrefs.Save();
+        }
+        
+        
     }
 }

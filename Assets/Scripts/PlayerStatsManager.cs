@@ -7,7 +7,13 @@ public static class PlayerStatsManager
     private static PlayerStatsDatabase db => Resources.Load<PlayerStatsDatabase>("PlayerStatsDatabase");
     
     public static int GetHighScore() => (int)PlayerStatsService.Get(db.stats["HighScore"]);
-    public static void AddPlay() => PlayerStatsService.Increment(db.stats["TotalPlays"]);
+
+    public static void AddPlay()
+    {
+        PlayerStatsService.Increment(db.stats["TotalPlays"]);
+        //EVENTO A ANALYTICS
+    }
+        
     public static void AddBurger() => PlayerStatsService.Increment(db.stats["TotalBurgersDelivered"]);
     public static void AddOrderFail() => PlayerStatsService.Increment(db.stats["TotalOrdersFailed"]);
     public static void AddDiscarded() => PlayerStatsService.Increment(db.stats["TotalBurgersDiscarded"]);

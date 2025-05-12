@@ -1,6 +1,7 @@
 ﻿using System;
 using Databases;
 using Enums;
+using Save;
 using Services;
 using Services.Cloud;
 using UnityEngine;
@@ -15,46 +16,87 @@ public class MainMenuManager : MonoBehaviour
     private void Start()
     {
         AudioManager.Instance.PlayBackgroundMusic(mainMenuThemeSFX);
+        AudioManager.Instance.SetMusicPitch(1f);
+        PlayerStatsService.InitializeAllStats(statsDB);
+        
         UGSInitializer.OnUGSReady += ValidateCloudSync;
     }
 
-    private async void ValidateCloudSync()
+private async void ValidateCloudSync()
+{
+    int syncResult = -1;
+
+    try
     {
-        int syncResult = -1;
+        var localWrapper = PlayerStatsSaveService.ExportWrapperWithChecksum(statsDB);
+        string cloudJson = await CloudSaveEntity<string>.Load("PlayerStats");
 
-        try
+        if (string.IsNullOrEmpty(cloudJson))
         {
-            string localJson = PlayerStatsSaveService.ExportWithChecksum(statsDB);
-            string cloudJson = await CloudSaveEntity<string>.Load("PlayerStats");
+            Debug.Log("☁️ No cloud data found. Saving local data...");
+            await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
+            syncResult = 1;
+        }
+        else
+        {
+            var cloudWrapper = JsonUtility.FromJson<PlayerStatsSaveWrapper>(cloudJson);
 
-            if (string.IsNullOrEmpty(cloudJson))
+            bool cloudValid = PlayerStatsSaveService.ValidateChecksum(cloudWrapper);
+            bool localValid = PlayerStatsSaveService.ValidateChecksum(localWrapper);
+
+            if (!cloudValid && !localValid)
             {
-                Debug.Log("☁️ No cloud data found. Saving local data...");
+                Debug.LogError("❌ Both cloud and local data have invalid checksums.");
+                syncResult = 0;
+            }
+            else if (!cloudValid)
+            {
+                Debug.LogWarning("⚠️ Cloud data is corrupted. Saving local backup...");
                 await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
                 syncResult = 1;
             }
-            else if (PlayerStatsSaveService.CompareJsonChecksums(localJson, cloudJson))
+            else if (!localValid)
             {
-                Debug.Log("✅ Cloud data is up to date with local data.");
+                Debug.LogWarning("⚠️ Local data is corrupted. Restoring cloud backup...");
+                PlayerStatsSaveService.ValidateAndImportWrapper(cloudWrapper, statsDB);
                 syncResult = 1;
             }
             else
             {
-                Debug.LogWarning("⚠️ Cloud and local data differ. Overwriting cloud with local.");
-                await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
-                syncResult = 1;
+                // ✅ Compara los checksums completos (incluye timestamp)
+                string localChecksum = PlayerStatsSaveService.GenerateChecksum(localWrapper);
+                string cloudChecksum = PlayerStatsSaveService.GenerateChecksum(cloudWrapper);
+
+                if (localChecksum == cloudChecksum)
+                {
+                    Debug.Log("✅ Cloud and local data are already synchronized.");
+                    syncResult = 1;
+                }
+                else if (cloudWrapper.lastSavedAt > localWrapper.lastSavedAt)
+                {
+                    Debug.Log("☁️ Cloud data is newer. Syncing to local...");
+                    PlayerStatsSaveService.ValidateAndImportWrapper(cloudWrapper, statsDB);
+                    syncResult = 1;
+                }
+                else
+                {
+                    Debug.Log("💾 Local data is newer. Syncing to cloud...");
+                    await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
+                    syncResult = 1;
+                }
             }
         }
-        catch (Exception e)
-        {
-            Debug.LogError($"❌ Failed to validate cloud sync: {e.Message}");
-            syncResult = 0;
-        }
-
-        PlayerPrefs.SetInt("LastCloudSyncSuccess", syncResult);
-        PlayerPrefs.Save();
-        OnCloudSyncStatusChanged?.Invoke(syncResult);
     }
+    catch (Exception e)
+    {
+        Debug.LogError($"❌ Sync error: {e.Message}");
+        syncResult = 0;
+    }
+
+    PlayerPrefs.SetInt("LastCloudSyncSuccess", syncResult);
+    PlayerPrefs.Save();
+    OnCloudSyncStatusChanged?.Invoke(syncResult);
+}
 
     private void OnDestroy()
     {

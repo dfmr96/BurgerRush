@@ -1,4 +1,5 @@
-﻿using Databases;
+﻿using System;
+using Databases;
 using Save;
 using Services.Utils;
 using UnityEngine;
@@ -9,46 +10,16 @@ namespace Services
     {
         public static string ExportWithChecksum(PlayerStatsDatabase db)
         {
-            var rawData = new PlayerStatsSaveData();
-            
-            Debug.Log("📊 Exporting player stats with checksum...");
-    
-            foreach (var pair in db.stats)
-            {
-                var stat = pair.Value;
-                var value = PlayerStatsService.Get(stat);
-
-                // ✅ Log para verificar que se están guardando datos reales
-                Debug.Log($"✔️ {stat.statKey} = {value}");
-
-                rawData.stats.Add(new PlayerStatsSaveData.StatEntry
-                {
-                    key = stat.statKey,
-                    value = value.ToString()
-                });
-            }
-
-            string jsonData = JsonUtility.ToJson(rawData);
-            string checksum = SaveCheckSumUtility.GenerateChecksum(jsonData);
-
-            var wrapper = new PlayerStatsSaveWrapper
-            {
-                data = rawData,
-                checksum = checksum
-            };
-
+            var wrapper = ExportWrapperWithChecksum(db);
             string finalJson = JsonUtility.ToJson(wrapper, true);
             Debug.Log($"📦 Final JSON with checksum:\n{finalJson}");
-
             return finalJson;
         }
         
         public static bool ImportWithValidation(string json, PlayerStatsDatabase db)
         {
             var wrapper = JsonUtility.FromJson<PlayerStatsSaveWrapper>(json);
-            string recomputed = SaveCheckSumUtility.GenerateChecksum(JsonUtility.ToJson(wrapper.data));
-
-            if (wrapper.checksum != recomputed)
+            if (!ValidateChecksum(wrapper))
             {
                 Debug.LogWarning("❌ Checksum mismatch: data may be corrupted or tampered.");
                 return false;
@@ -72,21 +43,32 @@ namespace Services
                 });
             }
 
-            string jsonData = JsonUtility.ToJson(rawData);
-            string checksum = SaveCheckSumUtility.GenerateChecksum(jsonData);
-
-            return new PlayerStatsSaveWrapper
+            var wrapper = new PlayerStatsSaveWrapper
             {
                 data = rawData,
-                checksum = checksum
+                lastSavedAt = DateTime.UtcNow.Ticks
             };
+
+            wrapper.checksum = GenerateChecksum(wrapper);
+
+            return wrapper;
+        }
+        
+        public static string GenerateChecksum(PlayerStatsSaveWrapper wrapper)
+        {
+            var combined = new
+            {
+                data = wrapper.data,
+                lastSavedAt = wrapper.lastSavedAt
+            };
+
+            string json = JsonUtility.ToJson(combined);
+            return SaveCheckSumUtility.GenerateChecksum(json);
         }
 
         public static bool ValidateAndImportWrapper(PlayerStatsSaveWrapper wrapper, PlayerStatsDatabase db)
         {
-            string recomputed = SaveCheckSumUtility.GenerateChecksum(JsonUtility.ToJson(wrapper.data));
-
-            if (wrapper.checksum != recomputed)
+            if (!ValidateChecksum(wrapper))
             {
                 Debug.LogWarning("❌ Checksum mismatch: data may be corrupted or tampered.");
                 return false;
@@ -96,7 +78,16 @@ namespace Services
             return true;
         }
         
-        public static bool CompareJsonChecksums(string jsonA, string jsonB)
+        public static bool ValidateChecksum(PlayerStatsSaveWrapper wrapper)
+        {
+            if (wrapper == null || wrapper.data == null)
+                return false;
+
+            string recomputed = GenerateChecksum(wrapper);
+            return wrapper.checksum == recomputed;
+        }
+        
+        public static bool AreChecksumsEqual(string jsonA, string jsonB)
         {
             string checksumA = ExtractChecksum(jsonA);
             string checksumB = ExtractChecksum(jsonB);

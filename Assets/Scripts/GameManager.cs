@@ -143,8 +143,8 @@ public class GameManager : MonoBehaviour
     {
         PlayerStatsManager.AddPlay();
         AudioManager.Instance.PlayBackgroundMusic(gameplayTheme);
+        AudioManager.Instance.SetMusicPitch(1f);
         timeUpPanel.SetActive(false);
-        musicSpeedUp = false;
 
         isGameRunning = true;
         timeRemaining = gameDuration;

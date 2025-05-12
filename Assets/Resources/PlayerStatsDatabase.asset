@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     _serializedList:
+    - Key: Currencies
+      Value: {fileID: 11400000, guid: 7b5e80b2a2fcbd747854dbff2cecb8ad, type: 2}
     - Key: ClutchDeliveries
       Value: {fileID: 11400000, guid: ef14ad5ee04a04a4cb02c01cc2dcc546, type: 2}
     - Key: DifficultyUnlocked

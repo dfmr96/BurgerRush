@@ -1590,6 +1590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a748d5a2c582a9444984cce6ee6b465c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statsDB: {fileID: 11400000, guid: c28bae35f805bda4f9f79c25aa3b0213, type: 2}
   currentDifficultyLabel: 
   currentProgressionIndex: -1
   deliveredOrders: 0
@@ -6358,6 +6359,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
+--- !u!1 &2052421496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2052421497}
+  - component: {fileID: 2052421498}
+  m_Layer: 0
+  m_Name: AdvanceInputs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2052421497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052421496}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 754.05865, y: 1346.6754, z: -9.234083}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2052421498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052421496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af8e4732297d404493204f92d804ea77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeThreshold: 100
+  orderManager: {fileID: 403844510}
 --- !u!224 &2067003847 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4941198356012770842, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
@@ -7162,3 +7209,4 @@ SceneRoots:
   - {fileID: 403844511}
   - {fileID: 363890153}
   - {fileID: 695349870}
+  - {fileID: 2052421497}

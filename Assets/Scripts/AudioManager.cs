@@ -95,9 +95,9 @@ public class AudioManager : MonoBehaviour
 
     private void LoadSavedVolumes()
     {
-        SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume", 0));
-        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0));
-        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 0));
+        SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume", 1));
+        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 1));
+        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 1));
         Debug.Log($"MASTER VOLUME: {PlayerPrefs.GetFloat("MasterVolume", 0)}");
         Debug.Log($"MUSIC VOLUME:  {PlayerPrefs.GetFloat("MusicVolume", 0)}");
         Debug.Log($"SFX VOLUME: {PlayerPrefs.GetFloat("SFXVolume", 0)}");

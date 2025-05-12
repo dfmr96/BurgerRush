@@ -23,6 +23,13 @@ namespace Services.Cloud
             if (cloudData.TryGetValue(key, out var item))
             {
                 string json = item.Value.GetAs<string>();
+                
+                if (typeof(T) == typeof(string))
+                {
+                    Debug.Log($"☁️ Loaded <string> from cloud key '{key}'.");
+                    return (T)(object)json;
+                }
+                
                 T result = JsonUtility.FromJson<T>(json);
                 Debug.Log($"☁️ Loaded <{typeof(T).Name}> from cloud key '{key}'.");
                 return result;

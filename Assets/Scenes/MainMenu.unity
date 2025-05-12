@@ -1528,7 +1528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &766259011
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4912,7 +4912,7 @@ PrefabInstance:
     - target: {fileID: 4221612029105255845, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 845768386}
     - target: {fileID: 4221612029105255845, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnConfirmClicked
