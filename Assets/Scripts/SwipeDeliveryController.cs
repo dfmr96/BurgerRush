@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class SwipeDeliveryController : MonoBehaviour
 {
-    [SerializeField] private float swipeThreshold = 100f;
+    [SerializeField] private float swipeThreshold = 50f;
     [SerializeField] private OrderManager orderManager;
 
     private Vector2 swipeStartPos;
@@ -24,11 +24,20 @@ public class SwipeDeliveryController : MonoBehaviour
 
             if (touch.press.wasReleasedThisFrame && isSwiping)
             {
-                Vector2 swipeDelta = touch.position.ReadValue() - swipeStartPos;
+                Vector2 swipeEndPos = touch.position.ReadValue();
+                Vector2 swipeDelta = swipeEndPos - swipeStartPos;
 
-                if (swipeDelta.y > swipeThreshold && Mathf.Abs(swipeDelta.x) < swipeThreshold * 0.5f)
+                Debug.Log($"Swipe delta: {swipeDelta}");
+
+                // Verificamos si es un swipe mayor a threshold y mayor en Y que en X
+                if (swipeDelta.magnitude > swipeThreshold && swipeDelta.y > Mathf.Abs(swipeDelta.x))
                 {
+                    Debug.Log("✅ Valid swipe up detected");
                     TryAutoDeliverMostUrgentOrder();
+                }
+                else
+                {
+                    Debug.Log("❌ Swipe rejected");
                 }
 
                 isSwiping = false;
