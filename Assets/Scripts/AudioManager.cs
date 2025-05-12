@@ -4,6 +4,7 @@ using Databases;
 using Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexityData;
+using Services.Utils;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -27,6 +28,9 @@ public class AudioManager : MonoBehaviour
     
     [SerializeField] private int pooledSourcesCount = 2;
     private List<AudioSource> pooledSources = new();
+    
+    private List<AudioSource> pooledSpatialSources = new();
+    [SerializeField] private int pooledSpatialCount = 4;
 
     private void Awake()
     {
@@ -56,23 +60,67 @@ public class AudioManager : MonoBehaviour
             source.playOnAwake = false;
             pooledSources.Add(source);
         }
+
+        for (int i = 0; i < pooledSpatialCount; i++)
+        {
+            var obj = new GameObject($"SpatialSource_{i}");
+            obj.transform.parent = transform; // organizarlos
+            var spatialSource = obj.AddComponent<AudioSource>();
+            spatialSource.outputAudioMixerGroup = sfxSource.outputAudioMixerGroup;
+            spatialSource.playOnAwake = false;
+            spatialSource.spatialBlend = 1f;
+            spatialSource.minDistance = 1f;
+            spatialSource.maxDistance = 10f;
+            spatialSource.rolloffMode = AudioRolloffMode.Linear;
+
+            pooledSpatialSources.Add(spatialSource);
+        }
     }
     
-    private AudioSource GetAvailableSource()
+    private AudioSource GetAvailableSource(Vector3? position = null)
     {
-        foreach (var source in pooledSources)
+        if (position == null)
         {
-            if (!source.isPlaying)
-                return source;
-        }
+            foreach (var source in pooledSources)
+            {
+                if (!source.isPlaying)
+                    return source;
+            }
 
-        // Si todos están ocupados, opcionalmente podés clonar uno (o retornar null)
-        var newSource = gameObject.AddComponent<AudioSource>();
-        newSource.outputAudioMixerGroup = sfxSource.outputAudioMixerGroup;
-        newSource.playOnAwake = false;
-        pooledSources.Add(newSource);
-        return newSource;
+            var newSource = gameObject.AddComponent<AudioSource>();
+            newSource.outputAudioMixerGroup = sfxSource.outputAudioMixerGroup;
+            newSource.playOnAwake = false;
+            pooledSources.Add(newSource);
+            return newSource;
+        }
+        else
+        {
+            foreach (var source in pooledSpatialSources)
+            {
+                if (!source.isPlaying)
+                {
+                    source.transform.position = position.Value;
+                    return source;
+                }
+            }
+
+            // Si están todos ocupados, podés decidir si querés crear más o no:
+            var sfxObject = new GameObject("Dynamic_SpatialSource");
+            sfxObject.transform.position = position.Value;
+
+            var audioSource = sfxObject.AddComponent<AudioSource>();
+            audioSource.outputAudioMixerGroup = sfxSource.outputAudioMixerGroup;
+            audioSource.spatialBlend = 1f;
+            audioSource.minDistance = 1f;
+            audioSource.maxDistance = 10f;
+            audioSource.playOnAwake = false;
+            audioSource.rolloffMode = AudioRolloffMode.Linear;
+
+            pooledSpatialSources.Add(audioSource); // opcional, para ampliar el pool
+            return audioSource;
+        }
     }
+
 
     public void SetMasterVolume(float value)
     {
@@ -177,25 +225,39 @@ public class AudioManager : MonoBehaviour
         }
     }
     
-    public void PlayIngredientPlacedSFX()
+    public void PlayIngredientPlacedSFX(RectTransform sourceUI = null)
     {
         if (sfxLibrary.clips.TryGetValue(SFXType.IngredientPlaced, out var clip) && clip != null)
         {
-            AudioSource source = GetAvailableSource();
+            AudioSource source;
+
+            if (sourceUI != null)
+            {
+                Vector3 worldPos = WorldPositionHelper.GetWorldPositionFromUI(sourceUI);
+                source = GetAvailableSource(worldPos);
+            }
+            else
+            {
+                source = GetAvailableSource(); // No 3D
+            }
+
             if (source != null)
             {
-                //float randomPitch = Random.Range(.9f, 1.1f);
-                //source.pitch = randomPitch;
                 source.PlayOneShot(clip);
             }
         }
     }
     
-    public void PlayNewOrderSFX(BurgerComplexityData complexity)
+    public void PlayNewOrderSFX(BurgerComplexityData complexity, RectTransform sourceUI = null)
     {
         if (sfxLibrary.clips.TryGetValue(SFXType.NewOrder, out var clip) && clip != null && complexity != null)
         {
-            AudioSource source = GetAvailableSource();
+            Vector3? pos = null;
+
+            if (sourceUI != null)
+                pos = WorldPositionHelper.GetWorldPositionFromUI(sourceUI);
+
+            AudioSource source = GetAvailableSource(pos);
             if (source != null)
             {
                 float pitch = complexity.OrderCreatedPitch;

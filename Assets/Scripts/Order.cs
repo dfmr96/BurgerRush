@@ -47,6 +47,11 @@ public class Order : MonoBehaviour
 
         if (bonusIcon != null)
             bonusIcon.SetActive(false);
+        
+        if (complexity != null && orderRectTransform != null)
+        {
+            AudioManager.Instance.PlayNewOrderSFX(complexity, orderRectTransform);
+        }
     }
     
     private void Start()
