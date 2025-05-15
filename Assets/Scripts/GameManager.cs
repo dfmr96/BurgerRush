@@ -170,7 +170,11 @@ public class GameManager : MonoBehaviour
             $"<color=#FFD700><b>Final Score:</b></color> {score}\n" +
             $"<color=#00FFFF><b>Best Score:</b></color> {PlayerStatsManager.GetHighScore()}";
         
+#if !UNITY_WEBGL
         await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
+#else
+        Debug.Log("☁️ WebGL: se omite Cloud Save.");
+#endif
     }
 
     private void UpdateTimerUI()

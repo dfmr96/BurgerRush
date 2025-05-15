@@ -14,9 +14,10 @@ namespace Services.Cloud
 
         private async void Awake()
         {
+#if !UNITY_WEBGL
             await InitializeServices();
-        }
-
+#endif
+}
         private async Task InitializeServices()
         {
             try

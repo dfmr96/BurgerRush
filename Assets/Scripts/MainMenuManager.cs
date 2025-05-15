@@ -19,7 +19,14 @@ public class MainMenuManager : MonoBehaviour
         AudioManager.Instance.SetMusicPitch(1f);
         PlayerStatsService.InitializeAllStats(statsDB);
         
-        UGSInitializer.OnUGSReady += ValidateCloudSync;
+#if !UNITY_WEBGL
+    UGSInitializer.OnUGSReady += ValidateCloudSync;
+#else
+        Debug.Log("☁️ WebGL build: Cloud Save desactivado.");
+        PlayerPrefs.SetInt("LastCloudSyncSuccess", 0); // o 1, si querés evitar mostrar warning
+        PlayerPrefs.Save();
+        OnCloudSyncStatusChanged?.Invoke(0);
+#endif
     }
 
 private async void ValidateCloudSync()
