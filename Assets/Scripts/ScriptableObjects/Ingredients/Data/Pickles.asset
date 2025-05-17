@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pickles
   m_EditorClassIdentifier: 
   ingredientName: Pickles
-  ingredientIcon: {fileID: 1982481, guid: 86de8d81397b28744b3f8997626b67a3, type: 3}
+  ingredientIcon: {fileID: -661648195, guid: 38cc9a07191ef554f847d626777bbe5f, type: 3}
   type: 2

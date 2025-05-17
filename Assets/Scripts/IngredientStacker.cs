@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using DefaultNamespace;
 using Enums;
 using ScriptableObjects;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class IngredientStacker : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class IngredientStacker : MonoBehaviour
     [SerializeField] private Transform stackContainer; // Visual container
     [SerializeField] private GameObject stackedIngredientPrefab; // Prefab for stacked ingredients
     [SerializeField] private List<IngredientButton> ingredientButtons;
+    [SerializeField] private Button  deliverButton;
 
     [SerializeField] private float yOffset;
     private readonly Stack<IngredientData> _stackedIngredients = new();
@@ -88,13 +88,20 @@ public class IngredientStacker : MonoBehaviour
 
     private void ValidateOrders()
     {
+        bool hasValidOrder = false;
+
         foreach (var order in OrderManager.Orders)
         {
             if (!order.gameObject.activeSelf) continue;
 
             var isMatch = IsMatch(order.Ingredients, _stackedIngredients);
             order.MarkAsDeliverable(isMatch);
+
+            if (isMatch)
+                hasValidOrder = true;
         }
+
+        deliverButton.interactable = hasValidOrder;
     }
 
     public void ValidateOrder(Order order)

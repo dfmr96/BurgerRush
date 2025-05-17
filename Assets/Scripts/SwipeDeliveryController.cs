@@ -66,7 +66,7 @@ public class SwipeDeliveryController : MonoBehaviour
 #endif*/
     }
 
-    private void TryAutoDeliverMostUrgentOrder()
+    public void TryAutoDeliverMostUrgentOrder()
     {
         Order target = GetMostUrgentDeliverableOrder();
         if (target != null)
