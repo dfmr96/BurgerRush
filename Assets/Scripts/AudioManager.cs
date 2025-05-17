@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Databases;
 using Enums;
 using ScriptableObjects;
-using ScriptableObjects.BurgerComplexityData;
+using ScriptableObjects.BurgerComplexity;
 using Services.Utils;
 using UnityEngine;
 using UnityEngine.Audio;

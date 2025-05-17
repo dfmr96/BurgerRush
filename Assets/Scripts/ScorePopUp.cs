@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using ScriptableObjects.BurgerComplexityData;
+using ScriptableObjects.BurgerComplexity;
 using TMPro;
 using UnityEngine;
 

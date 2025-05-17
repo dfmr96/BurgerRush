@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Databases;
 using Enums;
 using ScriptableObjects;
-using ScriptableObjects.BurgerComplexityData;
+using ScriptableObjects.BurgerComplexity;
 using Services.Cloud;
 using TMPro;
 using Unity.Collections;

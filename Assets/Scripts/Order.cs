@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using Enums;
 using ScriptableObjects;
-using ScriptableObjects.BurgerComplexityData;
+using ScriptableObjects.BurgerComplexity;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -120,8 +120,7 @@ public class Order : MonoBehaviour
     
     public void SetBackgroundColor(Color color)
     {
-        if (ingredientContainerImage != null)
-            ingredientContainerImage.color = color;
+        
     }
 
     private void UpdateUI()
@@ -202,5 +201,12 @@ public class Order : MonoBehaviour
     public void SetComplexity(BurgerComplexityData data)
     {
         complexity = data;
+        InitBurger(data);
+    }
+
+    private void InitBurger(BurgerComplexityData data)
+    {
+        ingredientContainerImage.color = data.OrderBackgroundColor;
+        lifespan = data.ExpirationTime;
     }
 }

@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Medium
   m_EditorClassIdentifier: 
   difficulty: 1
-  ClutchBonusTime: 2
+  expirationTime: 10
+  clutchBonusTime: 4
   label: Medium
   minToppings: 2
   maxToppings: 4
   baseScore: 150
   pointsPerTopping: 25
   scorePopupStyle: {fileID: 11400000, guid: c24f30d80f1c4c843981c5fe1ff86085, type: 2}
-  bonusTimeOnDelivery: 5
-  chanceToBeBonus: 0.3
+  bonusTimeOnDelivery: 4
+  chanceToBeBonus: 0.25
   orderCreatedPitch: 1.1
   orderBackgroundColor: {r: 1, g: 1, b: 0.78431374, a: 1}
