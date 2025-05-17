@@ -117,11 +117,6 @@ public class Order : MonoBehaviour
         for (var i = ingredients.Length - 1; i >= 0; i--) Ingredients.Push(ingredients[i]);
         UpdateUI();
     }
-    
-    public void SetBackgroundColor(Color color)
-    {
-        
-    }
 
     private void UpdateUI()
     {

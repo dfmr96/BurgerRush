@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     [Header("Debug Info")] 
     [SerializeField, ReadOnly] private string currentDifficultyLabel;
     [SerializeField, ReadOnly] private int currentProgressionIndex = -1;
+    [SerializeField, ReadOnly] private int progressionCount = 0;
     [SerializeField, ReadOnly] private int deliveredOrders = 0;
 
     [Header("Game Settings")] [SerializeField]
@@ -151,12 +152,22 @@ public class GameManager : MonoBehaviour
         timeSlider.maxValue = gameDuration;
         timeSlider.value = gameDuration;
         UpdateTimerUI();
+        
+        foreach (var order in orderManager.Orders)
+        {
+            order.OnOrderExpired += HandleOrderExpired;
+        }
+        
         orderManager.GenerateOrder(easyBurger);
     }
 
     private async void EndGame()
     {
         StopAllCoroutines();
+        foreach (var order in orderManager.Orders)
+        {
+            order.OnOrderExpired -= HandleOrderExpired;
+        }
         AudioManager.Instance.PlayBackgroundMusic(SFXType.GameOverTheme);
         isGameRunning = false;
         timeUpPanel.SetActive(true);
@@ -234,6 +245,7 @@ public class GameManager : MonoBehaviour
         }
 
         deliveredOrders++;
+        progressionCount++;
         UpdateScoreUI();
         ShowScorePopup(finalScore, complexity);
     }
@@ -261,7 +273,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < progression.Count; i++)
         {
             var step = progression[i];
-            if (deliveredOrders >= step.minOrdersDelivered && deliveredOrders <= step.maxOrdersDelivered)
+            if (progressionCount >= step.minOrdersDelivered && progressionCount <= step.maxOrdersDelivered)
             {
                 currentProgressionIndex = i;
                 currentDifficultyLabel =
@@ -292,4 +304,14 @@ public class GameManager : MonoBehaviour
         orderManager.GenerateOrder(complexity);
         isSpawningOrder = false;
     }
+    
+    private void HandleOrderExpired(Order order)
+    {
+        if (progressionCount > 0)
+        {
+            progressionCount--;
+            Debug.Log($"📉 Orden expirada. Progresión reducida a: {deliveredOrders}");
+        }
+    }
+
 }
