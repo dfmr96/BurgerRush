@@ -1593,6 +1593,7 @@ MonoBehaviour:
   statsDB: {fileID: 11400000, guid: c28bae35f805bda4f9f79c25aa3b0213, type: 2}
   currentDifficultyLabel: 
   currentProgressionIndex: -1
+  progressionCount: 0
   deliveredOrders: 0
   gameDuration: 60
   timerText: {fileID: 32404314}
@@ -1607,25 +1608,45 @@ MonoBehaviour:
   hardBurger: {fileID: 11400000, guid: c2535b43939fecc4884791e67e660ded, type: 2}
   progression:
   - minOrdersDelivered: 0
-    maxOrdersDelivered: 3
+    maxOrdersDelivered: 2
     easyWeight: 100
     mediumWeight: 0
     hardWeight: 0
-  - minOrdersDelivered: 4
-    maxOrdersDelivered: 6
+  - minOrdersDelivered: 3
+    maxOrdersDelivered: 5
     easyWeight: 70
     mediumWeight: 30
     hardWeight: 0
-  - minOrdersDelivered: 7
-    maxOrdersDelivered: 10
-    easyWeight: 40
+  - minOrdersDelivered: 6
+    maxOrdersDelivered: 8
+    easyWeight: 50
+    mediumWeight: 45
+    hardWeight: 5
+  - minOrdersDelivered: 9
+    maxOrdersDelivered: 12
+    easyWeight: 30
     mediumWeight: 50
-    hardWeight: 10
-  - minOrdersDelivered: 11
-    maxOrdersDelivered: 100
+    hardWeight: 20
+  - minOrdersDelivered: 13
+    maxOrdersDelivered: 16
     easyWeight: 20
     mediumWeight: 50
     hardWeight: 30
+  - minOrdersDelivered: 17
+    maxOrdersDelivered: 22
+    easyWeight: 10
+    mediumWeight: 50
+    hardWeight: 40
+  - minOrdersDelivered: 23
+    maxOrdersDelivered: 30
+    easyWeight: 0
+    mediumWeight: 40
+    hardWeight: 60
+  - minOrdersDelivered: 31
+    maxOrdersDelivered: 999
+    easyWeight: 0
+    mediumWeight: 20
+    hardWeight: 80
   maxConcurrentOrders: 5
   minOrderDelay: 1.5
   maxOrderDelay: 4
