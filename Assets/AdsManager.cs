@@ -26,6 +26,7 @@ public class AdsManager : MonoBehaviour
     public event Action OnInitialized;
     public bool IsInitialized { get; private set; }
 
+
     // ─────────────────────────────────────────────────────────────
     // 📦 Private Fields
     // ─────────────────────────────────────────────────────────────
@@ -109,6 +110,7 @@ public class AdsManager : MonoBehaviour
     // 📢 Public Methods
     // ─────────────────────────────────────────────────────────────
 
+    public bool IsRewardedReady() => rewardedAd?.IsReady() == true;
     public void ShowBanner()
     {
         if (bannerAd == null || isBannerVisible)
@@ -158,6 +160,7 @@ public class AdsManager : MonoBehaviour
             return;
 
         rewardedAd.Show(onRewardGranted);
-        rewardedAd.Load(); // Prepare next
     }
+    
+    
 }

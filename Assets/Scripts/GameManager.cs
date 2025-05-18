@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     private TMP_Text timerText;
 
     [SerializeField] private GameObject timeUpPanel;
+    [SerializeField] private Button continueButton;
     [SerializeField] private Slider timeSlider;
     [SerializeField] private TMP_Text finalScoreText;
 
@@ -171,18 +172,35 @@ public class GameManager : MonoBehaviour
         }
         AudioManager.Instance.PlayBackgroundMusic(SFXType.GameOverTheme);
         isGameRunning = false;
+        continueButton.interactable = false;
         timeUpPanel.SetActive(true);
 
         int secondsPlayed = Mathf.FloorToInt(totalSessionTime);
         PlayerStatsManager.AddSecondsPlayed(secondsPlayed);
         PlayerStatsManager.UpdateLongestSession(secondsPlayed);
         PlayerStatsManager.UpdateHighScore(score);
-        
-        finalScoreText.text = 
+
+        finalScoreText.text =
             $"<color=#FFD700><b>Final Score:</b></color> {score}\n" +
             $"<color=#00FFFF><b>Best Score:</b></color> {PlayerStatsManager.GetHighScore()}";
-        
+
         await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
+
+        // 🔄 Aseguramos que el ad esté listo antes de mostrar el botón
+        StartCoroutine(WaitForRewardedReady());
+    }
+    
+    private IEnumerator WaitForRewardedReady()
+    {
+        TMP_Text text = continueButton.GetComponentInChildren<TMP_Text>();
+
+        continueButton.interactable = false;
+        text.alpha = 0.4f;
+
+        yield return new WaitUntil(() => AdsManager.Instance.IsRewardedReady());
+
+        continueButton.interactable = true;
+        text.alpha = 1f;
     }
 
     private void UpdateTimerUI()
@@ -315,4 +333,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void OnContinueWithAdPressed()
+    {
+        AdsManager.Instance.TryShowRewarded(() =>
+        {
+            timeUpPanel.SetActive(false);
+            isGameRunning = true;
+            isSpawningOrder = false;
+            AddBonusTime(20f);
+            AudioManager.Instance.PlayBackgroundMusic(gameplayTheme);
+            Debug.Log("✅ Rewarded ad completed. +20s granted.");
+
+            TrySpawnOrder();
+        });
+    }
+    
+    private void TrySpawnOrder()
+    {
+        if (!isSpawningOrder)
+        {
+            int activeOrders = orderManager.OrdersCountActive();
+            if (activeOrders < maxConcurrentOrders)
+            {
+                StartCoroutine(GenerateOrderWithDelay());
+            }
+        }
+    }
 }

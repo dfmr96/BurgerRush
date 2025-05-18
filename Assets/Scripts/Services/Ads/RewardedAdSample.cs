@@ -20,6 +20,8 @@ namespace Services.Ads
 
             ad.OnAdLoaded += _ => Debug.Log("Rewarded Loaded");
             ad.OnAdLoadFailed += _ => Debug.Log("Rewarded Load Failed");
+            ad.OnAdClosed += RewardedOnAdClosedEvent;
+
 
             Load();
         }
@@ -34,6 +36,12 @@ namespace Services.Ads
 
             onRewardedCallback = onRewarded;
             ad.ShowAd();
+        }
+        
+        private void RewardedOnAdClosedEvent(LevelPlayAdInfo info)
+        {
+            Debug.Log("🎥 Rewarded ad closed. Reloading...");
+            ad.LoadAd();
         }
     }
 }
