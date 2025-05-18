@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Services.Ads;
 using UnityEngine;
 using Unity.Services.LevelPlay;
+using UnityEngine.UI;
 using Mediation = com.unity3d.mediation;
 
 
@@ -11,6 +12,13 @@ public class LevelPlayAds : MonoBehaviour
 {
     private string appKey = "220ee44fd";
     private BannerAdSample _bannerAd;
+    private InterstitialAdSample _interstitialAd;
+    private RewardedAdSample _rewardedAd;
+
+    [SerializeField] private Button loadInterstitial;
+    [SerializeField] private Button showInterstitial;
+    [SerializeField] private Button loadRewarded;
+    [SerializeField] private Button showRewarded;
 
     private void Start()
     {
@@ -40,6 +48,13 @@ public class LevelPlayAds : MonoBehaviour
         Debug.Log("SDK Init completed");
         LoadBanner();
         Debug.Log("Load Banner called");
+
+        loadInterstitial.interactable = true;
+        loadRewarded.interactable = true;
+
+        _interstitialAd = new InterstitialAdSample();
+        _rewardedAd = new RewardedAdSample();
+        
     }
 
     void OnApplicationPause(bool isPaused) 
@@ -51,12 +66,36 @@ public class LevelPlayAds : MonoBehaviour
     public void LoadBanner()
     {
         _bannerAd = new BannerAdSample();
-        Debug.Log("Load Banner clicked");
+        Debug.Log("Load Banner being loaded");
     }
 
     public void DestroyBanner()
     {
         _bannerAd.DestroyBannerAd();
         Debug.Log("Banner destroyed");
+    }
+
+    public void LoadInterstitial()
+    {
+        _interstitialAd.LoadInterstitialAd(showInterstitial);
+        Debug.Log("Load Interstitial clicked");
+    }
+    
+    public void ShowInterstitial()
+    {
+        _interstitialAd.ShowInterstitialAd();
+        Debug.Log("Show Interstitial clicked");
+    }
+
+    public void ShowRewarded()
+    {
+        _rewardedAd.ShowRewardedAd();
+        Debug.Log("Show Rewarded clicked");
+    }
+    
+    public void LoadRewarded()
+    {
+        _rewardedAd.LoadRewardedAd(showRewarded);
+        Debug.Log("Load Rewarded clicked");
     }
 }
