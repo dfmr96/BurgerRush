@@ -35,6 +35,7 @@ public class AdsManager : MonoBehaviour
     private RewardedAdSample rewardedAd;
 
     private int sessionPlays = 0;
+    private bool isBannerVisible = false;
 
     // ─────────────────────────────────────────────────────────────
     // 🔧 Unity Lifecycle
@@ -99,8 +100,31 @@ public class AdsManager : MonoBehaviour
     // 📢 Public Methods
     // ─────────────────────────────────────────────────────────────
 
-    public void ShowBanner() => bannerAd?.Show();
-    public void HideBanner() => bannerAd?.Hide();
+    public void ShowBanner()
+    {
+        if (bannerAd == null || isBannerVisible)
+        {
+            Debug.Log("ℹ️ Banner already visible or not initialized.");
+            return;
+        }
+
+        bannerAd.Show();
+        isBannerVisible = true;
+    }
+
+    public void HideBanner()
+    {
+        if (bannerAd == null || !isBannerVisible)
+        {
+            Debug.Log("ℹ️ Banner already hidden or not initialized.");
+            return;
+        }
+
+        bannerAd.Hide();
+        isBannerVisible = false;
+    }
+
+    public bool IsBannerVisible() => isBannerVisible;
 
     public void IncrementPlayCount() => sessionPlays++;
 
