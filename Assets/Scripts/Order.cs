@@ -4,6 +4,7 @@ using DefaultNamespace;
 using Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexity;
+using Services;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -177,6 +178,13 @@ public class Order : MonoBehaviour
     private void Complete()
     {
         GameManager.Instance.OnOrderDelivered(Complexity, Ingredients, isBonusOrder);
+        
+        AnalyticsManager.TrackBurgerDelivered(
+            complexity.ToString(),  // Suponiendo que tenés un enum o string ahí
+            Ingredients.Count,
+            Time.timeSinceLevelLoad,
+            isBonusOrder
+        );
 
         if (timer <= 3f && timer > 0f)
         {
