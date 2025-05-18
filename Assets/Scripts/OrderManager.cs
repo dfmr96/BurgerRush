@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using Databases;
-using DefaultNamespace;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexity;
 using UnityEngine;

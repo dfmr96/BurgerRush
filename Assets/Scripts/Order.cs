@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using DefaultNamespace;
 using Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexity;
