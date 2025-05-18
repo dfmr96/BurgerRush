@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Easy
   m_EditorClassIdentifier: 
   difficulty: 0
-  ClutchBonusTime: 1
+  expirationTime: 8
+  clutchBonusTime: 2
   label: Easy
   minToppings: 0
-  maxToppings: 1
+  maxToppings: 0
   baseScore: 100
   pointsPerTopping: 10
   scorePopupStyle: {fileID: 11400000, guid: 05eb98cd20dce3143a6f31f84a90891f, type: 2}
-  bonusTimeOnDelivery: 0
-  chanceToBeBonus: 0
+  bonusTimeOnDelivery: 2
+  chanceToBeBonus: 0.1
   orderCreatedPitch: 0.9
   orderBackgroundColor: {r: 0.78431374, g: 1, b: 0.78431374, a: 1}

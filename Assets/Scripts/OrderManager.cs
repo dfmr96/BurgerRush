@@ -3,7 +3,7 @@ using AYellowpaper.SerializedCollections;
 using Databases;
 using DefaultNamespace;
 using ScriptableObjects;
-using ScriptableObjects.BurgerComplexityData;
+using ScriptableObjects.BurgerComplexity;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -49,7 +49,6 @@ public class OrderManager : MonoBehaviour
 
             order.SetIngredients(selectedIngredients.ToArray());
             order.SetComplexity(complexityData);
-            order.SetBackgroundColor(complexityData.OrderBackgroundColor);
 
             order.gameObject.SetActive(true); // Primero activar
 

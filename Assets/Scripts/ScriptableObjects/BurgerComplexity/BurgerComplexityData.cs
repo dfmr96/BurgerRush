@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ScriptableObjects.BurgerComplexityData
+namespace ScriptableObjects.BurgerComplexity
 {
     [CreateAssetMenu(fileName = "BurgerComplexity", menuName = "BurgerRush/Burger Complexity")]
     public class BurgerComplexityData : ScriptableObject
@@ -10,10 +10,14 @@ namespace ScriptableObjects.BurgerComplexityData
         [SerializeField] private DifficultyType difficulty;
         public DifficultyType Difficulty => difficulty;
         
+        [Tooltip("Tiempo total (en segundos) antes de que esta orden expire.")]
+        [SerializeField] private float expirationTime;
+        public float ExpirationTime => expirationTime;
+        
         [Header("Clutch Settings")]
         [Tooltip("Tiempo bonus si se entrega en los últimos 3 segundos")]
-        public float ClutchBonusTime = 0f;
         
+        [SerializeField] private float clutchBonusTime = 0f;
         [Tooltip("Visual identifier only")] 
         [SerializeField] private string label;
         
@@ -55,5 +59,7 @@ namespace ScriptableObjects.BurgerComplexityData
         public float OrderCreatedPitch => orderCreatedPitch;
 
         public Color OrderBackgroundColor => orderBackgroundColor;
+
+        public float ClutchBonusTime => clutchBonusTime;
     }
 }

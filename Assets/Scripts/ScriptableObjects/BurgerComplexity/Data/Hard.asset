@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Hard
   m_EditorClassIdentifier: 
   difficulty: 2
-  ClutchBonusTime: 3
+  expirationTime: 12
+  clutchBonusTime: 6
   label: Hard
   minToppings: 4
   maxToppings: 6
   baseScore: 250
   pointsPerTopping: 40
   scorePopupStyle: {fileID: 11400000, guid: 5078b540b7b1c4b4daf9f0111a508ef4, type: 2}
-  bonusTimeOnDelivery: 8
+  bonusTimeOnDelivery: 6
   chanceToBeBonus: 0.45
   orderCreatedPitch: 1.3
   orderBackgroundColor: {r: 1, g: 0.78431374, b: 0.78431374, a: 1}

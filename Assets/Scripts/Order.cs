@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using Enums;
 using ScriptableObjects;
-using ScriptableObjects.BurgerComplexityData;
+using ScriptableObjects.BurgerComplexity;
+using Services;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -117,12 +118,6 @@ public class Order : MonoBehaviour
         for (var i = ingredients.Length - 1; i >= 0; i--) Ingredients.Push(ingredients[i]);
         UpdateUI();
     }
-    
-    public void SetBackgroundColor(Color color)
-    {
-        if (ingredientContainerImage != null)
-            ingredientContainerImage.color = color;
-    }
 
     private void UpdateUI()
     {
@@ -183,6 +178,13 @@ public class Order : MonoBehaviour
     private void Complete()
     {
         GameManager.Instance.OnOrderDelivered(Complexity, Ingredients, isBonusOrder);
+        
+        AnalyticsManager.TrackBurgerDelivered(
+            complexity.ToString(),  // Suponiendo que tenés un enum o string ahí
+            Ingredients.Count,
+            Time.timeSinceLevelLoad,
+            isBonusOrder
+        );
 
         if (timer <= 3f && timer > 0f)
         {
@@ -202,5 +204,12 @@ public class Order : MonoBehaviour
     public void SetComplexity(BurgerComplexityData data)
     {
         complexity = data;
+        InitBurger(data);
+    }
+
+    private void InitBurger(BurgerComplexityData data)
+    {
+        ingredientContainerImage.color = data.OrderBackgroundColor;
+        lifespan = data.ExpirationTime;
     }
 }
