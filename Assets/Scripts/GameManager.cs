@@ -5,6 +5,7 @@ using Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexity;
 using Services.Cloud;
+using Services.Utils;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
@@ -199,7 +200,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        RestartGameHelper.RestartSceneWithInterstitial();
     }
     
     public void BreakCombo()

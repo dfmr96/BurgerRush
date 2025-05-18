@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Services.Utils;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -23,13 +24,18 @@ public class GameplayUIManager : MonoBehaviour
     public void OnRestartPressed()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        RestartGameHelper.RestartSceneWithInterstitial();
     }
 
     public void OnMainMenuPressed()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+
+        AdOverlayHandler.ShowInterstitialWithBannerRestore(() =>
+        {
+            AdsManager.Instance.IncrementPlayCount();
+            SceneManager.LoadScene("MainMenu");
+        });
     }
         
     public void OnOptionPressed()

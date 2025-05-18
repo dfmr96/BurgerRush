@@ -34,7 +34,16 @@ public class AdsManager : MonoBehaviour
     private InterstitialAdSample interstitialAd;
     private RewardedAdSample rewardedAd;
 
-    private int sessionPlays = 0;
+    private const string PlayCountKey = "TotalSessionPlays";
+    public int SessionPlays
+    {
+        get => PlayerPrefs.GetInt(PlayCountKey, 0);
+        private set
+        {
+            PlayerPrefs.SetInt(PlayCountKey, value);
+            PlayerPrefs.Save();
+        }
+    }
     private bool isBannerVisible = false;
 
     // ─────────────────────────────────────────────────────────────
@@ -126,11 +135,11 @@ public class AdsManager : MonoBehaviour
 
     public bool IsBannerVisible() => isBannerVisible;
 
-    public void IncrementPlayCount() => sessionPlays++;
+    public void IncrementPlayCount() => SessionPlays++;
 
     public void TryShowInterstitial(Action onFinished)
     {
-        if (sessionPlays <= 3 || !interstitialAd?.IsReady() == true)
+        if (SessionPlays <= 3 || !interstitialAd?.IsReady() == true)
         {
             onFinished?.Invoke();
             return;
@@ -138,7 +147,7 @@ public class AdsManager : MonoBehaviour
 
         interstitialAd.Show(() =>
         {
-            interstitialAd.Load(); // Prepare next
+            interstitialAd.Load();
             onFinished?.Invoke();
         });
     }
