@@ -194,7 +194,19 @@ public class GameManager : MonoBehaviour
         finalScoreText.text =
             $"<color=#FFD700><b>Final Score:</b></color> {score}\n" +
             $"<color=#00FFFF><b>Best Score:</b></color> {PlayerStatsManager.GetHighScore()}";
-        
+
+        SendCustomEndEvent();
+
+        await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
+
+        if (!hasUsedContinue && AdsManager.Instance.IsInitialized && AdsManager.Instance.IsRewardedReady())
+        {
+            StartCoroutine(WaitForRewardedReady());
+        }
+    }
+
+    private void TrackGameSessionMetrics()
+    {
         var statsDB = Resources.Load<PlayerStatsDatabase>("PlayerStatsDatabase");
 
         AnalyticsManager.TrackGameSessionEnd(
@@ -210,15 +222,13 @@ public class GameManager : MonoBehaviour
             mediumDelivered: mediumDeliveredThisRun,
             hardDelivered: hardDeliveredThisRun
         );
-
-        await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
-
-        if (!hasUsedContinue && AdsManager.Instance.IsInitialized && AdsManager.Instance.IsRewardedReady())
-        {
-            StartCoroutine(WaitForRewardedReady());
-        }
     }
     
+    public void SendCustomEndEvent()
+    {
+        TrackGameSessionMetrics();
+    }
+
     private IEnumerator WaitForRewardedReady()
     {
         yield return new WaitUntil(() => AdsManager.Instance.IsRewardedReady());
@@ -298,9 +308,9 @@ public class GameManager : MonoBehaviour
         UpdateScoreUI();
         ShowScorePopup(finalScore, complexity);
         
-        int timeSinceStart = Mathf.RoundToInt(gameDuration - timeRemaining);
+        float timeSinceStart = gameDuration - timeRemaining;
         AnalyticsManager.TrackBurgerDelivered(
-            complexity.ToString(),
+            complexity.Difficulty.ToString(),
             ingredients.Count,
             timeSinceStart,
             gaveBonus

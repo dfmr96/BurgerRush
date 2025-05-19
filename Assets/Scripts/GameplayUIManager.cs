@@ -24,6 +24,12 @@ public class GameplayUIManager : MonoBehaviour
     public void OnRestartPressed()
     {
         Time.timeScale = 1f;
+        
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.SendCustomEndEvent();
+        }
+        
         RestartGameHelper.RestartSceneWithInterstitial();
     }
 

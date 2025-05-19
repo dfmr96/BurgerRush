@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using Unity.Services.Analytics;
 using UnityEngine;
 
@@ -6,33 +6,36 @@ namespace Services
 {
     public static class AnalyticsManager
     {
+        private static float Round1Decimal(float value) =>
+            (float)Math.Round(value, 1, MidpointRounding.AwayFromZero);
+
         public static void TrackBurgerDelivered(string difficulty, int ingredientsCount, float timeSinceStart, bool isBonus)
         {
-            var burgerEvent = new CustomEvent("burger_delivered")
+            var e = new CustomEvent("order_delivered")
             {
                 { "difficulty", difficulty },
                 { "ingredients_count", ingredientsCount },
-                { "time_since_start", Mathf.Round(timeSinceStart * 10f) / 10f },
+                { "time_since_start", Round1Decimal(timeSinceStart) },
                 { "is_bonus_order", isBonus }
             };
 
-            AnalyticsService.Instance.RecordEvent(burgerEvent);
-            Debug.Log("📊 Recorded custom event: burger_delivered");
+            RecordEventSafe(e, "order_delivered");
+            Debug.Log($"📊 Recorded custom event: order_delivered ({difficulty}, {ingredientsCount} ingredients, {Round1Decimal(timeSinceStart)}s, bonus: {isBonus})");
         }
-        
-        public static void TrackBurgerBuilt(float timeToComplete, int ingredientsCount, string complexity)
+
+        public static void TrackBurgerBuilt(float timeToComplete, int ingredientsCount, string difficulty)
         {
-            var builtEvent = new CustomEvent("burger_built")
+            var e = new CustomEvent("burger_completed")
             {
-                { "time_to_complete", Mathf.Round(timeToComplete * 10f) / 10f },
+                { "time_to_complete", Round1Decimal(timeToComplete) },
                 { "ingredients_count", ingredientsCount },
-                { "complexity", complexity }
+                { "difficulty", difficulty }
             };
 
-            AnalyticsService.Instance.RecordEvent(builtEvent);
-            Debug.Log($"📊 Recorded custom event: burger_built ({Mathf.RoundToInt(timeToComplete)}s, {ingredientsCount} ingredients, {complexity})");
+            RecordEventSafe(e, "burger_completed");
+            Debug.Log($"📊 Recorded custom event: burger_completed ({Round1Decimal(timeToComplete)}s, {ingredientsCount} ingredients, {difficulty})");
         }
-        
+
         public static void TrackGameSessionEnd(
             int secondsPlayed,
             int score,
@@ -46,7 +49,7 @@ namespace Services
             int mediumDelivered,
             int hardDelivered)
         {
-            var sessionEvent = new CustomEvent("game_session_end")
+            var e = new CustomEvent("game_session_end")
             {
                 { "session_duration", secondsPlayed },
                 { "final_score", score },
@@ -62,9 +65,21 @@ namespace Services
                 { "total_delivered", easyDelivered + mediumDelivered + hardDelivered }
             };
 
-            AnalyticsService.Instance.RecordEvent(sessionEvent);
-            Debug.Log("📊 Recorded custom event: game_session_end");
+            RecordEventSafe(e, "game_session_end");
+            Debug.Log($"📊 Recorded custom event: game_session_end ({secondsPlayed}s, {score} points, {ordersDelivered} orders delivered)");
         }
 
+        private static void RecordEventSafe(CustomEvent e, string name)
+        {
+            try
+            {
+                AnalyticsService.Instance.RecordEvent(e);
+                Debug.Log($"📊 Sent event: {name}");
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning($"⚠️ Analytics error on {name}: {ex.Message}");
+            }
+        }
     }
 }
