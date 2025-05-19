@@ -177,13 +177,6 @@ public class Order : MonoBehaviour
     private void Complete()
     {
         GameManager.Instance.OnOrderDelivered(Complexity, Ingredients, isBonusOrder);
-        
-        AnalyticsManager.TrackBurgerDelivered(
-            complexity.ToString(),  // Suponiendo que tenés un enum o string ahí
-            Ingredients.Count,
-            Time.timeSinceLevelLoad,
-            isBonusOrder
-        );
 
         if (timer <= 3f && timer > 0f)
         {
@@ -196,6 +189,20 @@ public class Order : MonoBehaviour
         }
         VibrationManager.Vibrate(VibrationPreset.OrderCompleted);
         stacker.OrderManager.AddTimeToAllActiveOrdersExcept(this, complexity.ClutchBonusTime);
+        
+        // Tracking burger_built duration
+        if (stacker != null)
+        {
+            float? startTime = stacker.GetStackStartTime();
+            if (startTime.HasValue)
+            {
+                float duration = Time.time - startTime.Value;
+                int ingredientCount = Ingredients.Count;
+                string difficulty = complexity.Difficulty.ToString();
+
+                AnalyticsManager.TrackBurgerBuilt(duration, ingredientCount, difficulty);
+            }
+        }
 
         highlightImage.enabled = false;
         gameObject.SetActive(false);

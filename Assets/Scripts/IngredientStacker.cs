@@ -18,6 +18,11 @@ public class IngredientStacker : MonoBehaviour
     private readonly List<GameObject> _visualStack = new();
 
     public OrderManager OrderManager => orderManager;
+    
+    private float? currentStackStartTime = null;
+    public float? GetStackStartTime() => currentStackStartTime;
+
+
 
     private void Awake()
     {
@@ -41,6 +46,11 @@ public class IngredientStacker : MonoBehaviour
         {
             Debug.LogWarning("Tried to stack null ingredient");
             return;
+        }
+        
+        if (ingredientData.Type == IngredientType.BottomBun)
+        {
+            currentStackStartTime = Time.time;
         }
 
         _stackedIngredients.Push(ingredientData);
@@ -100,6 +110,7 @@ public class IngredientStacker : MonoBehaviour
                 hasValidOrder = true;
         }
 
+        
         deliverButton.interactable = hasValidOrder;
     }
 

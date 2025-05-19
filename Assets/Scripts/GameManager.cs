@@ -4,6 +4,7 @@ using Databases;
 using Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexity;
+using Services;
 using Services.Cloud;
 using Services.Utils;
 using TMPro;
@@ -65,6 +66,12 @@ public class GameManager : MonoBehaviour
     private bool isSpawningOrder = false;
     private float totalSessionTime = 0f;
     private bool hasUsedContinue = false;
+    private int easyDeliveredThisRun = 0;
+    private int mediumDeliveredThisRun = 0;
+    private int hardDeliveredThisRun = 0;
+    private int ordersFailedThisRun = 0;
+
+
 
     public BurgerComplexityData EasyBurger => easyBurger;
     public BurgerComplexityData MediumBurger => mediumBurger;
@@ -187,6 +194,22 @@ public class GameManager : MonoBehaviour
         finalScoreText.text =
             $"<color=#FFD700><b>Final Score:</b></color> {score}\n" +
             $"<color=#00FFFF><b>Best Score:</b></color> {PlayerStatsManager.GetHighScore()}";
+        
+        var statsDB = Resources.Load<PlayerStatsDatabase>("PlayerStatsDatabase");
+
+        AnalyticsManager.TrackGameSessionEnd(
+            secondsPlayed: Mathf.FloorToInt(totalSessionTime),
+            score: score,
+            ordersDelivered: deliveredOrders,
+            ordersFailed: ordersFailedThisRun,
+            usedContinue: hasUsedContinue,
+            totalPlays: (int)PlayerStatsService.Get(statsDB.stats["TotalPlays"]),
+            highScore: PlayerStatsManager.GetHighScore(),
+            totalTimePlayed: (int)PlayerStatsService.Get(statsDB.stats["TotalSecondsPlayed"]),
+            easyDelivered: easyDeliveredThisRun,
+            mediumDelivered: mediumDeliveredThisRun,
+            hardDelivered: hardDeliveredThisRun
+        );
 
         await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
 
@@ -246,12 +269,15 @@ public class GameManager : MonoBehaviour
         {
             case BurgerComplexityData.DifficultyType.Easy:
                 PlayerStatsManager.AddEasyDelivery();
+                easyDeliveredThisRun++;
                 break;
             case BurgerComplexityData.DifficultyType.Medium:
                 PlayerStatsManager.AddMediumDelivery();
+                mediumDeliveredThisRun++;
                 break;
             case BurgerComplexityData.DifficultyType.Hard:
                 PlayerStatsManager.AddHardDelivery();
+                hardDeliveredThisRun++;
                 break;
         }
         
@@ -271,6 +297,14 @@ public class GameManager : MonoBehaviour
         progressionCount++;
         UpdateScoreUI();
         ShowScorePopup(finalScore, complexity);
+        
+        int timeSinceStart = Mathf.RoundToInt(gameDuration - timeRemaining);
+        AnalyticsManager.TrackBurgerDelivered(
+            complexity.ToString(),
+            ingredients.Count,
+            timeSinceStart,
+            gaveBonus
+        );
     }
     private int CalculateScore(BurgerComplexityData complexity, Stack<IngredientData> ingredients)
     {
@@ -330,6 +364,8 @@ public class GameManager : MonoBehaviour
     
     private void HandleOrderExpired(Order order)
     {
+        ordersFailedThisRun++;
+
         if (progressionCount > 0)
         {
             progressionCount--;
