@@ -58,8 +58,7 @@ public class IngredientStacker : MonoBehaviour
         PlayerStatsManager.AddDiscarded();
         UpdateStackVisual();
         ValidateOrders();
-        
-        AudioManager.Instance?.PlaySFX(SFXType.StackCleared);
+
     }
     
     private void UpdateStackVisual()
@@ -112,5 +111,6 @@ public class IngredientStacker : MonoBehaviour
     public void OnClearStackButtonPressed()
     {
         ClearStack();
+        AudioManager.Instance?.PlaySFX(SFXType.StackCleared);
     }
 }

@@ -4155,7 +4155,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 16543757}
         m_TargetAssemblyTypeName: IngredientStacker, Assembly-CSharp
-        m_MethodName: ClearStack
+        m_MethodName: OnClearStackButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

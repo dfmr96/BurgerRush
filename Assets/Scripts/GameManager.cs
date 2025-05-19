@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour
     private bool isGameRunning = false;
     private bool isSpawningOrder = false;
     private float totalSessionTime = 0f;
+    private bool hasUsedContinue = false;
+
     public BurgerComplexityData EasyBurger => easyBurger;
     public BurgerComplexityData MediumBurger => mediumBurger;
     public BurgerComplexityData HardBurger => hardBurger;
@@ -83,6 +85,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         isGameRunning = true;
+        hasUsedContinue = false;
         StartGame();
     }
 
@@ -173,6 +176,7 @@ public class GameManager : MonoBehaviour
         AudioManager.Instance.PlayBackgroundMusic(SFXType.GameOverTheme);
         isGameRunning = false;
         continueButton.interactable = false;
+        continueButton.GetComponentInChildren<TMP_Text>().alpha = 0.4f;
         timeUpPanel.SetActive(true);
 
         int secondsPlayed = Mathf.FloorToInt(totalSessionTime);
@@ -186,21 +190,21 @@ public class GameManager : MonoBehaviour
 
         await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
 
-        // 🔄 Aseguramos que el ad esté listo antes de mostrar el botón
-        StartCoroutine(WaitForRewardedReady());
+        if (!hasUsedContinue && AdsManager.Instance.IsInitialized && AdsManager.Instance.IsRewardedReady())
+        {
+            StartCoroutine(WaitForRewardedReady());
+        }
     }
     
     private IEnumerator WaitForRewardedReady()
     {
-        TMP_Text text = continueButton.GetComponentInChildren<TMP_Text>();
-
-        continueButton.interactable = false;
-        text.alpha = 0.4f;
-
         yield return new WaitUntil(() => AdsManager.Instance.IsRewardedReady());
-
-        continueButton.interactable = true;
-        text.alpha = 1f;
+    
+        if (!hasUsedContinue)
+        {
+            continueButton.interactable = true;
+            continueButton.GetComponentInChildren<TMP_Text>().alpha = 1f;
+        }
     }
 
     private void UpdateTimerUI()
@@ -337,6 +341,7 @@ public class GameManager : MonoBehaviour
     {
         AdsManager.Instance.TryShowRewarded(() =>
         {
+            hasUsedContinue = true; // ✅ Solo una vez por partida
             timeUpPanel.SetActive(false);
             isGameRunning = true;
             isSpawningOrder = false;

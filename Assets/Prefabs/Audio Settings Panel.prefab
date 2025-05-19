@@ -500,6 +500,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2815127778351386739, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2842078519914282420, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
       propertyPath: m_text
       value: Preview SFX
@@ -1437,6 +1441,10 @@ PrefabInstance:
     - target: {fileID: 2815127778351386739, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815127778351386739, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2842078519914282420, guid: c7d5ff729bc3c2646a551e8b225c21e7, type: 3}
       propertyPath: m_text
