@@ -5,131 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d748584-baf0-4b6f-b37e-a2e842468ea2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.activity.activity-1.7.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.activity.activity-1.7.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.activity.activity-ktx-1.7.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.activity.activity-ktx-1.7.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.annotation.annotation-1.2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.annotation.annotation-1.2.0.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.annotation.annotation-experimental-1.3.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.annotation.annotation-experimental-1.3.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.arch.core.core-common-2.2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.arch.core.core-common-2.2.0.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.arch.core.core-runtime-2.2.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.arch.core.core-runtime-2.2.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.collection.collection-1.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.collection.collection-1.1.0.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.concurrent.concurrent-futures-1.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.concurrent.concurrent-futures-1.1.0.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.core.core-1.9.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.core.core-1.9.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.core.core-ktx-1.9.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.core.core-ktx-1.9.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.customview.customview-1.0.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.customview.customview-1.0.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.datastore.datastore-1.0.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.datastore.datastore-1.0.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.datastore.datastore-core-1.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.datastore.datastore-core-1.0.0.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.fragment.fragment-1.1.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.fragment.fragment-1.1.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-common-2.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-common-2.6.1.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-2.1.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-2.1.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-core-2.6.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-core-2.6.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-process-2.6.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-process-2.6.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-runtime-2.6.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-runtime-2.6.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-runtime-ktx-2.6.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-runtime-ktx-2.6.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-service-2.1.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-service-2.1.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-2.6.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-2.6.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-ktx-2.6.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-ktx-2.6.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-savedstate-2.6.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-savedstate-2.6.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.loader.loader-1.0.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.loader.loader-1.0.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.profileinstaller.profileinstaller-1.3.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.profileinstaller.profileinstaller-1.3.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.room.room-common-2.2.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.room.room-common-2.2.5.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.room.room-runtime-2.2.5.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.room.room-runtime-2.2.5.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.savedstate.savedstate-1.2.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.savedstate.savedstate-1.2.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.savedstate.savedstate-ktx-1.2.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.savedstate.savedstate-ktx-1.2.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.sqlite.sqlite-2.1.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.sqlite.sqlite-2.1.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.sqlite.sqlite-framework-2.1.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.sqlite.sqlite-framework-2.1.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.startup.startup-runtime-1.1.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.startup.startup-runtime-1.1.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.tracing.tracing-1.0.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.tracing.tracing-1.0.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.1.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.1.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.webkit.webkit-1.6.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.webkit.webkit-1.6.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.work.work-runtime-2.7.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.work.work-runtime-2.7.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.work.work-runtime-ktx-2.7.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.work.work-runtime-ktx-2.7.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-18.1.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-18.1.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-base-18.0.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-base-18.0.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-basement-18.4.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-basement-18.4.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-cronet-18.0.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-cronet-18.0.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-tasks-18.0.1.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-tasks-18.0.1.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.guava.listenablefuture-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.guava.listenablefuture-1.0.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.protobuf.protobuf-javalite-3.25.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.protobuf.protobuf-javalite-3.25.6.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.protobuf.protobuf-kotlin-lite-3.25.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.protobuf.protobuf-kotlin-lite-3.25.6.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.squareup.okhttp3.okhttp-3.12.13.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.squareup.okhttp3.okhttp-3.12.13.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.squareup.okio.okio-1.15.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.squareup.okio.okio-1.15.0.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads-mediation.mediation-sdk-8.8.0.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads-mediation.mediation-sdk-8.8.0.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads-mediation.unityads-adapter-4.3.54.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads-mediation.unityads-adapter-4.3.54.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads.unity-ads-4.14.2.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads.unity-ads-4.14.2.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.chromium.net.cronet-api-72.3626.96.aar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.chromium.net.cronet-api-72.3626.96.aar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.annotations-13.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.annotations-13.0.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-1.8.22.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-1.8.22.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-common-1.8.22.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-common-1.8.22.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-jdk7-1.8.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-jdk7-1.8.10.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-jdk8-1.8.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-jdk8-1.8.10.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-android-1.6.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-android-1.6.4.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-core-1.5.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-core-1.5.0.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-core-jvm-1.6.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-core-jvm-1.6.4.jar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameplayUIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameplayUIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Services/AnalyticsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Services/AnalyticsManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Logos/BR_Logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Logos/BR_Logo.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Logos/ChatGPT Image 5 may 2025, 09_09_27 p.m..png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Logos/ChatGPT Image 5 may 2025, 09_09_27 p.m..png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AdsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdsManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher_background.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher_background.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher_foreground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher_foreground.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher_monochrome.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher_monochrome.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher_background.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher_background.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher_foreground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher_foreground.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher_monochrome.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher_monochrome.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher_background.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher_background.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher_foreground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher_foreground.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher_monochrome.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher_monochrome.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher_background.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher_background.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher_foreground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher_foreground.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher_monochrome.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher_monochrome.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher_background.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher_background.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher_foreground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher_foreground.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher_monochrome.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher_monochrome.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenuAdsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenuAdsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Services/Ads/BannerAdSample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Services/Ads/BannerAdSample.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BR_Logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BR_Logo.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/ChatGPT Image 5 may 2025, 09_09_27 p.m..png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/ChatGPT Image 5 may 2025, 09_09_27 p.m..png.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,20 +59,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;ScreenRecorder.SavePath&quot;: &quot;C:\\Users\\Dave-PC&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;UnityAds&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dave-PC&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "ScreenRecorder.SavePath": "C:\\Users\\Dave-PC",
+    "ScreenshotViewer.SavePath": "E:/",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

@@ -69,7 +69,7 @@
     <file>Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-core-jvm-1.6.4.jar</file>
   </files>
   <settings>
-    <setting name="androidAbis" value="arm64-v8a" />
+    <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
     <setting name="bundleId" value="com.davemarcano.burgerrush" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />

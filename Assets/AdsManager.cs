@@ -10,15 +10,14 @@ public class AdsManager : MonoBehaviour
     // ─────────────────────────────────────────────────────────────
     // 🔗 Singleton
     // ─────────────────────────────────────────────────────────────
-    
+
     public static AdsManager Instance { get; private set; }
 
     // ─────────────────────────────────────────────────────────────
     // 📦 Serialized Fields
     // ─────────────────────────────────────────────────────────────
 
-    [Header("App Keys")]
-    [SerializeField] private string appKey = "220ee44fd";
+    [Header("App Keys")] [SerializeField] private string appKey = "220ee44fd";
 
     // ─────────────────────────────────────────────────────────────
     // 📣 Public State
@@ -37,6 +36,7 @@ public class AdsManager : MonoBehaviour
     private RewardedAdSample rewardedAd;
 
     private const string PlayCountKey = "TotalSessionPlays";
+
     public int SessionPlays
     {
         get => PlayerPrefs.GetInt(PlayCountKey, 0);
@@ -46,6 +46,7 @@ public class AdsManager : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
+
     private bool isBannerVisible = false;
 
     // ─────────────────────────────────────────────────────────────
@@ -62,7 +63,7 @@ public class AdsManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        
+
         UGSInitializer.OnUGSReady += InitializeAds;
     }
 
@@ -83,15 +84,14 @@ public class AdsManager : MonoBehaviour
     private void OnApplicationPause(bool isPaused)
     {
 #if !UNITY_WEBGL
-    IronSource.Agent.onApplicationPause(isPaused);
+        IronSource.Agent.onApplicationPause(isPaused);
 #endif
     }
 
     // ─────────────────────────────────────────────────────────────
     // 🧠 Initialization Callbacks
     // ─────────────────────────────────────────────────────────────
-    
-    
+
 
     private void OnInitSuccess(LevelPlayConfiguration config)
     {
@@ -109,28 +109,46 @@ public class AdsManager : MonoBehaviour
     {
         Debug.LogError("❌ LevelPlay init failed: " + error);
     }
-    
+
 
     // ─────────────────────────────────────────────────────────────
     // 📢 Public Methods
     // ─────────────────────────────────────────────────────────────
 
     public bool IsRewardedReady() => rewardedAd?.IsReady() == true;
+
     public void ShowBanner()
     {
 #if UNITY_WEBGL
-        Debug.Log("🚫 Banner ads not supported in WebGL.");
-        return;
-#endif
-        
-        if (bannerAd == null || isBannerVisible)
+    Debug.Log("🚫 Banner ads not supported in WebGL.");
+    return;
+#else
+        if (bannerAd == null)
         {
-            Debug.Log("ℹ️ Banner already visible or not initialized.");
+            Debug.Log("⚠️ bannerAd is null.");
             return;
         }
 
+        if (isBannerVisible)
+        {
+            Debug.Log("ℹ️ Banner already visible.");
+            return;
+        }
+
+        Debug.Log("📢 Attempting to show banner...");
         bannerAd.Show();
-        isBannerVisible = true;
+
+        // Solo marcamos como visible si sabemos que se pudo mostrar
+        if (bannerAd.IsReady()) 
+        {
+            isBannerVisible = true;
+            Debug.Log("✅ Banner is now visible.");
+        }
+        else
+        {
+            Debug.Log("⏳ Banner not ready yet.");
+        }
+#endif
     }
 
     public void HideBanner()
@@ -144,6 +162,11 @@ public class AdsManager : MonoBehaviour
         bannerAd.Hide();
         isBannerVisible = false;
     }
+    
+    public bool IsBannerReady()
+    {
+        return bannerAd != null && bannerAd.IsReady();
+    }
 
     public bool IsBannerVisible() => isBannerVisible;
 
@@ -155,7 +178,7 @@ public class AdsManager : MonoBehaviour
         Debug.Log("🚫 Ads not supported in WebGL.");
         onFinished?.Invoke();
         return;
-#endif
+#else
         if (SessionPlays <= 3 || !interstitialAd?.IsReady() == true)
         {
             onFinished?.Invoke();
@@ -167,6 +190,7 @@ public class AdsManager : MonoBehaviour
             interstitialAd.Load();
             onFinished?.Invoke();
         });
+#endif
     }
 
     public void TryShowRewarded(Action onRewardGranted)
@@ -174,28 +198,29 @@ public class AdsManager : MonoBehaviour
 #if UNITY_WEBGL
         Debug.Log("🚫 Rewarded ads not supported in WebGL.");
         return;
-#endif
-        
+#else
+
         if (!rewardedAd?.IsReady() == true)
             return;
 
         rewardedAd.Show(onRewardGranted);
+#endif
     }
-    
+
     // ─────────────────────────────────────────────────────────────
     // 📢 Private Methods
     // ─────────────────────────────────────────────────────────────
-    
+
     private void InitializeAds()
     {
 #if UNITY_WEBGL
         Debug.Log("🚫 Skipping LevelPlay initialization in WebGL.");
         return;
-#endif
-        
+#else
+
         if (IsInitialized) return;
         Debug.Log("🎯 UGS ready. Initializing ads...");
         LevelPlay.Init(appKey);
+#endif
     }
-    
 }
