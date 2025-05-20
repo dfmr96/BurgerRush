@@ -27,6 +27,15 @@ public class NicknamePanelController : MonoBehaviour
     
     private async void CheckIfNicknameIsNeeded()
     {
+        
+#if UNITY_WEBGL
+        Debug.Log("🌐 WebGL build detected. Skipping nickname panel.");
+        nicknamePanel.SetActive(false);
+        PlayerPrefs.SetString("PlayerName", "PlayerWeb");
+        PlayerPrefs.Save();
+        return;
+#endif
+        
         // 1. Chequear si ya hay nickname en local
         string localName = PlayerPrefs.GetString("PlayerName", "");
         if (!string.IsNullOrWhiteSpace(localName))

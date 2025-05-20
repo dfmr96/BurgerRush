@@ -143,9 +143,6 @@ PlayerSettings:
   bundleVersion: 1.0.2
   preloadedAssets:
   - {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  - {fileID: -651951290112061079, guid: deae45078e6b86040a1fd0580434d54c, type: 2}
-  - {fileID: 11400000, guid: f7b438222b3452e408f9d26f162d880b, type: 2}
-  - {fileID: 11400000, guid: 2021d7891bb56c24593bf76c92b462c6, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -166,7 +163,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.DaveMarcano.BurgerRush
+    Android: com.davemarcano.burgerrush
     Lumin: com.DefaultCompany.com.unity.template.mobile2D
     Standalone: com.DefaultCompany.com.unity.template.mobile2D
     iPhone: com.DefaultCompany.com.unity.template.mobile2D
@@ -735,6 +732,7 @@ PlayerSettings:
   webGLPowerPreference: 2
   scriptingDefineSymbols:
     Android: LEVELPLAY_DEPENDENCIES_INSTALLED
+    WebGL: LEVELPLAY_DEPENDENCIES_INSTALLED
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
