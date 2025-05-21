@@ -7,6 +7,7 @@ public static class PlayerStatsManager
     private static PlayerStatsDatabase db => Resources.Load<PlayerStatsDatabase>("PlayerStatsDatabase");
     
     public static int GetHighScore() => (int)PlayerStatsService.Get(db.stats["HighScore"]);
+    public static int GetTotalSecondsPlayed() => (int)PlayerStatsService.Get(db.stats["TotalSecondsPlayed"]);
 
     public static void AddPlay()
     {

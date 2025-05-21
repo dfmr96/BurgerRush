@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Services
 {
-    public static  class PlayerStatsSaveService
+    public static class PlayerStatsSaveService
     {
         public static string ExportWithChecksum(PlayerStatsDatabase db)
         {
@@ -15,7 +15,7 @@ namespace Services
             Debug.Log($"📦 Final JSON with checksum:\n{finalJson}");
             return finalJson;
         }
-        
+
         public static bool ImportWithValidation(string json, PlayerStatsDatabase db)
         {
             var wrapper = JsonUtility.FromJson<PlayerStatsSaveWrapper>(json);
@@ -28,7 +28,7 @@ namespace Services
             PlayerStatsExporter.ImportFromJson(JsonUtility.ToJson(wrapper.data), db);
             return true;
         }
-        
+
         public static PlayerStatsSaveWrapper ExportWrapperWithChecksum(PlayerStatsDatabase db)
         {
             var rawData = new PlayerStatsSaveData();
@@ -51,18 +51,14 @@ namespace Services
 
             wrapper.checksum = GenerateChecksum(wrapper);
 
+            // ❌ NO marcar como "has saved" acá.
             return wrapper;
         }
-        
+
         public static string GenerateChecksum(PlayerStatsSaveWrapper wrapper)
         {
-            var combined = new
-            {
-                data = wrapper.data,
-                lastSavedAt = wrapper.lastSavedAt
-            };
-
-            string json = JsonUtility.ToJson(combined);
+            // ✅ Solo se incluye `data`, no `lastSavedAt`
+            string json = JsonUtility.ToJson(wrapper.data);
             return SaveCheckSumUtility.GenerateChecksum(json);
         }
 
@@ -77,7 +73,7 @@ namespace Services
             PlayerStatsExporter.ImportFromJson(JsonUtility.ToJson(wrapper.data), db);
             return true;
         }
-        
+
         public static bool ValidateChecksum(PlayerStatsSaveWrapper wrapper)
         {
             if (wrapper == null || wrapper.data == null)
@@ -86,7 +82,7 @@ namespace Services
             string recomputed = GenerateChecksum(wrapper);
             return wrapper.checksum == recomputed;
         }
-        
+
         public static bool AreChecksumsEqual(string jsonA, string jsonB)
         {
             string checksumA = ExtractChecksum(jsonA);
@@ -113,6 +109,30 @@ namespace Services
                 Debug.LogWarning("⚠️ Could not extract checksum from JSON.");
                 return null;
             }
+        }
+
+        public static bool IsFreshInstall()
+        {
+            return PlayerPrefs.GetInt("HasSavedOnce", 0) == 0;
+        }
+        
+        public static void MarkAsSaved()
+        {
+            PlayerPrefs.SetInt("HasSavedOnce", 1);
+            PlayerPrefs.Save();
+        }
+        
+        public static int GetTotalPlayTimeFromWrapper(PlayerStatsSaveWrapper wrapper)
+        {
+            foreach (var entry in wrapper.data.stats)
+            {
+                if (entry.key == "TotalSecondsPlayed")
+                {
+                    int value = Convert.ToInt32(entry.value);
+                    return value;
+                }
+            }
+            return 0;
         }
     }
 }

@@ -16,6 +16,8 @@ namespace Services.Cloud
         {
             var wrapper = PlayerStatsSaveService.ExportWrapperWithChecksum(db);
             await CloudSaveEntity<PlayerStatsSaveWrapper>.Save(CloudKey, wrapper);
+            PlayerPrefs.SetInt("HasSavedOnce", 1);
+            PlayerPrefs.Save();
         }
 
         public static async Task<bool> LoadStatsFromCloud(PlayerStatsDatabase db)
