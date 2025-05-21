@@ -5,39 +5,345 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d748584-baf0-4b6f-b37e-a2e842468ea2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Logos/BR_Logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Logos/BR_Logo.jpg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Logos/ChatGPT Image 5 may 2025, 09_09_27 p.m..png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Logos/ChatGPT Image 5 may 2025, 09_09_27 p.m..png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.182.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.182/Google.IOSResolver.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.182/Google.IOSResolver.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.182/Google.JarResolver.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.182/Google.JarResolver.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.182/Google.PackageManagerResolver.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.182/Google.PackageManagerResolver.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.182/Google.VersionHandlerImpl.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/1.2.182/Google.VersionHandlerImpl.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/CHANGELOG.md.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/Google.VersionHandler.dll.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/LICENSE.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/README.md.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.182_manifest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ExternalDependencyManager/Editor/external-dependency-manager_version-1.2.182_manifest.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayAuthenticator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayAuthenticator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSAndroidSetupUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSAndroidSetupUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSDocsUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSDocsUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSPostBuild.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSPostBuild.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSProjectSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSProjectSettings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSStrings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSStrings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSUpgrader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSUpgrader.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSUtil.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GPGSUtil.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/Google.Play.Games.Editor.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/Google.Play.Games.Editor.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GooglePlayGamesPluginDependencies.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GooglePlayGamesPluginDependencies.xml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GooglePlayGamesPlugin_v2.0.0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/GooglePlayGamesPlugin_v2.0.0.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/NearbyConnectionUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/NearbyConnectionUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.pom" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.pom.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.pom.md5.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.pom.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.pom.sha1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.pom.sha1.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.pom.sha256" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.pom.sha256.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.pom.sha512" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.pom.sha512.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.srcaar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.srcaar.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.srcaar.md5.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.srcaar.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.srcaar.sha1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.srcaar.sha1.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.srcaar.sha256" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.srcaar.sha256.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.srcaar.sha512" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/2.0.0/gpgs-plugin-support-2.0.0.srcaar.sha512.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.md5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.md5.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.sha1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.sha1.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.sha256" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.sha256.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.sha512" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/m2repository/com/google/games/gpgs-plugin-support/maven-metadata.xml.sha512.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/template-AndroidManifest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/template-AndroidManifest.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/template-Constants.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/template-Constants.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/template-GameInfo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Editor/template-GameInfo.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Proguard.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Proguard/games.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Proguard/games.txt.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Google.Play.Games.asmdef" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Google.Play.Games.asmdef.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Achievement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Achievement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/CommonStatusCodes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/CommonStatusCodes.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/CommonTypes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/CommonTypes.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/DummyClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/DummyClient.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Events.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Events/Event.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Events/Event.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Events/IEvent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Events/IEvent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Events/IEventsClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Events/IEventsClient.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/IPlayGamesClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/IPlayGamesClient.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/LeaderboardScoreData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/LeaderboardScoreData.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/AdvertisingResult.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/AdvertisingResult.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/ConnectionRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/ConnectionRequest.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/ConnectionResponse.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/ConnectionResponse.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/DummyNearbyConnectionClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/DummyNearbyConnectionClient.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/EndpointDetails.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/EndpointDetails.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/INearbyConnectionClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/INearbyConnectionClient.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/NearbyConnectionConfiguration.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Nearby/NearbyConnectionConfiguration.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Player.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/Player.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/PlayerProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/PlayerProfile.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/PlayerStats.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/PlayerStats.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/RecallAccess.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/RecallAccess.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/SavedGame.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/SavedGame/ISavedGameClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/SavedGame/ISavedGameClient.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/SavedGame/ISavedGameMetadata.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/SavedGame/ISavedGameMetadata.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/SavedGame/SavedGameMetadataUpdate.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/SavedGame/SavedGameMetadataUpdate.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/ScorePageToken.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/ScorePageToken.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/SignInInteractivity.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/SignInInteractivity.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/SignInStatus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/BasicApi/SignInStatus.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/GameInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/GameInfo.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform/PlayGamesAchievement.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform/PlayGamesAchievement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform/PlayGamesLeaderboard.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform/PlayGamesLeaderboard.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform/PlayGamesLocalUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform/PlayGamesLocalUser.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform/PlayGamesPlatform.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform/PlayGamesPlatform.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform/PlayGamesScore.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform/PlayGamesScore.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform/PlayGamesUserProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/ISocialPlatform/PlayGamesUserProfile.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/OurUtils.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/OurUtils/Logger.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/OurUtils/Logger.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/OurUtils/Misc.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/OurUtils/Misc.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/OurUtils/NearbyHelperObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/OurUtils/NearbyHelperObject.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/OurUtils/PlatformUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/OurUtils/PlatformUtils.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/OurUtils/PlayGamesHelperObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/OurUtils/PlayGamesHelperObject.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidClient.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidEventsClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidEventsClient.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidHelperFragment.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidHelperFragment.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidJavaConverter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidJavaConverter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidNearbyConnectionClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidNearbyConnectionClient.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidSavedGameClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidSavedGameClient.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidSnapshotMetadata.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidSnapshotMetadata.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidTaskUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/Android/AndroidTaskUtils.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/NearbyConnectionClientFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/NearbyConnectionClientFactory.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/PlayGamesClientFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/Platforms/PlayGamesClientFactory.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/PluginVersion.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/Runtime/Scripts/PluginVersion.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/current-build.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/GooglePlayGames/com.google.play.games/package.json.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/GooglePlayGamesManifest.androidlib.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/GooglePlayGamesManifest.androidlib/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/GooglePlayGamesManifest.androidlib/project.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/baseProjectTemplate.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Plugins/Android/baseProjectTemplate.gradle.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProjectSettings/GooglePlayGameSettings.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdsManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher_background.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher_background.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher_foreground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher_foreground.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher_monochrome.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-hdpi/ic_launcher_monochrome.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher_background.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher_background.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher_foreground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher_foreground.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher_monochrome.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-mdpi/ic_launcher_monochrome.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher_background.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher_background.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher_foreground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher_foreground.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher_monochrome.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xhdpi/ic_launcher_monochrome.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher_background.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher_background.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher_foreground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher_foreground.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher_monochrome.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxhdpi/ic_launcher_monochrome.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher_background.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher_background.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher_foreground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher_foreground.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher_monochrome.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logos/android/res/mipmap-xxxhdpi/ic_launcher_monochrome.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.activity.activity-1.7.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.activity.activity-1.7.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.activity.activity-ktx-1.7.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.activity.activity-ktx-1.7.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.annotation.annotation-1.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.annotation.annotation-1.2.0.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.annotation.annotation-experimental-1.3.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.annotation.annotation-experimental-1.3.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.arch.core.core-common-2.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.arch.core.core-common-2.2.0.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.arch.core.core-runtime-2.2.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.arch.core.core-runtime-2.2.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.collection.collection-1.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.collection.collection-1.1.0.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.concurrent.concurrent-futures-1.1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.concurrent.concurrent-futures-1.1.0.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.core.core-1.9.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.core.core-1.9.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.core.core-ktx-1.9.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.core.core-ktx-1.9.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.customview.customview-1.0.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.customview.customview-1.0.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.datastore.datastore-1.0.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.datastore.datastore-1.0.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.datastore.datastore-core-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.datastore.datastore-core-1.0.0.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.fragment.fragment-1.1.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.fragment.fragment-1.1.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-common-2.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-common-2.6.1.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-2.1.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-2.1.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-core-2.6.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-livedata-core-2.6.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-process-2.6.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-process-2.6.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-runtime-2.6.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-runtime-2.6.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-runtime-ktx-2.6.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-runtime-ktx-2.6.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-service-2.1.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-service-2.1.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-2.6.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-2.6.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-ktx-2.6.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-ktx-2.6.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-savedstate-2.6.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.lifecycle.lifecycle-viewmodel-savedstate-2.6.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.loader.loader-1.0.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.loader.loader-1.0.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.profileinstaller.profileinstaller-1.3.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.profileinstaller.profileinstaller-1.3.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.room.room-common-2.2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.room.room-common-2.2.5.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.room.room-runtime-2.2.5.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.room.room-runtime-2.2.5.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.savedstate.savedstate-1.2.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.savedstate.savedstate-1.2.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.savedstate.savedstate-ktx-1.2.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.savedstate.savedstate-ktx-1.2.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.sqlite.sqlite-2.1.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.sqlite.sqlite-2.1.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.sqlite.sqlite-framework-2.1.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.sqlite.sqlite-framework-2.1.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.startup.startup-runtime-1.1.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.startup.startup-runtime-1.1.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.tracing.tracing-1.0.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.tracing.tracing-1.0.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.1.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.1.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.webkit.webkit-1.6.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.webkit.webkit-1.6.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.work.work-runtime-2.7.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.work.work-runtime-2.7.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.work.work-runtime-ktx-2.7.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/androidx.work.work-runtime-ktx-2.7.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-18.1.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-18.1.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-base-18.0.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-base-18.0.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-basement-18.4.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-basement-18.4.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-cronet-18.0.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-cronet-18.0.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-tasks-18.0.1.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.android.gms.play-services-tasks-18.0.1.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.guava.listenablefuture-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.guava.listenablefuture-1.0.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.protobuf.protobuf-javalite-3.25.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.protobuf.protobuf-javalite-3.25.6.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.protobuf.protobuf-kotlin-lite-3.25.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.google.protobuf.protobuf-kotlin-lite-3.25.6.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.squareup.okhttp3.okhttp-3.12.13.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.squareup.okhttp3.okhttp-3.12.13.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.squareup.okio.okio-1.15.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.squareup.okio.okio-1.15.0.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads-mediation.mediation-sdk-8.8.0.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads-mediation.mediation-sdk-8.8.0.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads-mediation.unityads-adapter-4.3.54.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads-mediation.unityads-adapter-4.3.54.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads.unity-ads-4.14.2.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/com.unity3d.ads.unity-ads-4.14.2.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.chromium.net.cronet-api-72.3626.96.aar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.chromium.net.cronet-api-72.3626.96.aar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.annotations-13.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.annotations-13.0.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-1.8.22.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-1.8.22.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-common-1.8.22.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-common-1.8.22.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-jdk7-1.8.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-jdk7-1.8.10.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-jdk8-1.8.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlin.kotlin-stdlib-jdk8-1.8.10.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-android-1.6.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-android-1.6.4.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-core-1.5.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-core-1.5.0.jar.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-core-jvm-1.6.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Android/org.jetbrains.kotlinx.kotlinx-coroutines-core-jvm-1.6.4.jar.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenuAdsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenuAdsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Services/Ads/BannerAdSample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Services/Ads/BannerAdSample.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BR_Logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/BR_Logo.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/ChatGPT Image 5 may 2025, 09_09_27 p.m..png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/ChatGPT Image 5 may 2025, 09_09_27 p.m..png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Services/Cloud/UGSInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Services/Cloud/UGSInitializer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/AndroidResolverDependencies.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +375,7 @@
     "ScreenshotViewer.SavePath": "E:/",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "PlayServices",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/"
   }

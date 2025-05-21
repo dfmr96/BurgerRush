@@ -56,6 +56,17 @@ namespace Services.Cloud
 
                         if (localChecksum == cloudChecksum)
                         {
+                            if (cloudWrapper.lastSavedAt > localWrapper.lastSavedAt)
+                            {
+                                Debug.Log("☁️ Checksum matches but cloud is newer. Syncing to local...");
+                                PlayerStatsSaveService.ValidateAndImportWrapper(cloudWrapper, statsDB);
+                            }
+                            else
+                            {
+                                Debug.Log("💾 Checksum matches and local is newer or equal. Syncing to cloud...");
+                                await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
+                            }
+
                             Debug.Log("✅ Cloud and local data are already synchronized.");
                             syncResult = 1;
                         }

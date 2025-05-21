@@ -10,7 +10,7 @@ namespace Services.Cloud
     public class UGSInitializer : MonoBehaviour
     {
         public static event Action OnUGSReady;
-
+        private TaskCompletionSource<bool> _authCompletion = new();
         public static bool IsCloudAvailable { get; private set; } = false;
 
         private async void Awake()
@@ -23,17 +23,31 @@ namespace Services.Cloud
             try
             {
                 await InitializeUnityServicesAsync();
-                await TryAuthenticateAsync();
+
+                if (!AuthenticationService.Instance.IsSignedIn)
+                {
+                    Debug.Log("⌛ Waiting for GooglePlayAuthenticator.OnSignedIn...");
+                    GooglePlayAuthenticator.OnSignedIn += HandleSignedIn;
+                    await _authCompletion.Task;
+                }
+
                 StartAnalytics();
 
                 IsCloudAvailable = true;
                 OnUGSReady?.Invoke();
+                Debug.Log("✅ UGS Initialization complete.");
             }
             catch (Exception e)
             {
                 IsCloudAvailable = false;
                 Debug.LogError($"❌ UGS Initialization failed: {e.Message}");
             }
+        }
+        
+        private void HandleSignedIn()
+        {
+            GooglePlayAuthenticator.OnSignedIn -= HandleSignedIn;
+            _authCompletion.TrySetResult(true);
         }
 
         private async Task InitializeUnityServicesAsync()
@@ -42,22 +56,6 @@ namespace Services.Cloud
             {
                 await UnityServices.InitializeAsync();
                 Debug.Log("✅ Unity Services initialized.");
-            }
-        }
-
-        private async Task TryAuthenticateAsync()
-        {
-            try
-            {
-                if (!AuthenticationService.Instance.IsSignedIn)
-                {
-                    await AuthenticationService.Instance.SignInAnonymouslyAsync();
-                    Debug.Log($"🔐 Signed in. PlayerID: {AuthenticationService.Instance.PlayerId}");
-                }
-            }
-            catch (Exception authEx)
-            {
-                Debug.LogWarning($"⚠️ Authentication skipped (likely WebGL): {authEx.Message}");
             }
         }
 
