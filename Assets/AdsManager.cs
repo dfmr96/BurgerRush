@@ -115,6 +115,11 @@ public class AdsManager : MonoBehaviour
     // 📢 Public Methods
     // ─────────────────────────────────────────────────────────────
 
+    public void SetNoAds()
+    {
+        AdsSettings.SetNoAds(true);
+        HideBanner(); // por si ya estaba activo
+    }
     public bool IsRewardedReady() => rewardedAd?.IsReady() == true;
 
     public void ShowBanner()
@@ -122,7 +127,13 @@ public class AdsManager : MonoBehaviour
 #if UNITY_WEBGL
     Debug.Log("🚫 Banner ads not supported in WebGL.");
     return;
-#else
+#endif
+        if (AdsSettings.HasNoAds())
+        {
+            Debug.Log("🚫 Ads disabled by NoAds purchase.");
+            return;
+        }
+        
         if (bannerAd == null)
         {
             Debug.Log("⚠️ bannerAd is null.");
@@ -148,7 +159,7 @@ public class AdsManager : MonoBehaviour
         {
             Debug.Log("⏳ Banner not ready yet.");
         }
-#endif
+
     }
 
     public void HideBanner()
@@ -178,7 +189,14 @@ public class AdsManager : MonoBehaviour
         Debug.Log("🚫 Ads not supported in WebGL.");
         onFinished?.Invoke();
         return;
-#else
+#endif
+        if (AdsSettings.HasNoAds())
+        {
+            Debug.Log("🚫 Ads disabled by NoAds purchase.");
+            onFinished?.Invoke();
+            return;
+        }
+
         if (SessionPlays <= 3 || !interstitialAd?.IsReady() == true)
         {
             onFinished?.Invoke();
@@ -190,7 +208,6 @@ public class AdsManager : MonoBehaviour
             interstitialAd.Load();
             onFinished?.Invoke();
         });
-#endif
     }
 
     public void TryShowRewarded(Action onRewardGranted)
@@ -198,13 +215,18 @@ public class AdsManager : MonoBehaviour
 #if UNITY_WEBGL
         Debug.Log("🚫 Rewarded ads not supported in WebGL.");
         return;
-#else
+#endif
+        if (AdsSettings.HasNoAds())
+        {
+            Debug.Log("🚫 Rewarded ads disabled by NoAds purchase.");
+            return;
+        }
 
         if (!rewardedAd?.IsReady() == true)
             return;
 
         rewardedAd.Show(onRewardGranted);
-#endif
+
     }
 
     // ─────────────────────────────────────────────────────────────

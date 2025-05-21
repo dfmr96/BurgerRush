@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Services.Ads;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Analytics;
@@ -24,12 +25,17 @@ namespace Services.Cloud
             {
                 await InitializeUnityServicesAsync();
 
-                if (!AuthenticationService.Instance.IsSignedIn)
-                {
-                    Debug.Log("⌛ Waiting for GooglePlayAuthenticator.OnSignedIn...");
-                    GooglePlayAuthenticator.OnSignedIn += HandleSignedIn;
-                    await _authCompletion.Task;
-                }
+#if UNITY_EDITOR
+                Debug.Log("🧪 Editor detected. Signing in anonymously...");
+                await AuthenticationService.Instance.SignInAnonymouslyAsync();
+#else
+        if (!AuthenticationService.Instance.IsSignedIn)
+        {
+            Debug.Log("⌛ Waiting for GooglePlayAuthenticator.OnSignedIn...");
+            GooglePlayAuthenticator.OnSignedIn += HandleSignedIn;
+            await _authCompletion.Task;
+        }
+#endif
 
                 StartAnalytics();
 
@@ -44,10 +50,12 @@ namespace Services.Cloud
             }
         }
         
-        private void HandleSignedIn()
+        private async  void HandleSignedIn()
         {
             GooglePlayAuthenticator.OnSignedIn -= HandleSignedIn;
             _authCompletion.TrySetResult(true);
+            
+            await AdsSettings.LoadNoAdsFromCloud();
         }
 
         private async Task InitializeUnityServicesAsync()

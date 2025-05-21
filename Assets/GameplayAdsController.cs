@@ -1,11 +1,18 @@
+using Services.Ads;
 using UnityEngine;
 
 public class GameplayAdsController : MonoBehaviour
 {
     private bool bannerShown = false;
+    [SerializeField] private GameObject freeContinueIcon;
 
     private void Start()
     {
+        if (freeContinueIcon != null)
+        {
+            freeContinueIcon.SetActive(AdsSettings.HasNoAds());
+        }
+        
         if (AdsManager.Instance.IsInitialized)
         {
             ShowBannerIfNeeded();

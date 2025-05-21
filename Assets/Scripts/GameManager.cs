@@ -5,6 +5,7 @@ using Enums;
 using ScriptableObjects;
 using ScriptableObjects.BurgerComplexity;
 using Services;
+using Services.Ads;
 using Services.Cloud;
 using Services.Utils;
 using TMPro;
@@ -18,15 +19,16 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     [SerializeField] private PlayerStatsDatabase statsDB;
 
-    [Header("Debug Info")] 
-    [SerializeField, ReadOnly] private string currentDifficultyLabel;
+    [Header("Debug Info")] [SerializeField, ReadOnly]
+    private string currentDifficultyLabel;
+
     [SerializeField, ReadOnly] private int currentProgressionIndex = -1;
     [SerializeField, ReadOnly] private int progressionCount = 0;
     [SerializeField, ReadOnly] private int deliveredOrders = 0;
 
     [Header("Game Settings")] [SerializeField]
     private float gameDuration = 60f;
-    
+
     [Header("UI Elements")] [SerializeField]
     private TMP_Text timerText;
 
@@ -36,25 +38,28 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text finalScoreText;
 
 
-    [Header("Score Settings")] 
-    [SerializeField] private int score = 0;
+    [Header("Score Settings")] [SerializeField]
+    private int score = 0;
+
     [SerializeField] private TMP_Text scoreText;
 
-    [Header("Manager References")] 
-    [SerializeField] private OrderManager orderManager;
+    [Header("Manager References")] [SerializeField]
+    private OrderManager orderManager;
 
-    [Header("Complexity Data")] 
-    [SerializeField] private BurgerComplexityData easyBurger;
+    [Header("Complexity Data")] [SerializeField]
+    private BurgerComplexityData easyBurger;
+
     [SerializeField] private BurgerComplexityData mediumBurger;
     [SerializeField] private BurgerComplexityData hardBurger;
     [SerializeField] private List<ComplexityProgressionStep> progression;
 
-    [Header("Order Slot Settings")] 
-    [SerializeField] private int maxConcurrentOrders = 3;
+    [Header("Order Slot Settings")] [SerializeField]
+    private int maxConcurrentOrders = 3;
+
     [SerializeField] private float minOrderDelay = 1f;
     [SerializeField] private float maxOrderDelay = 2.5f;
 
-    
+
     [SerializeField] private ScorePopUp scorePopup;
     [SerializeField] private ComboManager comboManager;
     [SerializeField] private SFXType gameplayTheme;
@@ -70,7 +75,6 @@ public class GameManager : MonoBehaviour
     private int mediumDeliveredThisRun = 0;
     private int hardDeliveredThisRun = 0;
     private int ordersFailedThisRun = 0;
-
 
 
     public BurgerComplexityData EasyBurger => easyBurger;
@@ -99,7 +103,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (!IsGameRunning) return;
-        
+
         totalSessionTime += Time.deltaTime;
 
         timeRemaining -= Time.deltaTime;
@@ -164,12 +168,12 @@ public class GameManager : MonoBehaviour
         timeSlider.maxValue = gameDuration;
         timeSlider.value = gameDuration;
         UpdateTimerUI();
-        
+
         foreach (var order in orderManager.Orders)
         {
             order.OnOrderExpired += HandleOrderExpired;
         }
-        
+
         orderManager.GenerateOrder(easyBurger);
     }
 
@@ -180,6 +184,7 @@ public class GameManager : MonoBehaviour
         {
             order.OnOrderExpired -= HandleOrderExpired;
         }
+
         AudioManager.Instance.PlayBackgroundMusic(SFXType.GameOverTheme);
         isGameRunning = false;
         continueButton.interactable = false;
@@ -199,9 +204,18 @@ public class GameManager : MonoBehaviour
 
         await CloudSaveStatsHandler.SaveStatsToCloud(statsDB);
 
-        if (!hasUsedContinue && AdsManager.Instance.IsInitialized && AdsManager.Instance.IsRewardedReady())
+        if (!hasUsedContinue)
         {
-            StartCoroutine(WaitForRewardedReady());
+            if (AdsSettings.HasNoAds())
+            {
+                // 🎟️ No Ads comprado → Activa directamente
+                continueButton.interactable = true;
+                continueButton.GetComponentInChildren<TMP_Text>().alpha = 1f;
+            }
+            else if (AdsManager.Instance.IsInitialized && AdsManager.Instance.IsRewardedReady())
+            {
+                StartCoroutine(WaitForRewardedReady());
+            }
         }
     }
 
@@ -223,7 +237,7 @@ public class GameManager : MonoBehaviour
             hardDelivered: hardDeliveredThisRun
         );
     }
-    
+
     public void SendCustomEndEvent()
     {
         TrackGameSessionMetrics();
@@ -232,7 +246,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator WaitForRewardedReady()
     {
         yield return new WaitUntil(() => AdsManager.Instance.IsRewardedReady());
-    
+
         if (!hasUsedContinue)
         {
             continueButton.interactable = true;
@@ -257,7 +271,7 @@ public class GameManager : MonoBehaviour
     {
         RestartGameHelper.RestartSceneWithInterstitial();
     }
-    
+
     public void BreakCombo()
     {
         comboManager.ResetCombo();
@@ -274,7 +288,7 @@ public class GameManager : MonoBehaviour
     public void OnOrderDelivered(BurgerComplexityData complexity, Stack<IngredientData> ingredients, bool gaveBonus)
     {
         PlayerStatsManager.AddBurger();
-        
+
         switch (complexity.Difficulty)
         {
             case BurgerComplexityData.DifficultyType.Easy:
@@ -290,14 +304,14 @@ public class GameManager : MonoBehaviour
                 hardDeliveredThisRun++;
                 break;
         }
-        
+
         comboManager.RegisterDelivery();
-        
+
         int baseScore = CalculateScore(complexity, ingredients);
         float multiplier = comboManager.GetMultiplier();
         int finalScore = Mathf.RoundToInt(baseScore * multiplier);
         score += finalScore;
-        
+
         if (gaveBonus && complexity.BonusTimeOnDelivery > 0f)
         {
             AddBonusTime(complexity.BonusTimeOnDelivery);
@@ -307,7 +321,7 @@ public class GameManager : MonoBehaviour
         progressionCount++;
         UpdateScoreUI();
         ShowScorePopup(finalScore, complexity);
-        
+
         float timeSinceStart = gameDuration - timeRemaining;
         AnalyticsManager.TrackBurgerDelivered(
             complexity.Difficulty.ToString(),
@@ -316,6 +330,7 @@ public class GameManager : MonoBehaviour
             gaveBonus
         );
     }
+
     private int CalculateScore(BurgerComplexityData complexity, Stack<IngredientData> ingredients)
     {
         return complexity.BaseScore + CountToppings(ingredients) * complexity.PointsPerTopping;
@@ -371,7 +386,7 @@ public class GameManager : MonoBehaviour
         orderManager.GenerateOrder(complexity);
         isSpawningOrder = false;
     }
-    
+
     private void HandleOrderExpired(Order order)
     {
         ordersFailedThisRun++;
@@ -385,20 +400,30 @@ public class GameManager : MonoBehaviour
 
     public void OnContinueWithAdPressed()
     {
-        AdsManager.Instance.TryShowRewarded(() =>
+        if (AdsSettings.HasNoAds())
         {
-            hasUsedContinue = true; // ✅ Solo una vez por partida
-            timeUpPanel.SetActive(false);
-            isGameRunning = true;
-            isSpawningOrder = false;
-            AddBonusTime(20f);
-            AudioManager.Instance.PlayBackgroundMusic(gameplayTheme);
-            Debug.Log("✅ Rewarded ad completed. +20s granted.");
-
-            TrySpawnOrder();
-        });
+            Debug.Log("✅ No Ads: Continue granted for free.");
+            GrantContinue();
+        }
+        else
+        {
+            AdsManager.Instance.TryShowRewarded(GrantContinue);
+        }
     }
-    
+
+    public void GrantContinue()
+    {
+        hasUsedContinue = true; // ✅ Solo una vez por partida
+        timeUpPanel.SetActive(false);
+        isGameRunning = true;
+        isSpawningOrder = false;
+        AddBonusTime(20f);
+        AudioManager.Instance.PlayBackgroundMusic(gameplayTheme);
+        Debug.Log("✅ Rewarded ad completed. +20s granted.");
+
+        TrySpawnOrder();
+    }
+
     private void TrySpawnOrder()
     {
         if (!isSpawningOrder)

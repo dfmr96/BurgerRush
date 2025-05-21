@@ -12,7 +12,12 @@ public class GooglePlayAuthenticator : MonoBehaviour
 
     private void Awake()
     {
+#if UNITY_EDITOR
+        Debug.Log("🧪 Editor detected — skipping GPGS login, using anonymous auth.");
+        _ = SignInAnonymouslyFallback();
+#else
         TrySignInWithGooglePlayGames();
+#endif
     }
 
     private void TrySignInWithGooglePlayGames()
