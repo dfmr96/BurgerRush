@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.Services.CloudSave;
 using UnityEngine;
@@ -23,19 +24,24 @@ namespace Services.Cloud
             if (cloudData.TryGetValue(key, out var item))
             {
                 string json = item.Value.GetAs<string>();
-                
+
                 if (typeof(T) == typeof(string))
                 {
                     Debug.Log($"☁️ Loaded <string> from cloud key '{key}'.");
                     return (T)(object)json;
                 }
-                
+
                 T result = JsonUtility.FromJson<T>(json);
                 Debug.Log($"☁️ Loaded <{typeof(T).Name}> from cloud key '{key}'.");
                 return result;
             }
 
-            Debug.LogWarning($"⚠️ Cloud key '{key}' not found.");
+            Debug.LogWarning($"⚠️ Cloud key '{key}' not found. Returning default value of type {typeof(T).Name}.");
+
+            // Si T es clase, intenta devolver una instancia vacía
+            if (typeof(T).IsClass && Activator.CreateInstance(typeof(T)) is T fallback)
+                return fallback;
+
             return default;
         }
 

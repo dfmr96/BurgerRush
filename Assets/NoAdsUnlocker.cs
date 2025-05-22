@@ -43,14 +43,11 @@ public class NoAdsUnlocker : MonoBehaviour
 
     private async void CheckNoAds()
     {
-        await AdsSettings.LoadNoAdsFromCloud();
-        if (AdsSettings.HasNoAds())
+        await NoAdsService.InitializeAsync(); // garantiza que ya se leyó de la nube
+
+        if (NoAdsService.HasNoAds)
         {
             noadsButton.gameObject.SetActive(false);
-            Debug.Log("No Ads status checked. Purchased. IAP Button Hidden");
-            return;
         }
-        Debug.Log("No Ads status checked. No purchased. AIP Button Visible");
     }
-
 }

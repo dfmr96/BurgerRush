@@ -232,21 +232,16 @@ public class AdsManager : MonoBehaviour
 
     private async void InitializeAds()
     {
-#if UNITY_WEBGL
-        Debug.Log("🚫 Skipping LevelPlay initialization in WebGL.");
-        return;
-#else
-        await AdsSettings.LoadNoAdsFromCloud();
+        await NoAdsService.InitializeAsync();
 
-        if (AdsSettings.HasNoAds())
+        if (NoAdsService.HasNoAds)
         {
             Debug.Log("🚫 Ads disabled by NoAds purchase.");
             return;
         }
 
         if (IsInitialized) return;
-        Debug.Log("🎯 UGS ready. Initializing ads...");
+        Debug.Log("🎯 UGS and NoAds ready. Initializing ads...");
         LevelPlay.Init(appKey);
-#endif
     }
 }

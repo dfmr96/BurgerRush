@@ -9,7 +9,7 @@ namespace Services.Cloud
 {
     public class UgsInitializer : MonoBehaviour
     {
-        public static bool IsCloudAvailable { get; private set; } = false;
+        private static bool IsCloudAvailable { get; set; }
 
         public static event Action OnUGSReady
         {
