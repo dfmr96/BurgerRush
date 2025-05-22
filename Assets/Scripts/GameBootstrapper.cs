@@ -25,6 +25,7 @@ public class GameBootstrapper : MonoBehaviour
     
     [Header("References")]
     [SerializeField] private PlayerStatsDatabase statsDatabase;
+    [SerializeField] private LoadingUI loadingUI;
 
     [Header("Options")]
     [SerializeField] private bool useDevMode = false;
@@ -49,8 +50,10 @@ public class GameBootstrapper : MonoBehaviour
 
         // UGS
         Debug.Log("🛠️ Initializing Unity Gaming Services...");
+        loadingUI.SetProgress(0.1f);
         await UgsInitializer.InitializeUGSAsync();
         Debug.Log("✅ UGS Initialized");
+        loadingUI.SetProgress(0.3f);
 
         // Cloud Sync
         if (!useDevMode)
@@ -63,9 +66,10 @@ public class GameBootstrapper : MonoBehaviour
         {
             Debug.Log("🧪 Dev mode: Skipping cloud sync");
         }
-
+        loadingUI.SetProgress(0.6f);
         // Ads
         EnsureAdsManager();
+        loadingUI.SetProgress(0.9f);
 
         if (!useDevMode)
         {
@@ -81,6 +85,9 @@ public class GameBootstrapper : MonoBehaviour
         stopwatch.Stop();
         IsReady = true;
         OnBootstrapComplete?.Invoke();
+        
+        loadingUI.SetMessage("Loaded.");
+        loadingUI.SetProgress(1.0f);
 
         Debug.Log($"🏁 All systems go. Boot time: {stopwatch.ElapsedMilliseconds} ms");
         await Task.Delay(2000);
