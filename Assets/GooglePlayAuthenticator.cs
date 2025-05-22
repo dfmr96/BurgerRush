@@ -1,107 +1,59 @@
 using System;
-using System.Threading.Tasks;
-using GooglePlayGames;
-using GooglePlayGames.BasicApi;
-using Unity.Services.Authentication;
 using UnityEngine;
 
 public class GooglePlayAuthenticator : MonoBehaviour
 {
     public static event Action OnSignedIn;
-    public static bool IsGPGSSignedIn { get; private set; }
+
+    private readonly AuthService _authService = new();
 
     private void Awake()
     {
 #if UNITY_EDITOR
-        Debug.Log("🧪 Editor detected — skipping GPGS login, using anonymous auth.");
-        _ = SignInAnonymouslyFallback();
+        HandleEditorSignIn();
 #else
-        TrySignInWithGooglePlayGames();
+        HandleGPGSSignIn();
 #endif
     }
 
-    private void TrySignInWithGooglePlayGames()
+    private void HandleEditorSignIn()
     {
-        PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
+        Debug.Log("🧪 Editor detected — using anonymous sign-in.");
+        _ = _authService.SignInAnonymouslyAsync(
+            OnAuthSuccess,
+            OnEditorAuthFailure
+        );
     }
 
-    private void ProcessAuthentication(SignInStatus status)
+    private void HandleGPGSSignIn()
     {
-        if (status == SignInStatus.Success)
-        {
-            IsGPGSSignedIn = true;
-            Debug.Log("🔓 GPGS login successful.");
-
-            PlayGamesPlatform.Instance.RequestServerSideAccess(true, async code =>
-            {
-                Debug.Log("📨 GPGS Server Auth Code obtained.");
-                await SignInOrLinkWithUGS(code);
-            });
-        }
-        else
-        {
-            Debug.LogWarning($"❌ GPGS login failed: {status}");
-            _ = SignInAnonymouslyFallback();
-        }
+        _ = _authService.SignInWithGooglePlayAsync(
+            OnAuthSuccess,
+            OnGPGSAuthFailure
+        );
     }
 
-    private async Task SignInOrLinkWithUGS(string authCode)
+    private void OnAuthSuccess()
     {
-        try
-        {
-            if (AuthenticationService.Instance.IsSignedIn)
-            {
-                await AuthenticationService.Instance.LinkWithGooglePlayGamesAsync(authCode);
-                Debug.Log("🔗 Linked anonymous account with GPGS.");
-            }
-            else
-            {
-                await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(authCode);
-                Debug.Log($"✅ Signed in with GPGS. PlayerID: {AuthenticationService.Instance.PlayerId}");
-            }
-
-            OnSignedIn?.Invoke();
-        }
-        catch (AuthenticationException e) when (e.ErrorCode == AuthenticationErrorCodes.AccountAlreadyLinked)
-        {
-            Debug.LogWarning("⚠️ Account already linked, signing in instead.");
-            await SignInWithGPGS(authCode);
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"❌ Error linking/signing with GPGS: {e.Message}");
-            await SignInAnonymouslyFallback();
-        }
+        OnSignedIn?.Invoke();
     }
 
-    private async Task SignInWithGPGS(string authCode)
+    private void OnEditorAuthFailure(Exception e)
     {
-        try
-        {
-            await AuthenticationService.Instance.SignInWithGooglePlayGamesAsync(authCode);
-            Debug.Log($"✅ Signed in with GPGS. PlayerID: {AuthenticationService.Instance.PlayerId}");
-        }
-        catch (Exception e)
-        {
-            Debug.LogError($"❌ Failed to sign in with GPGS: {e.Message}");
-            await SignInAnonymouslyFallback();
-        }
+        Debug.LogError($"❌ Anonymous sign-in failed in editor: {e.Message}");
     }
 
-    private async Task SignInAnonymouslyFallback()
+    private async void OnGPGSAuthFailure(Exception e)
     {
-        if (!AuthenticationService.Instance.IsSignedIn)
-        {
-            try
-            {
-                await AuthenticationService.Instance.SignInAnonymouslyAsync();
-                Debug.Log($"🕶️ Fallback anonymous sign-in. PlayerID: {AuthenticationService.Instance.PlayerId}");
-                OnSignedIn?.Invoke();
-            }
-            catch (Exception e)
-            {
-                Debug.LogError($"❌ Anonymous fallback failed: {e.Message}");
-            }
-        }
+        Debug.LogWarning($"❌ GPGS sign-in failed: {e.Message}");
+        await _authService.SignInAnonymouslyAsync(
+            OnAuthSuccess,
+            OnAnonymousFallbackFailure
+        );
+    }
+
+    private void OnAnonymousFallbackFailure(Exception e)
+    {
+        Debug.LogError($"❌ Anonymous fallback failed: {e.Message}");
     }
 }
