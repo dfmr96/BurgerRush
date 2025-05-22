@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using Unity.Services.LevelPlay;
 using Services.Cloud;
@@ -125,6 +126,12 @@ public class AdsManager : MonoBehaviour
     private void OnInitFailed(LevelPlayInitError error)
     {
         Debug.LogError("❌ LevelPlay init failed: " + error);
+    }
+    
+    public static async Task InstanceWaitUntilReady()
+    {
+        while (Instance == null || !Instance.IsInitialized)
+            await Task.Yield();
     }
 
     // ─────────────────────────────────────────────────────────────

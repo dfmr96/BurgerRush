@@ -1,0 +1,98 @@
+﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using Databases;
+using Services;
+using Services.Cloud;
+using UnityEngine;
+using Debug = UnityEngine.Debug;
+
+public class GameBootstrapper : MonoBehaviour
+{
+    // ─────────────────────────────────────────────────────────────
+    // 📣 Public API
+    // ─────────────────────────────────────────────────────────────
+
+    public static bool IsReady { get; private set; }
+    public static event Action OnBootstrapComplete;
+
+    // ─────────────────────────────────────────────────────────────
+    // 🔧 Config & Refs
+    // ─────────────────────────────────────────────────────────────
+
+    [Header("References")]
+    [SerializeField] private PlayerStatsDatabase statsDatabase;
+
+    [Header("Options")]
+    [SerializeField] private bool useDevMode = false;
+
+    // [Header("Optional UI")]
+    // [SerializeField] private LoadingUI loadingUI;
+
+    // ─────────────────────────────────────────────────────────────
+    // 🚀 Bootstrap Lifecycle
+    // ─────────────────────────────────────────────────────────────
+
+    private async void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        await InitializeServicesAsync();
+    }
+
+    private async Task InitializeServicesAsync()
+    {
+        var stopwatch = Stopwatch.StartNew();
+        Debug.Log("🚀 Starting bootstrap...");
+
+        // UGS
+        Debug.Log("🛠️ Initializing Unity Gaming Services...");
+        await UgsInitializer.InitializeUGSAsync();
+        Debug.Log("✅ UGS Initialized");
+
+        // Cloud Sync
+        if (!useDevMode)
+        {
+            Debug.Log("🔄 Syncing cloud data...");
+            await CloudSyncService.ValidateCloudSync(statsDatabase);
+            Debug.Log("✅ Cloud Sync complete");
+        }
+        else
+        {
+            Debug.Log("🧪 Dev mode: Skipping cloud sync");
+        }
+
+        // Ads
+        EnsureAdsManager();
+
+        if (!useDevMode)
+        {
+            Debug.Log("📢 Waiting for Ads to initialize...");
+            await AdsManager.InstanceWaitUntilReady();
+            Debug.Log("✅ Ads Initialized");
+        }
+        else
+        {
+            Debug.Log("🧪 Dev mode: Skipping Ads init");
+        }
+
+        stopwatch.Stop();
+        IsReady = true;
+        OnBootstrapComplete?.Invoke();
+
+        Debug.Log($"🏁 All systems go. Boot time: {stopwatch.ElapsedMilliseconds} ms");
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // 🔧 Helpers
+    // ─────────────────────────────────────────────────────────────
+
+    private void EnsureAdsManager()
+    {
+        if (AdsManager.Instance == null)
+        {
+            var obj = new GameObject("AdsManager");
+            obj.AddComponent<AdsManager>();
+            DontDestroyOnLoad(obj);
+        }
+    }
+}

@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Services.Cloud
 {
-    public class UgsInitializer : MonoBehaviour
+    public static class UgsInitializer
     {
         private static bool IsCloudAvailable { get; set; }
 
@@ -26,12 +26,7 @@ namespace Services.Cloud
 
         private static TaskCompletionSource<bool> _initializationTcs = new();
 
-        private void Awake()
-        {
-            _ = InitializeUGSAsync();
-        }
-
-        private async Task InitializeUGSAsync()
+        public static async Task InitializeUGSAsync()
         {
             try
             {
@@ -72,7 +67,7 @@ namespace Services.Cloud
         }
 
 
-        private async Task InitializeUnityServicesAsync()
+        private static async Task InitializeUnityServicesAsync()
         {
             if (UnityServices.State != ServicesInitializationState.Initialized)
             {
@@ -81,7 +76,7 @@ namespace Services.Cloud
             }
         }
 
-        private void StartAnalytics()
+        private static void StartAnalytics()
         {
             AnalyticsService.Instance.StartDataCollection();
             Debug.Log("📈 Unity Analytics started.");
