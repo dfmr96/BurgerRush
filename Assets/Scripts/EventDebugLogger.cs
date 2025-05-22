@@ -3,9 +3,9 @@ using UnityEngine;
 
 public static class EventDebugLogger
 {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
     public static void LogSubscribe(Delegate del, string eventName)
     {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         if (del == null) return;
 
         var method = del.Method;
@@ -15,10 +15,12 @@ public static class EventDebugLogger
         string targetName = target?.ToString() ?? "static";
 
         Debug.Log($"🟢 [{eventName}] Subscribed: {className}.{methodName} [Target: {targetName}]");
+#endif
     }
 
     public static void LogUnsubscribe(Delegate del, string eventName)
     {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         if (del == null) return;
 
         var method = del.Method;
@@ -26,6 +28,6 @@ public static class EventDebugLogger
         string methodName = method.Name;
 
         Debug.Log($"🔴 [{eventName}] Unsubscribed: {className}.{methodName}");
-    }
 #endif
+    }
 }
