@@ -5,6 +5,7 @@ using Databases;
 using Services;
 using Services.Cloud;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 
 public class GameBootstrapper : MonoBehaviour
@@ -20,6 +21,8 @@ public class GameBootstrapper : MonoBehaviour
     // 🔧 Config & Refs
     // ─────────────────────────────────────────────────────────────
 
+    [SerializeField] private string nextSceneName = "MainMenu";
+    
     [Header("References")]
     [SerializeField] private PlayerStatsDatabase statsDatabase;
 
@@ -80,6 +83,8 @@ public class GameBootstrapper : MonoBehaviour
         OnBootstrapComplete?.Invoke();
 
         Debug.Log($"🏁 All systems go. Boot time: {stopwatch.ElapsedMilliseconds} ms");
+        await Task.Delay(2000);
+        SceneManager.LoadScene(nextSceneName);
     }
 
     // ─────────────────────────────────────────────────────────────
