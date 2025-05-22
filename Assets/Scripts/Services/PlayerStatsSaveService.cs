@@ -8,35 +8,33 @@ namespace Services
 {
     public static class PlayerStatsSaveService
     {
+        // ─────────────────────────────────────────────────────────────
+        // 📦 Constantes
+        // ─────────────────────────────────────────────────────────────
+
+        private const string SavedOnceKey = "HasSavedOnce";
+        private const string TotalPlayTimeKey = "TotalSecondsPlayed";
+
+        // ─────────────────────────────────────────────────────────────
+        // 🧩 Exportación
+        // ─────────────────────────────────────────────────────────────
+
         public static string ExportWithChecksum(PlayerStatsDatabase db)
         {
-            var wrapper = ExportWrapperWithChecksum(db);
-            string finalJson = JsonUtility.ToJson(wrapper, true);
-            Debug.Log($"📦 Final JSON with checksum:\n{finalJson}");
-            return finalJson;
+            var wrapper = CreateWrapperWithChecksum(db);
+            string json = JsonUtility.ToJson(wrapper, true);
+            Debug.Log($"📦 Exported JSON with checksum:\n{json}");
+            return json;
         }
 
-        public static bool ImportWithValidation(string json, PlayerStatsDatabase db)
+        public static PlayerStatsSaveWrapper CreateWrapperWithChecksum(PlayerStatsDatabase db)
         {
-            var wrapper = JsonUtility.FromJson<PlayerStatsSaveWrapper>(json);
-            if (!ValidateChecksum(wrapper))
-            {
-                Debug.LogWarning("❌ Checksum mismatch: data may be corrupted or tampered.");
-                return false;
-            }
-
-            PlayerStatsExporter.ImportFromJson(JsonUtility.ToJson(wrapper.data), db);
-            return true;
-        }
-
-        public static PlayerStatsSaveWrapper ExportWrapperWithChecksum(PlayerStatsDatabase db)
-        {
-            var rawData = new PlayerStatsSaveData();
+            var saveData = new PlayerStatsSaveData();
 
             foreach (var pair in db.stats)
             {
                 var value = PlayerStatsService.Get(pair.Value);
-                rawData.stats.Add(new PlayerStatsSaveData.StatEntry
+                saveData.stats.Add(new PlayerStatsSaveData.StatEntry
                 {
                     key = pair.Key,
                     value = value.ToString()
@@ -45,93 +43,132 @@ namespace Services
 
             var wrapper = new PlayerStatsSaveWrapper
             {
-                data = rawData,
-                lastSavedAt = DateTime.UtcNow.Ticks
+                data = saveData,
+                lastSavedAt = DateTime.UtcNow.Ticks,
+                checksum = GenerateChecksum(saveData)
             };
 
-            wrapper.checksum = GenerateChecksum(wrapper);
-
-            // ❌ NO marcar como "has saved" acá.
             return wrapper;
         }
 
-        public static string GenerateChecksum(PlayerStatsSaveWrapper wrapper)
+        // ─────────────────────────────────────────────────────────────
+        // 📥 Importación
+        // ─────────────────────────────────────────────────────────────
+
+        public static bool TryImportFromJson(string json, PlayerStatsDatabase db)
         {
-            // ✅ Solo se incluye `data`, no `lastSavedAt`
-            string json = JsonUtility.ToJson(wrapper.data);
-            return SaveCheckSumUtility.GenerateChecksum(json);
+            if (!TryParseWrapper(json, out var wrapper)) return false;
+            return ValidateAndApplyWrapper(wrapper, db);
         }
 
-        public static bool ValidateAndImportWrapper(PlayerStatsSaveWrapper wrapper, PlayerStatsDatabase db)
+        public static bool ValidateAndApplyWrapper(PlayerStatsSaveWrapper wrapper, PlayerStatsDatabase db)
         {
             if (!ValidateChecksum(wrapper))
             {
-                Debug.LogWarning("❌ Checksum mismatch: data may be corrupted or tampered.");
+                Debug.LogWarning("❌ Checksum mismatch. Import aborted.");
                 return false;
             }
 
-            PlayerStatsExporter.ImportFromJson(JsonUtility.ToJson(wrapper.data), db);
+            string cleanJson = JsonUtility.ToJson(wrapper.data);
+            PlayerStatsExporter.ImportFromJson(cleanJson, db);
             return true;
+        }
+
+        private static bool TryParseWrapper(string json, out PlayerStatsSaveWrapper wrapper)
+        {
+            wrapper = null;
+            if (string.IsNullOrWhiteSpace(json)) return false;
+
+            try
+            {
+                wrapper = JsonUtility.FromJson<PlayerStatsSaveWrapper>(json);
+                return wrapper?.data != null;
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning($"⚠️ Failed to parse wrapper: {e.Message}");
+                return false;
+            }
+        }
+
+        // ─────────────────────────────────────────────────────────────
+        // ✅ Checksum
+        // ─────────────────────────────────────────────────────────────
+
+        public static string GenerateChecksum(PlayerStatsSaveData data)
+        {
+            string json = JsonUtility.ToJson(data);
+            return SaveCheckSumUtility.GenerateChecksum(json);
         }
 
         public static bool ValidateChecksum(PlayerStatsSaveWrapper wrapper)
         {
-            if (wrapper == null || wrapper.data == null)
-                return false;
+            if (wrapper == null || wrapper.data == null) return false;
 
-            string recomputed = GenerateChecksum(wrapper);
-            return wrapper.checksum == recomputed;
+            string expected = GenerateChecksum(wrapper.data);
+            bool match = expected == wrapper.checksum;
+
+            if (!match)
+            {
+                Debug.LogWarning($"❌ Invalid checksum. Expected: {expected}, Found: {wrapper.checksum}");
+            }
+
+            return match;
         }
 
         public static bool AreChecksumsEqual(string jsonA, string jsonB)
         {
-            string checksumA = ExtractChecksum(jsonA);
-            string checksumB = ExtractChecksum(jsonB);
+            string a = ExtractChecksum(jsonA);
+            string b = ExtractChecksum(jsonB);
 
-            if (string.IsNullOrEmpty(checksumA) || string.IsNullOrEmpty(checksumB))
+            if (string.IsNullOrEmpty(a) || string.IsNullOrEmpty(b))
             {
-                Debug.LogWarning("⚠️ One or both JSONs lack a valid checksum.");
+                Debug.LogWarning("⚠️ One or both JSONs lack a checksum.");
                 return false;
             }
 
-            return checksumA == checksumB;
+            return a == b;
         }
 
         private static string ExtractChecksum(string json)
         {
-            try
+            if (TryParseWrapper(json, out var wrapper))
             {
-                var wrapper = JsonUtility.FromJson<PlayerStatsSaveWrapper>(json);
                 return wrapper.checksum;
             }
-            catch
-            {
-                Debug.LogWarning("⚠️ Could not extract checksum from JSON.");
-                return null;
-            }
+
+            return null;
         }
 
-        public static bool IsFreshInstall()
-        {
-            return PlayerPrefs.GetInt("HasSavedOnce", 0) == 0;
-        }
-        
+        // ─────────────────────────────────────────────────────────────
+        // 🔄 Estado de instalación
+        // ─────────────────────────────────────────────────────────────
+
+        public static bool IsFreshInstall() =>
+            PlayerPrefs.GetInt(SavedOnceKey, 0) == 0;
+
         public static void MarkAsSaved()
         {
-            PlayerPrefs.SetInt("HasSavedOnce", 1);
+            PlayerPrefs.SetInt(SavedOnceKey, 1);
             PlayerPrefs.Save();
         }
-        
+
+        // ─────────────────────────────────────────────────────────────
+        // ⏱ Tiempo total jugado
+        // ─────────────────────────────────────────────────────────────
+
         public static int GetTotalPlayTimeFromWrapper(PlayerStatsSaveWrapper wrapper)
         {
+            if (wrapper?.data?.stats == null) return 0;
+
             foreach (var entry in wrapper.data.stats)
             {
-                if (entry.key == "TotalSecondsPlayed")
+                if (entry.key == TotalPlayTimeKey && int.TryParse(entry.value, out int seconds))
                 {
-                    int value = Convert.ToInt32(entry.value);
-                    return value;
+                    return seconds;
                 }
             }
+
             return 0;
         }
     }

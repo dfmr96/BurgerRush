@@ -17,7 +17,7 @@ namespace Services.Cloud
             try
             {
                 bool isFreshInstall = PlayerStatsSaveService.IsFreshInstall();
-                var localWrapper = PlayerStatsSaveService.ExportWrapperWithChecksum(statsDB);
+                var localWrapper = PlayerStatsSaveService.CreateWrapperWithChecksum(statsDB);
                 string cloudJson = await CloudSaveEntity<string>.Load("PlayerStats");
 
                 if (string.IsNullOrEmpty(cloudJson))
@@ -49,20 +49,20 @@ namespace Services.Cloud
                     else if (!localValid)
                     {
                         Debug.LogWarning("⚠️ Local data is corrupted. Restoring cloud backup...");
-                        PlayerStatsSaveService.ValidateAndImportWrapper(cloudWrapper, statsDB);
+                        PlayerStatsSaveService.ValidateAndApplyWrapper(cloudWrapper, statsDB);
                         PlayerStatsSaveService.MarkAsSaved();
                         syncResult = 1;
                     }
                     else
                     {
-                        string localChecksum = PlayerStatsSaveService.GenerateChecksum(localWrapper);
-                        string cloudChecksum = PlayerStatsSaveService.GenerateChecksum(cloudWrapper);
+                        string localChecksum = PlayerStatsSaveService.GenerateChecksum(localWrapper.data);
+                        string cloudChecksum = PlayerStatsSaveService.GenerateChecksum(cloudWrapper.data);
                         bool checksumsMatch = localChecksum == cloudChecksum;
 
                         if (isFreshInstall)
                         {
                             Debug.Log("☁️ Fresh install. Using cloud data.");
-                            PlayerStatsSaveService.ValidateAndImportWrapper(cloudWrapper, statsDB);
+                            PlayerStatsSaveService.ValidateAndApplyWrapper(cloudWrapper, statsDB);
                             PlayerStatsSaveService.MarkAsSaved();
                             syncResult = 1;
                         }
@@ -84,7 +84,7 @@ namespace Services.Cloud
                             else
                             {
                                 Debug.Log("☁️ Cloud has more playtime. Syncing to local...");
-                                PlayerStatsSaveService.ValidateAndImportWrapper(cloudWrapper, statsDB);
+                                PlayerStatsSaveService.ValidateAndApplyWrapper(cloudWrapper, statsDB);
                                 PlayerStatsSaveService.MarkAsSaved();
                             }
 

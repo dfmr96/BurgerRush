@@ -14,7 +14,7 @@ namespace Services.Cloud
 
         public static async Task SaveStatsToCloud(PlayerStatsDatabase db)
         {
-            var wrapper = PlayerStatsSaveService.ExportWrapperWithChecksum(db);
+            var wrapper = PlayerStatsSaveService.CreateWrapperWithChecksum(db);
             await CloudSaveEntity<PlayerStatsSaveWrapper>.Save(CloudKey, wrapper);
             PlayerPrefs.SetInt("HasSavedOnce", 1);
             PlayerPrefs.Save();
@@ -30,7 +30,7 @@ namespace Services.Cloud
                 return false;
             }
 
-            bool valid = PlayerStatsSaveService.ValidateAndImportWrapper(wrapper, db);
+            bool valid = PlayerStatsSaveService.ValidateAndApplyWrapper(wrapper, db);
 
             if (valid)
                 Debug.Log("✅ Cloud stats loaded and validated.");

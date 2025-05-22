@@ -59,7 +59,7 @@ namespace Services
         [ContextMenu("🧪 Validate JSON With Checksum")]
         public void ValidateCurrentJson()
         {
-            bool valid = PlayerStatsSaveService.ImportWithValidation(savedJson, statsDB);
+            bool valid = PlayerStatsSaveService.TryImportFromJson(savedJson, statsDB);
             Debug.Log(valid ? "✅ Checksum is valid." : "❌ Checksum mismatch detected.");
         }
 
@@ -81,7 +81,7 @@ namespace Services
             }
 
             string json = File.ReadAllText(FilePath);
-            bool valid = PlayerStatsSaveService.ImportWithValidation(json, statsDB);
+            bool valid = PlayerStatsSaveService.TryImportFromJson(json, statsDB);
             Debug.Log(valid ? "✅ Restored from file with valid checksum." : "❌ Checksum mismatch. Restore aborted.");
         }
     }
