@@ -1,32 +1,43 @@
 ﻿using Unity.Services.LevelPlay;
 using UnityEngine;
+using System;
 
 namespace Services.Ads
 {
     public class InterstitialAdSample
     {
-        private LevelPlayInterstitialAd ad;
+        private readonly LevelPlayInterstitialAd ad;
+        private Action onClosedCallback;
 
         public InterstitialAdSample()
         {
             ad = new LevelPlayInterstitialAd("0ot85tyr3a7uy2qe");
 
-            ad.OnAdClosed += _ => onClosedCallback?.Invoke();
-            ad.OnAdLoaded += _ => Debug.Log("Interstitial Loaded");
-            ad.OnAdLoadFailed += _ => Debug.Log("Interstitial Load Failed");
+            ad.OnAdClosed += HandleAdClosed;
+            ad.OnAdLoaded += _ => Debug.Log("✅ Interstitial Loaded.");
+            ad.OnAdLoadFailed += _ => Debug.LogWarning("❌ Interstitial Load Failed.");
 
             Load();
+        }
+
+        private void HandleAdClosed(LevelPlayAdInfo info)
+        {
+            Debug.Log("🛑 Interstitial closed.");
+            onClosedCallback?.Invoke();
+            onClosedCallback = null; // cleanup
         }
 
         public void Load() => ad.LoadAd();
 
         public bool IsReady() => ad.IsAdReady();
 
-        private System.Action onClosedCallback;
-
-        public void Show(System.Action onClosed)
+        public void Show(Action onClosed)
         {
-            if (!IsReady()) return;
+            if (!IsReady())
+            {
+                Debug.LogWarning("⚠️ Interstitial tried to show while not ready.");
+                return;
+            }
 
             onClosedCallback = onClosed;
             ad.ShowAd();

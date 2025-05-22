@@ -1,8 +1,8 @@
 using System;
-using Services.Ads;
-using Services.Cloud;
 using UnityEngine;
 using Unity.Services.LevelPlay;
+using Services.Cloud;
+using Services.Ads;
 
 public class AdsManager : MonoBehaviour
 {
@@ -13,40 +13,40 @@ public class AdsManager : MonoBehaviour
     public static AdsManager Instance { get; private set; }
 
     // ─────────────────────────────────────────────────────────────
-    // 📦 Serialized Fields
-    // ─────────────────────────────────────────────────────────────
-
-    [Header("App Keys")] [SerializeField] private string appKey = "220ee44fd";
-
-    // ─────────────────────────────────────────────────────────────
     // 📣 Public State
     // ─────────────────────────────────────────────────────────────
 
     public event Action OnInitialized;
     public bool IsInitialized { get; private set; }
 
-
-    // ─────────────────────────────────────────────────────────────
-    // 📦 Private Fields
-    // ─────────────────────────────────────────────────────────────
-
-    private BannerAdSample bannerAd;
-    private InterstitialAdSample interstitialAd;
-    private RewardedAdSample rewardedAd;
-
-    private const string PlayCountKey = "TotalSessionPlays";
-
-    public int SessionPlays
+    private int SessionPlays
     {
         get => PlayerPrefs.GetInt(PlayCountKey, 0);
-        private set
+        set
         {
             PlayerPrefs.SetInt(PlayCountKey, value);
             PlayerPrefs.Save();
         }
     }
 
-    private bool isBannerVisible = false;
+    // ─────────────────────────────────────────────────────────────
+    // 📦 Serialized Fields
+    // ─────────────────────────────────────────────────────────────
+
+    [Header("LevelPlay App Key")]
+    [SerializeField] private string appKey = "220ee44fd";
+
+    // ─────────────────────────────────────────────────────────────
+    // 🔐 Private Fields
+    // ─────────────────────────────────────────────────────────────
+
+    private const string PlayCountKey = "TotalSessionPlays";
+
+    private BannerAdSample banner;
+    private InterstitialAdSample interstitial;
+    private RewardedAdSample rewarded;
+
+    private bool bannerVisible = false;
 
     // ─────────────────────────────────────────────────────────────
     // 🔧 Unity Lifecycle
@@ -62,10 +62,8 @@ public class AdsManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        
         UgsInitializer.OnUGSReady += InitializeAds;
     }
-
 
     private void OnEnable()
     {
@@ -88,144 +86,7 @@ public class AdsManager : MonoBehaviour
     }
 
     // ─────────────────────────────────────────────────────────────
-    // 🧠 Initialization Callbacks
-    // ─────────────────────────────────────────────────────────────
-
-
-    private void OnInitSuccess(LevelPlayConfiguration config)
-    {
-        Debug.Log("✅ LevelPlay initialized");
-
-        bannerAd = new BannerAdSample();
-        interstitialAd = new InterstitialAdSample();
-        rewardedAd = new RewardedAdSample();
-
-        IsInitialized = true;
-        
-        OnInitialized?.Invoke();
-    }
-
-    private void OnInitFailed(LevelPlayInitError error)
-    {
-        Debug.LogError("❌ LevelPlay init failed: " + error);
-    }
-
-
-    // ─────────────────────────────────────────────────────────────
-    // 📢 Public Methods
-    // ─────────────────────────────────────────────────────────────
-
-    public bool IsRewardedReady() => rewardedAd?.IsReady() == true;
-
-    public void ShowBanner()
-    {
-#if UNITY_WEBGL
-    Debug.Log("🚫 Banner ads not supported in WebGL.");
-    return;
-#endif
-        if (NoAdsService.HasNoAds)
-        {
-            Debug.Log("🚫 Ads disabled by NoAds purchase.");
-            return;
-        }
-        
-        if (bannerAd == null)
-        {
-            Debug.Log("⚠️ bannerAd is null.");
-            return;
-        }
-
-        if (isBannerVisible)
-        {
-            Debug.Log("ℹ️ Banner already visible.");
-            return;
-        }
-
-        Debug.Log("📢 Attempting to show banner...");
-        bannerAd.Show();
-
-        // Solo marcamos como visible si sabemos que se pudo mostrar
-        if (bannerAd.IsReady()) 
-        {
-            isBannerVisible = true;
-            Debug.Log("✅ Banner is now visible.");
-        }
-        else
-        {
-            Debug.Log("⏳ Banner not ready yet.");
-        }
-
-    }
-
-    public void HideBanner()
-    {
-        if (bannerAd == null || !isBannerVisible)
-        {
-            Debug.Log("ℹ️ Banner already hidden or not initialized.");
-            return;
-        }
-
-        bannerAd.Hide();
-        isBannerVisible = false;
-    }
-    
-    public bool IsBannerReady()
-    {
-        return bannerAd != null && bannerAd.IsReady();
-    }
-
-    public bool IsBannerVisible() => isBannerVisible;
-
-    public void IncrementPlayCount() => SessionPlays++;
-
-    public void TryShowInterstitial(Action onFinished)
-    {
-#if UNITY_WEBGL
-        Debug.Log("🚫 Ads not supported in WebGL.");
-        onFinished?.Invoke();
-        return;
-#endif
-        if (NoAdsService.HasNoAds)
-        {
-            Debug.Log("🚫 Ads disabled by NoAds purchase.");
-            onFinished?.Invoke();
-            return;
-        }
-
-        if (SessionPlays <= 3 || !interstitialAd?.IsReady() == true)
-        {
-            onFinished?.Invoke();
-            return;
-        }
-
-        interstitialAd.Show(() =>
-        {
-            interstitialAd.Load();
-            onFinished?.Invoke();
-        });
-    }
-
-    public void TryShowRewarded(Action onRewardGranted)
-    {
-#if UNITY_WEBGL
-        Debug.Log("🚫 Rewarded ads not supported in WebGL.");
-        return;
-#endif
-        if (NoAdsService.HasNoAds)
-        {
-            Debug.Log("🚫 Rewarded ads disabled by NoAds purchase.");
-            return;
-        }
-
-        if (!rewardedAd?.IsReady() == true)
-            return;
-
-        rewardedAd.Show(onRewardGranted);
-
-    }
-
-    // ─────────────────────────────────────────────────────────────
-    // 📢 Private Methods
+    // 🚀 Initialization
     // ─────────────────────────────────────────────────────────────
 
     private async void InitializeAds()
@@ -239,7 +100,150 @@ public class AdsManager : MonoBehaviour
         }
 
         if (IsInitialized) return;
+
         Debug.Log("🎯 UGS and NoAds ready. Initializing ads...");
-        LevelPlay.Init(appKey);
+
+        LevelPlayBootstrapper.Initialize(
+            appKey,
+            OnInitSuccess,
+            OnInitFailed
+        );
+    }
+
+    private void OnInitSuccess(LevelPlayConfiguration config)
+    {
+        Debug.Log("✅ LevelPlay initialized");
+
+        banner = new BannerAdSample();
+        interstitial = new InterstitialAdSample();
+        rewarded = new RewardedAdSample();
+
+        IsInitialized = true;
+        OnInitialized?.Invoke();
+    }
+
+    private void OnInitFailed(LevelPlayInitError error)
+    {
+        Debug.LogError("❌ LevelPlay init failed: " + error);
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // 📢 Banner Methods
+    // ─────────────────────────────────────────────────────────────
+
+    public void ShowBanner()
+    {
+#if UNITY_WEBGL
+        Debug.Log("🚫 Banner ads not supported in WebGL.");
+        return;
+#endif
+        if (ShouldBlockAds("banner")) return;
+        if (banner == null)
+        {
+            Debug.LogWarning("⚠️ Banner ad not initialized.");
+            return;
+        }
+        if (bannerVisible)
+        {
+            Debug.Log("ℹ️ Banner already visible.");
+            return;
+        }
+
+        banner.Show();
+
+        if (banner.IsReady())
+        {
+            bannerVisible = true;
+            Debug.Log("✅ Banner is now visible.");
+        }
+        else
+        {
+            Debug.Log("⏳ Banner not ready.");
+        }
+    }
+
+    public void HideBanner()
+    {
+        if (banner == null || !bannerVisible)
+        {
+            Debug.Log("ℹ️ Banner already hidden or not initialized.");
+            return;
+        }
+
+        banner.Hide();
+        bannerVisible = false;
+    }
+
+    public bool IsBannerReady() => banner != null && banner.IsReady();
+    public bool IsBannerVisible() => bannerVisible;
+
+    // ─────────────────────────────────────────────────────────────
+    // 🎮 Interstitial Ads
+    // ─────────────────────────────────────────────────────────────
+
+    public void TryShowInterstitial(Action onFinished)
+    {
+#if UNITY_WEBGL
+        Debug.Log("🚫 Interstitial ads not supported in WebGL.");
+        onFinished?.Invoke();
+        return;
+#endif
+        if (ShouldBlockAds("interstitial")) { onFinished?.Invoke(); return; }
+
+        if (SessionPlays <= 3 || interstitial == null || !interstitial.IsReady())
+        {
+            Debug.Log("ℹ️ Interstitial skipped.");
+            onFinished?.Invoke();
+            return;
+        }
+
+        interstitial.Show(() =>
+        {
+            interstitial.Load(); // Preload next
+            onFinished?.Invoke();
+        });
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // 🎁 Rewarded Ads
+    // ─────────────────────────────────────────────────────────────
+
+    public bool IsRewardedReady() => rewarded != null && rewarded.IsReady();
+
+    public void TryShowRewarded(Action onRewardGranted)
+    {
+#if UNITY_WEBGL
+        Debug.Log("🚫 Rewarded ads not supported in WebGL.");
+        return;
+#endif
+        if (ShouldBlockAds("rewarded")) return;
+
+        if (!IsRewardedReady())
+        {
+            Debug.Log("⏳ Rewarded ad not ready.");
+            return;
+        }
+
+        rewarded.Show(onRewardGranted);
+    }
+
+    // ─────────────────────────────────────────────────────────────
+    // 📈 Session Tracking
+    // ─────────────────────────────────────────────────────────────
+
+    public void IncrementPlayCount() => SessionPlays++;
+
+    // ─────────────────────────────────────────────────────────────
+    // 🔒 Helpers
+    // ─────────────────────────────────────────────────────────────
+
+    private bool ShouldBlockAds(string type)
+    {
+        if (NoAdsService.HasNoAds)
+        {
+            Debug.Log($"🚫 {type} ad blocked by NoAds purchase.");
+            return true;
+        }
+        return false;
     }
 }

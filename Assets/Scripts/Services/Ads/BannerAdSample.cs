@@ -6,7 +6,7 @@ namespace Services.Ads
 {
     public class BannerAdSample
     {
-        private LevelPlayBannerAd bannerAd;
+        private readonly LevelPlayBannerAd bannerAd;
         private bool isLoaded = false;
 
         public BannerAdSample()
@@ -15,21 +15,15 @@ namespace Services.Ads
             var position = Mediation.LevelPlayBannerPosition.BottomCenter;
             bannerAd = new LevelPlayBannerAd("2ysgx5mehskfdlh3", size, position);
 
-            bannerAd.OnAdLoaded += HandleLoaded;
-            bannerAd.OnAdLoadFailed += HandleFailedLoad;
+            bannerAd.OnAdLoaded += _ => {
+                Debug.Log("✅ Banner loaded.");
+                isLoaded = true;
+            };
+
+            bannerAd.OnAdLoadFailed += error =>
+                Debug.LogError("❌ Failed to load banner: " + error.ErrorMessage);
 
             bannerAd.LoadAd();
-        }
-
-        private void HandleFailedLoad(Mediation.LevelPlayAdError obj)
-        {
-            Debug.LogError("❌ Failed to load banner: " + obj.ErrorMessage);
-        }
-
-        private void HandleLoaded(Mediation.LevelPlayAdInfo obj)
-        {
-            Debug.Log("✅ Banner loaded.");
-            isLoaded = true;
         }
 
         public void Show()
@@ -40,7 +34,7 @@ namespace Services.Ads
                 return;
             }
 
-            Debug.Log("🎉 Showing banner...");
+            Debug.Log("📢 Showing banner...");
             bannerAd.ShowAd();
         }
 
