@@ -1,7 +1,10 @@
+using System.Threading.Tasks;
 using Services.Ads;
 using Services.Cloud;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Product = UnityEngine.Purchasing.Product;
 
 public class NoAdsUnlocker : MonoBehaviour
 {
@@ -28,7 +31,14 @@ public class NoAdsUnlocker : MonoBehaviour
         NoAdsService.OnNoAdsUnlocked -= HideButton;
     }
 
-    public async void UnlockNoAds()
+    public void UnlockNoAds(Product product)
+    {
+        if (product.definition.id != "noads") return;
+
+        _ = UnlockNoAdsAsync(); // Disparar sin await, no bloquea
+    }
+
+    private async Task UnlockNoAdsAsync()
     {
         await NoAdsService.UnlockNoAdsAsync();
 
@@ -36,12 +46,9 @@ public class NoAdsUnlocker : MonoBehaviour
         {
             AdsManager.Instance.HideBanner();
         }
-
-        // ⚠️ Ya no hace falta ocultar el botón aquí
-        // Lo hará el evento automáticamente
     }
 
-    private async void CheckNoAds()
+    private void CheckNoAds()
     {
         if (NoAdsService.HasNoAds)
         {

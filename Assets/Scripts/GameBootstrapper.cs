@@ -22,13 +22,13 @@ public class GameBootstrapper : MonoBehaviour
     // ─────────────────────────────────────────────────────────────
 
     [SerializeField] private string nextSceneName = "MainMenu";
-    
-    [Header("References")]
-    [SerializeField] private PlayerStatsDatabase statsDatabase;
+
+    [Header("References")] [SerializeField]
+    private PlayerStatsDatabase statsDatabase;
+
     [SerializeField] private LoadingUI loadingUI;
 
-    [Header("Options")]
-    [SerializeField] private bool useDevMode = false;
+    [Header("Options")] [SerializeField] private bool useDevMode = false;
 
     // [Header("Optional UI")]
     // [SerializeField] private LoadingUI loadingUI;
@@ -41,7 +41,7 @@ public class GameBootstrapper : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         await InitializeServicesAsync();
-        await LoadNextSceneAsync(); 
+        await LoadNextSceneAsync();
     }
 
     private async Task InitializeServicesAsync()
@@ -56,17 +56,15 @@ public class GameBootstrapper : MonoBehaviour
         Debug.Log("✅ UGS Initialized");
         loadingUI.SetProgress(0.3f);
 
+        // Inicializar stats locales
+        PlayerStatsService.InitializeAllStats(statsDatabase);
+        Debug.Log("📊 Player stats initialized");
+
         // Cloud Sync
-        if (!useDevMode)
-        {
-            Debug.Log("🔄 Syncing cloud data...");
-            await CloudSyncService.ValidateCloudSync(statsDatabase);
-            Debug.Log("✅ Cloud Sync complete");
-        }
-        else
-        {
-            Debug.Log("🧪 Dev mode: Skipping cloud sync");
-        }
+        Debug.Log("🔄 Syncing cloud data...");
+        await CloudSyncService.ValidateCloudSync(statsDatabase);
+        Debug.Log("✅ Cloud Sync complete");
+
         loadingUI.SetProgress(0.6f);
         // Ads
         EnsureAdsManager();
@@ -86,16 +84,14 @@ public class GameBootstrapper : MonoBehaviour
         stopwatch.Stop();
         IsReady = true;
         OnBootstrapComplete?.Invoke();
-        
+
         loadingUI.SetMessage("Loaded.");
         loadingUI.SetProgress(1.0f);
 
         Debug.Log($"🏁 All systems go. Boot time: {stopwatch.ElapsedMilliseconds} ms");
         await Task.Delay(2000);
-        
-
     }
-    
+
     private async Task LoadNextSceneAsync()
     {
         var loadOperation = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);

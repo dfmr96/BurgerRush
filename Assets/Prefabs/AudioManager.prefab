@@ -52,6 +52,8 @@ MonoBehaviour:
   previewMusicClip: {fileID: 8300000, guid: e09bf1199c88b2749b730a676c5557cd, type: 3}
   previewSfxClip: {fileID: 8300000, guid: 9b5251b20c0453d419a249539a465104, type: 3}
   sfxLibrary: {fileID: 11400000, guid: 79deffbbb0e37d849bbb6a68afbcb90b, type: 2}
+  pooledSourcesCount: 2
+  pooledSpatialCount: 4
 --- !u!1 &6179096804629580683
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +97,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4836392000312071889, guid: 9bb63769f7217874d98d7979480726ab, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
