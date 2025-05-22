@@ -54,8 +54,6 @@ namespace Services.Cloud
         {
             GooglePlayAuthenticator.OnSignedIn -= HandleSignedIn;
             _authCompletion.TrySetResult(true);
-            
-            await AdsSettings.LoadNoAdsFromCloud();
         }
 
         private async Task InitializeUnityServicesAsync()

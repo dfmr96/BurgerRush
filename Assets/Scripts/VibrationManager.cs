@@ -38,7 +38,6 @@ public static  class VibrationManager
     
     public static void Vibrate(VibrationPreset preset)
     {
-        Debug.Log("[DEVICE] VIBRATING!!!");
 //#if UNITY_ANDROID && !UNITY_EDITOR
         switch (preset)
         {

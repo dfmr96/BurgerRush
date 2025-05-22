@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Services.Ads;
 using Services.Cloud;
 using UnityEngine;
@@ -63,7 +64,7 @@ public class AdsManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
+        
         UGSInitializer.OnUGSReady += InitializeAds;
     }
 
@@ -102,6 +103,7 @@ public class AdsManager : MonoBehaviour
         rewardedAd = new RewardedAdSample();
 
         IsInitialized = true;
+        
         OnInitialized?.Invoke();
     }
 
@@ -115,11 +117,6 @@ public class AdsManager : MonoBehaviour
     // 📢 Public Methods
     // ─────────────────────────────────────────────────────────────
 
-    public void SetNoAds()
-    {
-        AdsSettings.SetNoAds(true);
-        HideBanner(); // por si ya estaba activo
-    }
     public bool IsRewardedReady() => rewardedAd?.IsReady() == true;
 
     public void ShowBanner()
@@ -233,12 +230,19 @@ public class AdsManager : MonoBehaviour
     // 📢 Private Methods
     // ─────────────────────────────────────────────────────────────
 
-    private void InitializeAds()
+    private async void InitializeAds()
     {
 #if UNITY_WEBGL
         Debug.Log("🚫 Skipping LevelPlay initialization in WebGL.");
         return;
 #else
+        await AdsSettings.LoadNoAdsFromCloud();
+
+        if (AdsSettings.HasNoAds())
+        {
+            Debug.Log("🚫 Ads disabled by NoAds purchase.");
+            return;
+        }
 
         if (IsInitialized) return;
         Debug.Log("🎯 UGS ready. Initializing ads...");

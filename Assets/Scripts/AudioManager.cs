@@ -144,11 +144,8 @@ public class AudioManager : MonoBehaviour
     private void LoadSavedVolumes()
     {
         SetMasterVolume(PlayerPrefs.GetFloat("MasterVolume", 1));
-        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 1));
+        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.5f));
         SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 1));
-        Debug.Log($"MASTER VOLUME: {PlayerPrefs.GetFloat("MasterVolume", 0)}");
-        Debug.Log($"MUSIC VOLUME:  {PlayerPrefs.GetFloat("MusicVolume", 0)}");
-        Debug.Log($"SFX VOLUME: {PlayerPrefs.GetFloat("SFXVolume", 0)}");
     }
 
     private float LinearToDecibel(float value)
@@ -214,7 +211,6 @@ public class AudioManager : MonoBehaviour
         if (sfxLibrary.clips.TryGetValue(SFXType.OrderDelivered, out var clip) && clip != null)
         {
             float pitch = Mathf.Lerp(0.8f, 1.5f, Mathf.InverseLerp(3, 21, combo));
-            Debug.Log($"🎧 Playing OrderDelivered with pitch: {pitch} | Combo: {combo} | Clip: {clip.name}");
 
             AudioSource source = GetAvailableSource();
             if (source != null)

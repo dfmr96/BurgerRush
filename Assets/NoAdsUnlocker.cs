@@ -1,5 +1,8 @@
+using System;
 using Services.Ads;
+using Services.Cloud;
 using UnityEngine;
+using UnityEngine.Purchasing;
 using UnityEngine.UI;
 
 public class NoAdsUnlocker : MonoBehaviour
@@ -7,13 +10,15 @@ public class NoAdsUnlocker : MonoBehaviour
     [SerializeField] private bool hideBannerAfterPurchase = true;
     [SerializeField] private Button noadsButton;
 
-    private void Start()
+
+    private void OnEnable()
     {
-        // Si ya compró NoAds, ocultamos el botón
-        if (AdsSettings.HasNoAds())
-        {
-            noadsButton.gameObject.SetActive(false);
-        }
+        UGSInitializer.OnUGSReady += CheckNoAds;
+    }
+
+    private void OnDisable()
+    {
+        UGSInitializer.OnUGSReady -= CheckNoAds;
     }
 
     public async void UnlockNoAds()
@@ -35,4 +40,17 @@ public class NoAdsUnlocker : MonoBehaviour
 
         Debug.Log("✅ No Ads unlocked and saved to cloud.");
     }
+
+    private async void CheckNoAds()
+    {
+        await AdsSettings.LoadNoAdsFromCloud();
+        if (AdsSettings.HasNoAds())
+        {
+            noadsButton.gameObject.SetActive(false);
+            Debug.Log("No Ads status checked. Purchased. IAP Button Hidden");
+            return;
+        }
+        Debug.Log("No Ads status checked. No purchased. AIP Button Visible");
+    }
+
 }

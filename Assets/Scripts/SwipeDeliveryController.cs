@@ -32,12 +32,7 @@ public class SwipeDeliveryController : MonoBehaviour
                 // Verificamos si es un swipe mayor a threshold y mayor en Y que en X
                 if (swipeDelta.magnitude > swipeThreshold && swipeDelta.y > Mathf.Abs(swipeDelta.x))
                 {
-                    Debug.Log("✅ Valid swipe up detected");
                     TryAutoDeliverMostUrgentOrder();
-                }
-                else
-                {
-                    Debug.Log("❌ Swipe rejected");
                 }
 
                 isSwiping = false;
