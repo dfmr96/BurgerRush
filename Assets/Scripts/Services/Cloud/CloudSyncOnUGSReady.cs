@@ -9,12 +9,12 @@ namespace Services.Cloud
 
         private void OnEnable()
         {
-            UGSInitializer.OnUGSReady += HandleUGSReady;
+            UgsInitializer.OnUGSReady += HandleUGSReady;
         }
 
         private void OnDisable()
         {
-            UGSInitializer.OnUGSReady -= HandleUGSReady;
+            UgsInitializer.OnUGSReady -= HandleUGSReady;
         }
 
         private async void HandleUGSReady()

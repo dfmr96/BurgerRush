@@ -17,12 +17,12 @@ public class NicknamePanelController : MonoBehaviour
     
     private void OnEnable()
     {
-        UGSInitializer.OnUGSReady += CheckIfNicknameIsNeeded;
+        UgsInitializer.OnUGSReady += CheckIfNicknameIsNeeded;
     }
 
     private void OnDisable()
     {
-        UGSInitializer.OnUGSReady -= CheckIfNicknameIsNeeded;
+        UgsInitializer.OnUGSReady -= CheckIfNicknameIsNeeded;
     }
     
     private async void CheckIfNicknameIsNeeded()

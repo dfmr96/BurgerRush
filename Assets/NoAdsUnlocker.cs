@@ -13,12 +13,12 @@ public class NoAdsUnlocker : MonoBehaviour
 
     private void OnEnable()
     {
-        UGSInitializer.OnUGSReady += CheckNoAds;
+        UgsInitializer.OnUGSReady += CheckNoAds;
     }
 
     private void OnDisable()
     {
-        UGSInitializer.OnUGSReady -= CheckNoAds;
+        UgsInitializer.OnUGSReady -= CheckNoAds;
     }
 
     public async void UnlockNoAds()

@@ -65,7 +65,7 @@ public class AdsManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         
-        UGSInitializer.OnUGSReady += InitializeAds;
+        UgsInitializer.OnUGSReady += InitializeAds;
     }
 
 
@@ -77,7 +77,7 @@ public class AdsManager : MonoBehaviour
 
     private void OnDisable()
     {
-        UGSInitializer.OnUGSReady -= InitializeAds;
+        UgsInitializer.OnUGSReady -= InitializeAds;
         LevelPlay.OnInitSuccess -= OnInitSuccess;
         LevelPlay.OnInitFailed -= OnInitFailed;
     }
