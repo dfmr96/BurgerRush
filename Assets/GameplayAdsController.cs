@@ -10,7 +10,7 @@ public class GameplayAdsController : MonoBehaviour
     {
         if (freeContinueIcon != null)
         {
-            freeContinueIcon.SetActive(AdsSettings.HasNoAds());
+            freeContinueIcon.SetActive(NoAdsService.HasNoAds);
         }
         
         if (AdsManager.Instance.IsInitialized)

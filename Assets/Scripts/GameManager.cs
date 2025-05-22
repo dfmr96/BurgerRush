@@ -11,7 +11,6 @@ using Services.Utils;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -206,7 +205,7 @@ public class GameManager : MonoBehaviour
 
         if (!hasUsedContinue)
         {
-            if (AdsSettings.HasNoAds())
+            if (NoAdsService.HasNoAds)
             {
                 // 🎟️ No Ads comprado → Activa directamente
                 continueButton.interactable = true;
@@ -400,7 +399,7 @@ public class GameManager : MonoBehaviour
 
     public void OnContinueWithAdPressed()
     {
-        if (AdsSettings.HasNoAds())
+        if (NoAdsService.HasNoAds)
         {
             Debug.Log("✅ No Ads: Continue granted for free.");
             GrantContinue();

@@ -1,10 +1,8 @@
 using System;
-using System.Threading.Tasks;
 using Services.Ads;
 using Services.Cloud;
 using UnityEngine;
 using Unity.Services.LevelPlay;
-using Mediation = com.unity3d.mediation;
 
 public class AdsManager : MonoBehaviour
 {
@@ -125,7 +123,7 @@ public class AdsManager : MonoBehaviour
     Debug.Log("🚫 Banner ads not supported in WebGL.");
     return;
 #endif
-        if (AdsSettings.HasNoAds())
+        if (NoAdsService.HasNoAds)
         {
             Debug.Log("🚫 Ads disabled by NoAds purchase.");
             return;
@@ -187,7 +185,7 @@ public class AdsManager : MonoBehaviour
         onFinished?.Invoke();
         return;
 #endif
-        if (AdsSettings.HasNoAds())
+        if (NoAdsService.HasNoAds)
         {
             Debug.Log("🚫 Ads disabled by NoAds purchase.");
             onFinished?.Invoke();
@@ -213,7 +211,7 @@ public class AdsManager : MonoBehaviour
         Debug.Log("🚫 Rewarded ads not supported in WebGL.");
         return;
 #endif
-        if (AdsSettings.HasNoAds())
+        if (NoAdsService.HasNoAds)
         {
             Debug.Log("🚫 Rewarded ads disabled by NoAds purchase.");
             return;
