@@ -10,44 +10,47 @@ public class NoAdsUnlocker : MonoBehaviour
     [SerializeField] private bool hideBannerAfterPurchase = true;
     [SerializeField] private Button noadsButton;
 
-
     private void OnEnable()
     {
         UgsInitializer.OnUGSReady += CheckNoAds;
+        NoAdsService.OnNoAdsUnlocked += HideButton;
     }
 
     private void OnDisable()
     {
         UgsInitializer.OnUGSReady -= CheckNoAds;
+        NoAdsService.OnNoAdsUnlocked -= HideButton;
     }
 
     public async void UnlockNoAds()
     {
-        // 1. Guardar localmente
-        AdsSettings.SetNoAds(true);
+        await NoAdsService.UnlockNoAdsAsync();
 
-        // 2. Guardar en la nube
-        await AdsSettings.SaveNoAdsToCloud();
-
-        // 3. Ocultar banner si está visible
         if (hideBannerAfterPurchase && AdsManager.Instance.IsBannerVisible())
         {
             AdsManager.Instance.HideBanner();
         }
 
-        // 4. Ocultar botón
-        noadsButton.gameObject.SetActive(false);
-
-        Debug.Log("✅ No Ads unlocked and saved to cloud.");
+        // ⚠️ Ya no hace falta ocultar el botón aquí
+        // Lo hará el evento automáticamente
     }
 
     private async void CheckNoAds()
     {
-        await NoAdsService.InitializeAsync(); // garantiza que ya se leyó de la nube
+        await NoAdsService.InitializeAsync();
 
         if (NoAdsService.HasNoAds)
         {
+            HideButton(); // ← reactivo
+        }
+    }
+
+    private void HideButton()
+    {
+        if (noadsButton != null && noadsButton.gameObject.activeSelf)
+        {
             noadsButton.gameObject.SetActive(false);
+            Debug.Log("🛑 No Ads button hidden via NoAdsService event.");
         }
     }
 }
