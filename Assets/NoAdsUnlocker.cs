@@ -1,8 +1,6 @@
-using System;
 using Services.Ads;
 using Services.Cloud;
 using UnityEngine;
-using UnityEngine.Purchasing;
 using UnityEngine.UI;
 
 public class NoAdsUnlocker : MonoBehaviour

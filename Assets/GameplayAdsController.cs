@@ -6,13 +6,20 @@ public class GameplayAdsController : MonoBehaviour
     private bool bannerShown = false;
     [SerializeField] private GameObject freeContinueIcon;
 
+    private void OnEnable()
+    {
+        NoAdsService.OnNoAdsUnlocked += HandleNoAdsUnlocked;
+    }
+
+    private void OnDisable()
+    {
+        NoAdsService.OnNoAdsUnlocked -= HandleNoAdsUnlocked;
+    }
+
     private void Start()
     {
-        if (freeContinueIcon != null)
-        {
-            freeContinueIcon.SetActive(NoAdsService.HasNoAds);
-        }
-        
+        UpdateFreeContinueIcon();
+
         if (AdsManager.Instance.IsInitialized)
         {
             ShowBannerIfNeeded();
@@ -31,10 +38,29 @@ public class GameplayAdsController : MonoBehaviour
 
     private void ShowBannerIfNeeded()
     {
-        if (!bannerShown)
+        if (NoAdsService.HasNoAds || bannerShown)
+            return;
+
+        AdsManager.Instance.ShowBanner();
+        bannerShown = true;
+    }
+
+    private void HandleNoAdsUnlocked()
+    {
+        if (bannerShown)
         {
-            AdsManager.Instance.ShowBanner();
-            bannerShown = true;
+            AdsManager.Instance.HideBanner();
+            bannerShown = false;
+        }
+
+        UpdateFreeContinueIcon();
+    }
+
+    private void UpdateFreeContinueIcon()
+    {
+        if (freeContinueIcon != null)
+        {
+            freeContinueIcon.SetActive(NoAdsService.HasNoAds);
         }
     }
 
