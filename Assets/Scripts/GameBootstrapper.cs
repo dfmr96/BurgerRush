@@ -41,6 +41,7 @@ public class GameBootstrapper : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         await InitializeServicesAsync();
+        await LoadNextSceneAsync(); 
     }
 
     private async Task InitializeServicesAsync()
@@ -91,7 +92,49 @@ public class GameBootstrapper : MonoBehaviour
 
         Debug.Log($"🏁 All systems go. Boot time: {stopwatch.ElapsedMilliseconds} ms");
         await Task.Delay(2000);
-        SceneManager.LoadScene(nextSceneName);
+        
+
+    }
+    
+    private async Task LoadNextSceneAsync()
+    {
+        var loadOperation = SceneManager.LoadSceneAsync(nextSceneName, LoadSceneMode.Additive);
+        loadOperation.allowSceneActivation = false;
+
+        // Esperar hasta que la escena esté lista para activar
+        while (loadOperation.progress < 0.9f)
+        {
+            float progress = Mathf.Clamp01(loadOperation.progress / 0.9f);
+            loadingUI.SetProgress(progress);
+            await Task.Yield();
+        }
+
+        // Acceder a la escena antes de activarla
+        Scene nextScene = SceneManager.GetSceneByName(nextSceneName);
+        GameObject[] rootObjects = nextScene.GetRootGameObjects();
+
+        // Desactivar todos los root GameObjects para ocultar visualmente la escena
+        foreach (var go in rootObjects)
+            go.SetActive(false);
+
+        // Activar la escena (necesario para SetActiveScene)
+        loadOperation.allowSceneActivation = true;
+
+        // Esperar finalización real
+        while (!loadOperation.isDone)
+            await Task.Yield();
+
+        // Establecer como escena activa
+        SceneManager.SetActiveScene(nextScene);
+
+        // Aquí ya terminó el bootstrap, ahora sí mostramos la UI de MainMenu
+        foreach (var go in rootObjects)
+            go.SetActive(true);
+
+        // Finalmente, descargar la escena del bootstrapper
+        Scene bootstrapScene = SceneManager.GetSceneByName("Bootstrap");
+        if (bootstrapScene.IsValid())
+            SceneManager.UnloadSceneAsync(bootstrapScene);
     }
 
     // ─────────────────────────────────────────────────────────────

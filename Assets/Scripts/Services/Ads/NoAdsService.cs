@@ -13,9 +13,11 @@ namespace Services.Ads
         public static bool HasNoAds => _hasNoAds;
 
         public static event Action OnNoAdsUnlocked;
+        public static bool IsInitialized { get; private set; }
 
         public static async Task InitializeAsync()
         {
+            if (IsInitialized) return;
             await UgsInitializer.EnsureInitializedAsync();
 
             // 🔁 Recuperar desde la nube y sincronizar con local
@@ -23,6 +25,7 @@ namespace Services.Ads
             PlayerPrefs.SetInt(LocalKey, _hasNoAds ? 1 : 0);
             PlayerPrefs.Save();
 
+            IsInitialized = true;
             Debug.Log($"🧠 NoAdsService initialized. HasNoAds: {_hasNoAds}");
         }
 

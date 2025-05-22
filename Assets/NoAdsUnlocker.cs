@@ -10,7 +10,15 @@ public class NoAdsUnlocker : MonoBehaviour
 
     private void OnEnable()
     {
-        UgsInitializer.OnUGSReady += CheckNoAds;
+        if (NoAdsService.IsInitialized)
+        {
+            CheckNoAds(); // consulta directa
+        }
+        else
+        {
+            UgsInitializer.OnUGSReady += CheckNoAds; // fallback si por alguna razón no está listo
+        }
+
         NoAdsService.OnNoAdsUnlocked += HideButton;
     }
 
@@ -35,11 +43,9 @@ public class NoAdsUnlocker : MonoBehaviour
 
     private async void CheckNoAds()
     {
-        await NoAdsService.InitializeAsync();
-
         if (NoAdsService.HasNoAds)
         {
-            HideButton(); // ← reactivo
+            HideButton();
         }
     }
 
