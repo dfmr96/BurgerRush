@@ -31,4 +31,17 @@ public class MainMenuUIManager : MonoBehaviour
     {
         statsPanel.SetActive(false);
     }
+    
+    public void OnLoginButtonPressed()
+    {
+        if (GooglePlayAuthenticator.Instance != null)
+        {
+            GooglePlayAuthenticator.Instance.RetryManualSignIn();
+        }
+        else
+        {
+            Debug.LogError("GooglePlayAuthenticator not found!");
+        }
+    }
+
 }

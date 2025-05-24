@@ -40,6 +40,7 @@ namespace Services.Ads
 
             Debug.Log("✅ No Ads unlocked and saved locally and to cloud.");
             OnNoAdsUnlocked?.Invoke();
+            AdsManager.Instance?.DisableAdsAfterPurchase();
         }
 
         // 🔄 Por compatibilidad o casos externos

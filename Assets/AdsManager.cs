@@ -19,6 +19,8 @@ public class AdsManager : MonoBehaviour
 
     public event Action OnInitialized;
     public bool IsInitialized { get; private set; }
+    public bool CanShowAds => !NoAdsService.HasNoAds;
+
 
     private int SessionPlays
     {
@@ -92,23 +94,20 @@ public class AdsManager : MonoBehaviour
 
     private async void InitializeAds()
     {
+
         await NoAdsService.InitializeAsync();
 
         if (NoAdsService.HasNoAds)
         {
             Debug.Log("🚫 Ads disabled by NoAds purchase.");
-            return;
+    
+            IsInitialized = true; // ✅ Marcamos como inicializado aunque no usemos ads
+            OnInitialized?.Invoke();
+            return; // No se inicializan los banners ni nada más
         }
 
-        if (IsInitialized) return;
-
         Debug.Log("🎯 UGS and NoAds ready. Initializing ads...");
-
-        LevelPlayBootstrapper.Initialize(
-            appKey,
-            OnInitSuccess,
-            OnInitFailed
-        );
+        LevelPlayBootstrapper.Initialize(appKey, OnInitSuccess, OnInitFailed);
     }
 
     private void OnInitSuccess(LevelPlayConfiguration config)
@@ -137,19 +136,37 @@ public class AdsManager : MonoBehaviour
     // ─────────────────────────────────────────────────────────────
     // 📢 Banner Methods
     // ─────────────────────────────────────────────────────────────
+    
+    public void DisableAdsAfterPurchase()
+    {
+        Debug.Log("🛑 AdsManager: Disabling ads after NoAds purchase.");
+
+        // Oculta el banner si está visible
+        HideBanner();
+
+        // Protege contra futuros llamados
+        IsInitialized = false;
+
+        // Limpia instancias (opcional)
+        banner = null;
+        interstitial = null;
+        rewarded = null;
+    }
 
     public void ShowBanner()
     {
 #if UNITY_WEBGL
-        Debug.Log("🚫 Banner ads not supported in WebGL.");
-        return;
+    Debug.Log("🚫 Banner ads not supported in WebGL.");
+    return;
 #endif
-        if (ShouldBlockAds("banner")) return;
+        if (!IsInitialized || ShouldBlockAds("banner")) return;
+
         if (banner == null)
         {
             Debug.LogWarning("⚠️ Banner ad not initialized.");
             return;
         }
+
         if (bannerVisible)
         {
             Debug.Log("ℹ️ Banner already visible.");
@@ -168,6 +185,8 @@ public class AdsManager : MonoBehaviour
             Debug.Log("⏳ Banner not ready.");
         }
     }
+
+
 
     public void HideBanner()
     {

@@ -8,7 +8,6 @@ using Product = UnityEngine.Purchasing.Product;
 
 public class NoAdsUnlocker : MonoBehaviour
 {
-    [SerializeField] private bool hideBannerAfterPurchase = true;
     [SerializeField] private Button noadsButton;
 
     private void OnEnable()
@@ -41,11 +40,7 @@ public class NoAdsUnlocker : MonoBehaviour
     private async Task UnlockNoAdsAsync()
     {
         await NoAdsService.UnlockNoAdsAsync();
-
-        if (hideBannerAfterPurchase && AdsManager.Instance.IsBannerVisible())
-        {
-            AdsManager.Instance.HideBanner();
-        }
+        AdsManager.Instance.HideBanner();
     }
 
     private void CheckNoAds()

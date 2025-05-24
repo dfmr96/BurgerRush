@@ -42,6 +42,9 @@ public class GameBootstrapper : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         await InitializeServicesAsync();
         await LoadNextSceneAsync();
+#if UNITY_EDITOR
+        useDevMode = true;
+#endif
     }
 
     private async Task InitializeServicesAsync()
@@ -89,7 +92,7 @@ public class GameBootstrapper : MonoBehaviour
         loadingUI.SetProgress(1.0f);
 
         Debug.Log($"🏁 All systems go. Boot time: {stopwatch.ElapsedMilliseconds} ms");
-        await Task.Delay(2000);
+        //await Task.Delay(2000);
     }
 
     private async Task LoadNextSceneAsync()

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GooglePlayAuthenticator : MonoBehaviour
 {
+    public static GooglePlayAuthenticator Instance { get; private set; }
+
     private static event Action _onSignedIn;
     public static event Action OnSignedIn
     {
@@ -18,26 +20,38 @@ public class GooglePlayAuthenticator : MonoBehaviour
         }
     }
 
-    public static void ForceRaiseSignedIn()
-    {
-        _onSignedIn?.Invoke();
-    }
+    public static void ForceRaiseSignedIn() => _onSignedIn?.Invoke();
 
     private readonly AuthService _authService = new();
 
     private void Awake()
     {
-#if !UNITY_EDITOR
-        HandleGPGSSignIn();
-#else
-        Debug.Log("🧪 Editor detected — waiting for UGSInitializer to handle anonymous sign-in.");
-#endif
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        Debug.Log("🕹️ GooglePlayAuthenticator: Awake. Waiting for UGS to be initialized.");
+        // No hagas nada más aquí
     }
 
-#if !UNITY_EDITOR
-    private void HandleGPGSSignIn()
+    public void TryAutoLogin()
     {
-        _ = _authService.SignInWithGooglePlayAsync(
+        Debug.Log("🚀 Attempting GPGS auto login...");
+        _authService.TryAutoLoginGPGS(
+            OnAuthSuccess,
+            OnGPGSAuthFailure
+        );
+    }
+
+    public void RetryManualSignIn()
+    {
+        Debug.Log("🔄 Retrying GPGS with manual login popup...");
+        _authService.TryManualLoginGPGS(
             OnAuthSuccess,
             OnGPGSAuthFailure
         );
@@ -45,6 +59,13 @@ public class GooglePlayAuthenticator : MonoBehaviour
 
     private async void OnGPGSAuthFailure(Exception e)
     {
+        if (e is OperationCanceledException)
+        {
+            Debug.LogWarning("⚠️ GPGS login was canceled — waiting for manual retry.");
+            // Mostrás botón desde la UI (no hacemos fallback aquí)
+            return;
+        }
+
         Debug.LogWarning($"❌ GPGS sign-in failed: {e.Message}");
         await _authService.SignInAnonymouslyAsync(
             OnAuthSuccess,
@@ -56,10 +77,10 @@ public class GooglePlayAuthenticator : MonoBehaviour
     {
         Debug.LogError($"❌ Anonymous fallback failed: {e.Message}");
     }
-#endif
 
     private void OnAuthSuccess()
     {
+        Debug.Log("✅ GooglePlayAuthenticator: OnAuthSuccess()");
         _onSignedIn?.Invoke();
     }
 }

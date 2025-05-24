@@ -30,24 +30,37 @@ namespace Services.Cloud
         {
             try
             {
-                await InitializeUnityServicesAsync();
+                await InitializeUnityServicesAsync(); // 🔑 UnityServices ya está inicializado
 
 #if UNITY_EDITOR
                 Debug.Log("🧪 Editor detected. Signing in anonymously...");
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
                 GooglePlayAuthenticator.ForceRaiseSignedIn();
 #else
+        // 🔐 Esperar a GooglePlayAuthenticator (que ahora ya puede usar AuthenticationService)
         Debug.Log("⌛ Waiting for GooglePlayAuthenticator sign-in...");
-        var tcs = new TaskCompletionSource<bool>();
 
-        void OnSignedInHandler()
+        // Si ya hay sesión, no esperes
+        if (AuthenticationService.Instance.IsSignedIn)
         {
-            GooglePlayAuthenticator.OnSignedIn -= OnSignedInHandler;
-            tcs.TrySetResult(true);
+            Debug.Log("🙌 Already signed in, skipping GPGS wait.");
         }
+        else
+        {
+            // Forzar login automático
+            GooglePlayAuthenticator.Instance?.TryAutoLogin();
 
-        GooglePlayAuthenticator.OnSignedIn += OnSignedInHandler;
-        await tcs.Task;
+            var tcs = new TaskCompletionSource<bool>();
+
+            void OnSignedInHandler()
+            {
+                GooglePlayAuthenticator.OnSignedIn -= OnSignedInHandler;
+                tcs.TrySetResult(true);
+            }
+
+            GooglePlayAuthenticator.OnSignedIn += OnSignedInHandler;
+            await tcs.Task;
+        }
 #endif
 
                 StartAnalytics();

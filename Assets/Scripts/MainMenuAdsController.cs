@@ -23,21 +23,23 @@ public class MainMenuAdsController : MonoBehaviour
 
     private IEnumerator WaitForBannerAndShow()
     {
-        // Espera hasta que esté cargado el banner
-        var bannerReady = false;
+        while (!AdsManager.Instance.IsInitialized)
+            yield return new WaitForSeconds(0.2f);
 
-        while (!bannerReady)
+        if (!AdsManager.Instance.CanShowAds)
         {
-            if (AdsManager.Instance.IsBannerVisible())
-            {
-                Debug.Log("🟢 Banner ya visible.");
-                yield break;
-            }
-
-            bannerReady = AdsManager.Instance.IsInitialized && AdsManager.Instance.IsBannerReady();
-            if (!bannerReady)
-                yield return new WaitForSeconds(0.5f); // espera medio segundo
+            Debug.Log("🛑 Ads are disabled — no banner shown.");
+            yield break;
         }
+
+        if (AdsManager.Instance.IsBannerVisible())
+        {
+            Debug.Log("🟢 Banner ya visible.");
+            yield break;
+        }
+
+        while (!AdsManager.Instance.IsBannerReady())
+            yield return new WaitForSeconds(0.5f);
 
         AdsManager.Instance.ShowBanner();
     }
