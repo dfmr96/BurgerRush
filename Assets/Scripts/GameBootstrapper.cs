@@ -102,7 +102,7 @@ public class GameBootstrapper : MonoBehaviour
         //await Task.Delay(2000);
     }
     
-    private async Task WaitForSignIn(float timeoutSeconds = 10f)
+    private async Task WaitForSignIn(float timeoutSeconds = 2f)
     {
         authCompletion = new TaskCompletionSource<bool>();
 

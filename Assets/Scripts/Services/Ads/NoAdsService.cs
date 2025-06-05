@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Services.Cloud;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Services.Ads
 {
@@ -40,7 +41,13 @@ namespace Services.Ads
 
             Debug.Log("✅ No Ads unlocked and saved locally and to cloud.");
             OnNoAdsUnlocked?.Invoke();
+
             AdsManager.Instance?.DisableAdsAfterPurchase();
+
+            // Esperamos un pequeño tiempo para que el banner se oculte
+            await Task.Delay(200); // 👈 tiempo de gracia opcional
+
+            SceneManager.LoadScene(0);
         }
 
         // 🔄 Por compatibilidad o casos externos

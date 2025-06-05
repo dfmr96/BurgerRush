@@ -190,14 +190,16 @@ public class AdsManager : MonoBehaviour
 
     public void HideBanner()
     {
-        if (banner == null || !bannerVisible)
+        if (banner == null)
         {
-            Debug.Log("ℹ️ Banner already hidden or not initialized.");
+            Debug.Log("ℹ️ Cannot hide banner: not initialized.");
             return;
         }
 
-        banner.Hide();
+        banner.Hide(); // Siempre lo intentamos ocultar
         bannerVisible = false;
+
+        Debug.Log("🧼 Banner hidden.");
     }
 
     public bool IsBannerReady() => banner != null && banner.IsReady();
