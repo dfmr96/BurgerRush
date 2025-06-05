@@ -80,6 +80,11 @@ public class GameManager : MonoBehaviour
     public BurgerComplexityData MediumBurger => mediumBurger;
     public BurgerComplexityData HardBurger => hardBurger;
     public bool IsGameRunning => isGameRunning;
+    
+    [SerializeField] private GameObject tutorialPanel;
+
+    private const string PlayerPrefsKey_TutorialPlayed = "HasPlayedTutorial";
+
 
     private void Awake()
     {
@@ -96,7 +101,7 @@ public class GameManager : MonoBehaviour
     {
         isGameRunning = true;
         hasUsedContinue = false;
-        StartGame();
+        CheckAndShowTutorial();
     }
 
     private void Update()
@@ -125,6 +130,33 @@ public class GameManager : MonoBehaviour
 
         HandleMusicSpeedUp();
     }
+    private void CheckAndShowTutorial()
+    {
+        bool hasPlayedTutorial = PlayerPrefs.GetInt(PlayerPrefsKey_TutorialPlayed, 0) == 1;
+
+        if (!hasPlayedTutorial)
+        {
+            Time.timeScale = 0f; 
+            isGameRunning = false;
+            tutorialPanel.SetActive(true);
+        }
+        else
+        {
+            StartGame();
+        }
+    }
+    public void OnTutorialClosed()
+    {
+        PlayerPrefs.SetInt(PlayerPrefsKey_TutorialPlayed, 1);
+        PlayerPrefs.Save();
+
+        tutorialPanel.SetActive(false);
+        Time.timeScale = 1f;
+        isGameRunning = true;
+
+        StartGame();
+    }
+
 
     private void HandleMusicSpeedUp()
     {
