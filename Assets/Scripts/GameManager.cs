@@ -178,6 +178,8 @@ public class GameManager : MonoBehaviour
 
     private async void EndGame()
     {
+        AudioManager.Instance.SetMusicPitch(1f);
+        musicSpeedUp = false;
         StopAllCoroutines();
         foreach (var order in orderManager.Orders)
         {

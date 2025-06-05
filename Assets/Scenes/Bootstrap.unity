@@ -322,7 +322,7 @@ MonoBehaviour:
   nextSceneName: MainMenu
   statsDatabase: {fileID: 11400000, guid: c28bae35f805bda4f9f79c25aa3b0213, type: 2}
   loadingUI: {fileID: 1701570377}
-  useDevMode: 0
+  useDevMode: 1
 --- !u!4 &751746196
 Transform:
   m_ObjectHideFlags: 0
